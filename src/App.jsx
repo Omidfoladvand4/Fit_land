@@ -1,13 +1,11 @@
 
 import './App.css'
-
+import TopHeader from '../src/features/shared/header/components/TopHeader'
 function App() {
 
   return (
     <>
-   <h1>همراه تو در مسیر </h1>
-   <p>همراه تو در مسیر</p>
-    <div>همراه تو در مسیر</div>
+    <TopHeader />
     </>
   )
 }

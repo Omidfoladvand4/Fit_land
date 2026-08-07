@@ -12,7 +12,8 @@
   "dependencies": {
     "@rolldown/binding-win32-x64-msvc": "^1.2.3",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "styled-components": "^6.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
