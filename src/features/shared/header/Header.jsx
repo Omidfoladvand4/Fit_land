@@ -19,6 +19,9 @@ const LeftSection = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
+  @media (max-width : 390px) {
+     display: none;
+  }
 `
 const LeftSectionItems = styled.div`
    display: flex;
@@ -57,34 +60,69 @@ font-size: var(--font-body-md);
 const RightSection = styled.div`
   flex: 1;
   display: flex;
+  position: relative;
+  @media (max-width : 390px) {
+     width: 100%;
+  }
 `
 const RightSectionList = styled.div`
    line-height: 2.1;
+   @media (max-width : 390px) {
+     width: 70%;
+     line-height: 1.5;
+   }
 `
 const RightSectionDiv = styled.div`
  font-size: var(--font-body-sm);
  color: var(--color-neutral-800);
+ @media (max-width : 390px) {
+ font-size: var(--font-body-xs);
+  
+ }
  
  `
 const RightSectionTitle = styled.div`
    font-size: var(--font-body-xxl);
    color: var(--color-base-secondary);
    font-weight: var(--font-weight-medium);
+    @media (max-width : 390px) {
+ font-size: var(--font-body-large);
+  
+ }
 `
 const RightSectionSubTitle = styled.div`
      font-size: var(--font-body-xxxl);
  color: var(--color-base-primary);
    font-weight: var(--font-weight-bold);
+       @media (max-width : 390px) {
+ font-size: var(--font-body-xl);
+  
+ }
 
 `
 const RightSectionp = styled.div`
  color: var(--color-neutral-800);
    font-weight: var(--font-weight-bold);
+       @media (max-width : 390px) {
+ font-size: var(--font-body-xs);
+ margin: 8px 0;
+  
+ }
 
   
 `
 const RightSectionImg = styled.img`
   
+  @media (max-width : 390px) {
+     width: 55%;
+     height: 90%;
+     object-fit: cover;
+     position: absolute;
+     z-index: 98;
+     button: 0;
+     left: -40px;
+     z-index: -1;
+  }
 `
 const  Footer = styled.div`
   width: 100%;
@@ -92,6 +130,9 @@ const  Footer = styled.div`
   left: 0;
   bottom : 25px;
   z-index: -1;
+  @media (max-width : 390px) {
+    display: none;
+  }
 `
 const FooterImg = styled.img`
   width: 100%;

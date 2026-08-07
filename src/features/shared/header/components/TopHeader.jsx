@@ -6,32 +6,53 @@ import BasketIcon from "../images/icons/BasketIcon";
 import StarIcon from "../images/icons/StarIcon";
 import TrendingIcon from "../images/icons/TrendingIcon";
 import DiscountIcon from "../images/icons/DiscountIcon";
-
+import MenuIcon from "../images/icons/MenuIcon";
+import { useState } from "react";
 const TopHeaderContainer = styled.header`
   width: 100%;
 `;
 
+const MobileMenu = styled.div`
+width: 30px;
+position: absolute;
+left: 0;
+top: 60px;
+display: none;
+cursor: pointer;
+z-index: 99;
+@media (max-width : 390px) {
+   display: block;
+}
+`
 const TopHeaderMessage = styled.div`
   width: 100%;
   text-align: center;
   background: var(--color-base-secondary);
   color: var(--color-base-background);
   font-size: var(--font-body-md);
+  padding  :  10px 8px;
+  @media (max-width : 390px) {
+  font-size: var(--font-body-xs);
+  }
 `;
-
 const TopSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  margin: var(--header-margin-medium) 0;
+  margin: var(--header-margin-medium);
 `;
 
 const TopSectionBanner = styled.div`
   width: 80%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+      @media (max-width : 390px) {
+   flex-direction: column;
+   gap: 16px;
+   width: 100%;
+  }
 `;
 
 const LogoWrapper = styled.div`
@@ -44,6 +65,9 @@ const LogoImage = styled.img`
 
 const LogoTitle = styled.div`
   color: var(--color-neutral-800);
+  @media (max-width : 390px ) {
+     display: none;
+  }
 `;
 
 const SearchBoxWrapper = styled.div`
@@ -58,6 +82,11 @@ const SearchBoxWrapper = styled.div`
   svg {
     display: block;
     cursor: pointer;
+  }
+
+  @media (max-width : 390px) {
+     width: 100%;
+     padding:  10px 14px;
   }
 `;
 
@@ -78,6 +107,9 @@ const LastSection = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  @media (max-width : 390px) {
+     display: none;
+  }
 `;
 
 const AuthSection = styled.div`
@@ -141,6 +173,14 @@ const Menu = styled.div`
   padding: var(--global-padding-small);
   font-weight: var(--font-weight-bold);
   border-radius: 14px;
+  @media (max-width : 390px) {
+      display: ${({ $open }) => $open ? 'block' : 'none'};
+     width: 100%;
+     gap: 12px;
+     flex-direction: column;
+     z-index: 99;
+     position: fixed;
+  }
 `;
 
 const MenuItems = styled.ul`
@@ -148,6 +188,12 @@ const MenuItems = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width : 390px) {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    font-size: var(--font-body-xl);
+  }
 `;
 
 const MenuItem = styled.li`
@@ -163,6 +209,12 @@ const MenuFeatures = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+    @media (max-width : 390px) {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    font-size: var(--font-body-xl);
+  }
 `;
 
 const MenuFeatur = styled.div`
@@ -178,8 +230,12 @@ const MenuFeatur = styled.div`
 `;
 
 function TopHeader() {
+  const [isMenuOpen , SetIsMenuOpen] = useState(false)
   return (
     <TopHeaderContainer>
+      <MobileMenu onClick={() => SetIsMenuOpen(prev => !prev)}>
+        <MenuIcon />
+      </MobileMenu>
       <TopHeaderMessage>
         باعضویت در فیت لنداولین ارسال را مهمون ما باشید :)
       </TopHeaderMessage>
@@ -208,7 +264,7 @@ function TopHeader() {
             </UserBasket>
           </LastSection>
         </TopSectionBanner>
-        <Menu>
+        <Menu $open ={isMenuOpen}>
           <MenuItems>
             <MenuItem>مردانه</MenuItem>
             <MenuItem>زنانه</MenuItem>
