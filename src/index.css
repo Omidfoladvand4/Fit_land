@@ -1,111 +1,65 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('./assets/fonts/Vazirmatn-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Vazirmatn';
+}
+:root{
+    --color-base-primary : #FA541C;
+    --color-base-secondary : #032340;
+    --color-base-background : #FFFFFF;
+    --color-base-primary-back : #FEEEE8;
+    --color-base-secondary-back : #FBF5FF;
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
+    --color-error-800   : #8a1513 ;
+    --color-error-500  : #E53935 ;
+    --color-error-200  : #FADDCA ;
 
-body {
-  margin: 0;
-}
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
+    --color-warning-800 : #995700;
+    --color-warning-500 : #FFB300 ;
+    --color-warning-200  : #FFF3BF ;
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
+   --color-info-800 : #0F5894 ;
+   --color-info-500 : #29B6F6 ;
+   --color-info-200 : #C7F2FC ;
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
+   --global-margin-small : 24px ;
+   --global-margin-medium : 48px ;
+   --global-margin-large  : 96px ;
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
+    --global-padding-small : 16px ;
+   --global-padding-medium : 24px ;
+   --global-padding-large  : 48px ;
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+   --cart-padding-small : 16px ;
+   --cart-padding-medium : 24px ;
+   --cart-padding-large  :  32px ;
+
+   --button-padding-small : 12px 24px ;
+   --button-padding-medium : 16px 32px ;
+   --button-padding-large : 20px 40px ;
+
+   --header-margin-small : 16px ;
+   --header-margin-medium : 24px ;
+   --header-margin-large : 32px ;
+
+   --font-body-one : 20px ;
+   --font-body-two : 18px ;
+   --font-body-three : 16px ;
+   --font-body-four : 14px ;
+   --font-body-five : 12px ;
+   
+   --font-weight-light : 300 ;
+   --font-weight-regular : 400;
+   --font-weight-medium : 500;
+   --font-weight-bold : 700 ;
+
 }
