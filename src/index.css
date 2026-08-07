@@ -51,11 +51,11 @@
    --header-margin-medium : 24px ;
    --header-margin-large : 32px ;
 
-   --font-body-one : 20px ;
-   --font-body-two : 18px ;
-   --font-body-three : 16px ;
-   --font-body-four : 14px ;
-   --font-body-five : 12px ;
+   --font-body-xl : 20px ;
+   --font-body-large : 18px ;
+   --font-body-md : 16px ;
+   --font-body-sm : 14px ;
+   --font-body-xs : 12px ;
    
    --font-weight-light : 300 ;
    --font-weight-regular : 400;
