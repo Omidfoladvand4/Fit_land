@@ -1,8 +1,16 @@
-import React from 'react'
 
+import styled from 'styled-components'
+import Header from '../../shared/header/Header'
+const HomeWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
 function Home() {
   return (
-    <div>Home</div>
+    <HomeWrapper>
+      <Header />
+    </HomeWrapper>
   )
 }
 

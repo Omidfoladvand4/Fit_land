@@ -13,6 +13,7 @@
     "@rolldown/binding-win32-x64-msvc": "^1.2.3",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.2",
     "styled-components": "^6.5.0"
   },
   "devDependencies": {

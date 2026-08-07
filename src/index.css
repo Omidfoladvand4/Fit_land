@@ -55,6 +55,8 @@
    --header-margin-medium : 24px ;
    --header-margin-large : 32px ;
 
+   --font-body-xxxl : 30px ;
+   --font-body-xxl : 26px ;
    --font-body-xl : 20px ;
    --font-body-large : 18px ;
    --font-body-md : 16px ;
@@ -69,7 +71,6 @@
 }
 
 *{
-    font-size: var(--font-body-md);
     list-style-type: none;
 }
 body{
