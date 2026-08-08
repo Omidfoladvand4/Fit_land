@@ -240,7 +240,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
     display: ${({$open:e})=>e?`block`:`none`};
     width: 100%;
   }
-`,ho=[`مردانه`,`زنانه`,`بچگانه`,`لوازم ورزشی`,`شیکر و جاگ`];function go(){let[e,t]=(0,x.useState)(!1);return(0,d.jsxs)(eo,{children:[(0,d.jsx)(to,{onClick:()=>t(e=>!e),children:(0,d.jsx)(Wa,{})}),(0,d.jsx)(no,{children:`با عضویت در فیت لند اولین ارسال را مهمان ما باشید :)`}),(0,d.jsxs)(ro,{children:[(0,d.jsxs)(io,{children:[(0,d.jsxs)(ao,{children:[(0,d.jsx)(oo,{src:za,alt:`Fit Land Logo`}),(0,d.jsx)(so,{children:`فروشگاه لوازم ورزشی فیت لند`})]}),(0,d.jsxs)(co,{children:[(0,d.jsx)(Ba,{color:`var(--color-base-primary)`}),(0,d.jsx)(lo,{placeholder:`جستجو`})]}),(0,d.jsx)(uo,{children:(0,d.jsx)($a,{})})]}),(0,d.jsxs)(fo,{$open:e,children:[(0,d.jsx)(Ga,{setIsOpen:t}),(0,d.jsx)(R,{children:ho.map((e,t)=>(0,d.jsx)(po,{children:e},t))}),(0,d.jsxs)(mo,{children:[(0,d.jsxs)(z,{children:[(0,d.jsx)(Va,{}),`جدیدترین محصولات`]}),(0,d.jsxs)(z,{children:[(0,d.jsx)(Ua,{}),`تخفیفات ویژه`]}),(0,d.jsxs)(z,{children:[(0,d.jsx)(Ha,{}),`پرفروش ترین ها`]})]}),(0,d.jsx)(B,{$open:e,children:(0,d.jsx)($a,{isMobile:!0})})]})]})]})}var _o=L.div`
+`,ho=[`مردانه`,`زنانه`,`بچگانه`,`لوازم ورزشی`,`شیکر و جاگ`];function go(){let[e,t]=(0,x.useState)(!1);return(0,d.jsxs)(eo,{children:[(0,d.jsx)(to,{onClick:()=>t(e=>!e),children:(0,d.jsx)(Wa,{})}),(0,d.jsx)(no,{children:`با عضویت در فیت لند اولین ارسال را مهمان ما باشید :)`}),(0,d.jsxs)(ro,{children:[(0,d.jsxs)(io,{children:[(0,d.jsxs)(ao,{children:[(0,d.jsx)(oo,{src:za,alt:`Fit Land Logo`}),(0,d.jsx)(so,{children:`فروشگاه لوازم ورزشی فیت لند`})]}),(0,d.jsxs)(co,{children:[(0,d.jsx)(Ba,{color:`var(--color-base-primary)`}),(0,d.jsx)(lo,{placeholder:`جستجو`})]}),(0,d.jsx)(uo,{children:(0,d.jsx)($a,{})})]}),(0,d.jsxs)(fo,{$open:e,children:[e&&(0,d.jsx)(Ga,{setIsOpen:t}),(0,d.jsx)(R,{children:ho.map((e,t)=>(0,d.jsx)(po,{children:e},t))}),(0,d.jsxs)(mo,{children:[(0,d.jsxs)(z,{children:[(0,d.jsx)(Va,{}),`جدیدترین محصولات`]}),(0,d.jsxs)(z,{children:[(0,d.jsx)(Ua,{}),`تخفیفات ویژه`]}),(0,d.jsxs)(z,{children:[(0,d.jsx)(Ha,{}),`پرفروش ترین ها`]})]}),(0,d.jsx)(B,{$open:e,children:(0,d.jsx)($a,{isMobile:!0})})]})]})]})}var _o=L.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -388,7 +388,6 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   display: flex;
   justify-content: center;
   gap: 24px;
-  padding: 20px 36px;
   margin-top: var(--global-margin-medium);
 `,ts=L.div`
   display: flex;
@@ -408,9 +407,9 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   }
 
   img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+     width: 120px;
+     height: 120px;
+    object-fit: cover;
   }
 `;function ns(){return(0,d.jsx)(es,{children:[{id:1,name:`اینماد`,image:Zo},{id:2,name:`وزارت ارشاد`,image:$o},{id:3,name:`اتحادیه`,image:Qo}].map(e=>(0,d.jsx)(ts,{children:(0,d.jsx)(`img`,{src:e.image,alt:e.name})},e.id))})}var rs=L.footer`
   width: 100%;
@@ -418,6 +417,9 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   color: var(--color-base-background);
   padding: 40px 0 0 0;
   margin-top: 60px;
+  @media (max-width : 390px) {
+      margin: 12px;
+  }
 `,is=L.div`
   width: 80%;
   margin: 0 auto;
@@ -437,4 +439,4 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
     gap: 24px;
     width: 90%;
   }
-`;function as(){return(0,d.jsx)(rs,{children:(0,d.jsxs)(is,{children:[(0,d.jsx)(Eo,{}),(0,d.jsx)(So,{}),(0,d.jsx)(Bo,{}),(0,d.jsxs)(`div`,{children:[(0,d.jsx)(Mo,{}),(0,d.jsx)(Xo,{}),(0,d.jsx)(ns,{})]})]})})}function os(){return(0,d.jsx)(`div`,{children:`Loading`})}function ss(){let{pathname:e}=yt();return(0,x.useEffect)(()=>{window.scrollTo({top:0,behavior:`smooth`})},[e]),null}var cs=(0,x.lazy)(()=>te(()=>import(`./Home-D2_8lDNB.js`),[])),ls=(0,x.lazy)(()=>te(()=>import(`./NotFound-DZfgHaC4.js`),[])),us={HOME:`/`,NOTFOUND:`*`},ds=[{path:us.HOME,element:(0,d.jsx)(cs,{})},{path:us.NOTFOUND,element:(0,d.jsx)(ls,{})}],fs=(0,x.memo)(()=>(0,d.jsxs)(x.Suspense,{fallback:(0,d.jsx)(os,{}),children:[(0,d.jsx)(ss,{}),(0,d.jsxs)(qt,{children:[ds.map(({path:e,element:t})=>(0,d.jsx)(Gt,{path:e,element:t},e)),(0,d.jsx)(Gt,{path:`*`,element:(0,d.jsx)(ls,{})})]})]}));fs.displayName=`AppRoutes`,(0,S.createRoot)(document.getElementById(`root`)).render((0,d.jsx)(x.StrictMode,{children:(0,d.jsxs)(Mn,{children:[(0,d.jsx)(go,{}),(0,d.jsx)(f,{}),(0,d.jsx)(fs,{}),(0,d.jsx)(as,{})]})}));export{o as a,u as i,Nn as n,c as o,m as r,L as t};
+`;function as(){return(0,d.jsx)(rs,{children:(0,d.jsxs)(is,{children:[(0,d.jsx)(Eo,{}),(0,d.jsx)(So,{}),(0,d.jsx)(Bo,{}),(0,d.jsxs)(`div`,{children:[(0,d.jsx)(Mo,{}),(0,d.jsx)(Xo,{}),(0,d.jsx)(ns,{})]})]})})}function os(){return(0,d.jsx)(`div`,{children:`Loading`})}function ss(){let{pathname:e}=yt();return(0,x.useEffect)(()=>{window.scrollTo({top:0,behavior:`smooth`})},[e]),null}var cs=(0,x.lazy)(()=>te(()=>import(`./Home-Ce0lqkik.js`),[])),ls=(0,x.lazy)(()=>te(()=>import(`./NotFound-BEBMeZ6n.js`),[])),us={HOME:`/`,NOTFOUND:`*`},ds=[{path:us.HOME,element:(0,d.jsx)(cs,{})},{path:us.NOTFOUND,element:(0,d.jsx)(ls,{})}],fs=(0,x.memo)(()=>(0,d.jsxs)(x.Suspense,{fallback:(0,d.jsx)(os,{}),children:[(0,d.jsx)(ss,{}),(0,d.jsxs)(qt,{children:[ds.map(({path:e,element:t})=>(0,d.jsx)(Gt,{path:e,element:t},e)),(0,d.jsx)(Gt,{path:`*`,element:(0,d.jsx)(ls,{})})]})]}));fs.displayName=`AppRoutes`,(0,S.createRoot)(document.getElementById(`root`)).render((0,d.jsx)(x.StrictMode,{children:(0,d.jsxs)(Mn,{children:[(0,d.jsx)(go,{}),(0,d.jsx)(f,{}),(0,d.jsx)(fs,{}),(0,d.jsx)(as,{})]})}));export{o as a,u as i,Nn as n,c as o,m as r,L as t};
