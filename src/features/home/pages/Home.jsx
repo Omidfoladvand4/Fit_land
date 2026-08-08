@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Header from "../../shared/header/Header";
 import ProductSection from "../components/ProductSection/ProductSection";
 import MainBanner from "../components/Banner/MainBanner";
+import StoreFeatures from "../components/StoreFeatures/StoreFeatures";
 import NikeImg from "../images/NikeImage.png";
 import PumaImg from "../images/PumaImage.png";
 import SectionImg from "../images/SectionImage.png";
@@ -149,6 +150,7 @@ function Home() {
 "
         />
         <HomeImageBanner src= {HomeImage}/>
+        <StoreFeatures />
       </MainSection>
     </HomeWrapper>
   );
