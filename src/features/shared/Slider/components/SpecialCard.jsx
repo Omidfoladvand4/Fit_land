@@ -1,7 +1,8 @@
-// src/features/home/components/SpecialDiscounts/SpecialCard.jsx
+
 import styled from 'styled-components';
 
 const Card = styled.div`
+  min-height: 367px;
   background: var(--color-base-background);
   border-radius: 16px;
   position: relative;
@@ -9,7 +10,16 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 367px;
+  border: 1px solid transparent;
+  transition: border 0.3s ease;
+  overflow: hidden;
+  &:hover {
+    border: 1px solid var(--color-neutral-800);
+    img {
+        transform: scaleX(1.01) ;
+        opacity: 1 ;
+    }
+  }
 `;
 
 const DiscountBadge = styled.div`
@@ -24,14 +34,16 @@ const DiscountBadge = styled.div`
   font-weight: 600;
   z-index: 2;
   position: absolute;
-  top: 10px;
-  left: 16px;
+  top: 6px;
+  left: 2px;
   background-color: var(--color-base-primary);
 `;
 const Productimage = styled.img`
     width: 100%;
     height: 260px;
     object-fit: cover;
+    opacity: 0.8;
+    transition: all 0.3s ease;
 `
 const VipBadge = styled.div`
   font-weight: 700;
