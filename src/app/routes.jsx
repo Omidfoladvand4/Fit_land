@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense, memo } from "react";
 import Loading from "../features/shared/Loading/Loading";
+import ScrollToTop from "../features/shared/ScrollToTop/ScrollToTop";
 
 const Home = lazy(() => import("../features/home/pages/Home"));
 const NotFound = lazy(() => import('../features/NotFound/pages/NotFound'))
@@ -18,6 +19,7 @@ const routes = [
 const AppRoutes = memo(() => {
   return (
     <Suspense fallback={<Loading />}>
+          <ScrollToTop />
       <Routes>
         {routes.map(({ path, element }) => (
           <Route key={path} path={path} element={element} />
