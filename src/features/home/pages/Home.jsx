@@ -28,8 +28,12 @@ const MainSection = styled.div`
 `;
 const HomeImageBanner = styled.img`
   width: 100%;
-  height: 100%;
+  height: 500px;
   object-fit: cover;
+   @media (max-width: 490px) {
+    background-size: cover;
+    height: 175px;
+  }
 `
 function Home() {
   const latestProductsList = [
@@ -39,7 +43,7 @@ function Home() {
   const discountProducts = [
     {
       id: 1,
-      name: "سویشرت نایک مدل AQ-14",
+      name: "سویشرت نایک  AQ-14",
       price: "300,000",
       size: "از سایز 1 تا XXL",
       discount: "24",

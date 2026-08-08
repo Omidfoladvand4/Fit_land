@@ -8,8 +8,10 @@ import FooterImage from './images/icons/FooterImage.png'
 import Button from '../Button/Button';
 import ButtonIcon from './images/icons/ButtonIcon'
 const HeaderContainer = styled.div`
-  width: 100%;
+  width: 95%;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: var(--global-padding-medium);
   position: relative;
   padding: 0 10%;
@@ -42,11 +44,15 @@ const LeftSectionItemIcon = styled.div`
 `
 const LeftSectionItemImg = styled.img`
   display: inline-block;
-  width: 80%;
+  width: 100%;
   object-fit: cover;
-  background-color: transparent;
   `
 const LeftSectionDetils = styled.div`
+display: flex;
+align-items: flex-start;
+flex-direction: column;
+gap: 8px;
+
 `
 const LeftSectionItemCount = styled.div`
   color: var(--color-base-secondary);
@@ -67,18 +73,19 @@ const RightSection = styled.div`
 `
 const RightSectionList = styled.div`
    line-height: 2.1;
+   display: flex;
+   align-items: flex-start;
+   gap: 4px;
+   flex-direction: column;
    @media (max-width : 460px) {
-     width: 70%;
-     line-height: 1.5;
+     width: 80%;
+     line-height: 1.2;
    }
 `
 const RightSectionDiv = styled.div`
- font-size: var(--font-body-sm);
+ font-size: var(--font-body-md);
  color: var(--color-neutral-800);
- @media (max-width : 460px) {
- font-size: var(--font-body-xs);
-  
- }
+ font-weight: var(--font-weight-medium);
  
  `
 const RightSectionTitle = styled.div`
@@ -104,7 +111,7 @@ const RightSectionp = styled.div`
  color: var(--color-neutral-800);
    font-weight: var(--font-weight-bold);
        @media (max-width : 460px) {
- font-size: var(--font-body-xs);
+ font-size: var(--font-body-md);
  margin: 8px 0;
   
  }

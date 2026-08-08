@@ -6,7 +6,6 @@ const TrustContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 24px;
-  padding: 20px 36px;
   margin-top: var(--global-margin-medium);
 `;
 
@@ -28,9 +27,9 @@ const TrustItem = styled.div`
   }
 
   img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+     width: 120px;
+     height: 120px;
+    object-fit: cover;
   }
 `;
 

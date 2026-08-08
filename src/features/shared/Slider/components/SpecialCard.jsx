@@ -82,7 +82,7 @@ function SpecialCard({product}) {
       <DiscountBadge>
         %{product.discount ||  'VIP'}
       </DiscountBadge>
-      <Productimage src= {product.image} alt= {product.name}/>
+      <Productimage loading='lazy' src= {product.image} alt= {product.name}/>
       <ProductInfo>
       <VipBadge>{product.name}</VipBadge>
         <ProductName>{product.title}</ProductName>
