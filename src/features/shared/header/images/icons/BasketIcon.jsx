@@ -1,5 +1,5 @@
 
-const  BasketIcon = ({ width = 24, height = 24, color = "#fff" }) => {
+const  BasketIcon = ({width = '35', height = '30' ,  color = "#fff" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
