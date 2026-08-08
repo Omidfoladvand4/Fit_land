@@ -1,32 +1,46 @@
 import styled from "styled-components";
 
 const Card = styled.div`
-  height: 360px;
-
+  height: 280px;
+  min-width: 160px;
   position: relative;
   overflow: hidden;
-
-  border-radius: 16px;
+  border-radius: 14px;
   cursor: pointer;
-
   background: var(--color-neutral-100);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
 
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   }
+
+  @media (max-width: 1024px) {
+    height: 250px;
+    min-width: 140px;
+  }
+
+  @media (max-width: 768px) {
+    height: 220px;
+    min-width: 120px;
+  }
+
+  @media (max-width: 490px) {
+    height: 180px;
+    min-width: 100px;
+  }
+
+  @media (max-width: 390px) {
+    height: 150px;
+    min-width: 85px;
+  }
 `;
 
 const CardImg = styled.img`
   display: block;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
 `;
 
@@ -35,52 +49,90 @@ const CardOverlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-
-  height: 165px;
-
-  padding: 55px 24px 20px;
-
+  height: 120px;
+  padding: 40px 16px 14px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-
   color: var(--color-base-background);
   background: var(--color-base-secondary);
-
-  clip-path: polygon(
-    0 28%,
-    94% 0,
-    100% 12%,
-    100% 100%,
-    0 100%
-  );
-
-  border-radius: 24px 24px 16px 16px;
-
+  clip-path: polygon(0 28%, 94% 0, 100% 12%, 100% 100%, 0 100%);
+  border-radius: 20px 20px 14px 14px;
   z-index: 2;
-   @media (max-width : 390px) {
-     padding: 55px 5px 20px;
-   }
+
+  @media (max-width: 1024px) {
+    height: 105px;
+    padding: 35px 12px 12px;
+    clip-path: polygon(0 25%, 92% 0, 100% 10%, 100% 100%, 0 100%);
+  }
+
+  @media (max-width: 768px) {
+    height: 90px;
+    padding: 28px 10px 10px;
+    clip-path: polygon(0 22%, 90% 0, 100% 8%, 100% 100%, 0 100%);
+    border-radius: 14px 14px 10px 10px;
+  }
+
+  @media (max-width: 490px) {
+    height: 75px;
+    padding: 22px 8px 8px;
+    clip-path: polygon(0 20%, 88% 0, 100% 6%, 100% 100%, 0 100%);
+    border-radius: 10px 10px 8px 8px;
+  }
+
+  @media (max-width: 390px) {
+    height: 65px;
+    padding: 18px 6px 6px;
+    clip-path: polygon(0 18%, 85% 0, 100% 5%, 100% 100%, 0 100%);
+    border-radius: 8px 8px 6px 6px;
+  }
 `;
 
 const CardTitle = styled.div`
   margin: 0;
+  font-size: var(--font-body-sm);
+  line-height: 1.6;
 
-  font-size: var(font-body-xs);
+  @media (max-width: 1024px) {
+    font-size: var(--font-body-xs);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 8px;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 390px) {
+    font-size: 7px;
+    line-height: 1.2;
+  }
 `;
 
 const Discount = styled.span`
   color: var(--color-base-primary);
   font-weight: 900;
+  font-size: 1.1em;
+
+  @media (max-width: 768px) {
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 0.8em;
+  }
 `;
 
 function RegularCard({ item }) {
   return (
     <Card>
       <CardImg src={item.image} alt={item.name} />
-
       <CardOverlay>
         <CardTitle>
           جدیدترین تخفیفات فصل برند {item.name}
