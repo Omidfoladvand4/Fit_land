@@ -19,7 +19,7 @@ const LeftSection = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
-  @media (max-width : 390px) {
+  @media (max-width : 460px) {
      display: none;
   }
 `
@@ -61,13 +61,13 @@ const RightSection = styled.div`
   flex: 1;
   display: flex;
   position: relative;
-  @media (max-width : 390px) {
+  @media (max-width : 460px) {
      width: 100%;
   }
 `
 const RightSectionList = styled.div`
    line-height: 2.1;
-   @media (max-width : 390px) {
+   @media (max-width : 460px) {
      width: 70%;
      line-height: 1.5;
    }
@@ -75,7 +75,7 @@ const RightSectionList = styled.div`
 const RightSectionDiv = styled.div`
  font-size: var(--font-body-sm);
  color: var(--color-neutral-800);
- @media (max-width : 390px) {
+ @media (max-width : 460px) {
  font-size: var(--font-body-xs);
   
  }
@@ -85,7 +85,7 @@ const RightSectionTitle = styled.div`
    font-size: var(--font-body-xxl);
    color: var(--color-base-secondary);
    font-weight: var(--font-weight-medium);
-    @media (max-width : 390px) {
+    @media (max-width : 460px) {
  font-size: var(--font-body-large);
   
  }
@@ -94,7 +94,7 @@ const RightSectionSubTitle = styled.div`
      font-size: var(--font-body-xxxl);
  color: var(--color-base-primary);
    font-weight: var(--font-weight-bold);
-       @media (max-width : 390px) {
+       @media (max-width : 460px) {
  font-size: var(--font-body-xl);
   
  }
@@ -103,7 +103,7 @@ const RightSectionSubTitle = styled.div`
 const RightSectionp = styled.div`
  color: var(--color-neutral-800);
    font-weight: var(--font-weight-bold);
-       @media (max-width : 390px) {
+       @media (max-width : 460px) {
  font-size: var(--font-body-xs);
  margin: 8px 0;
   
@@ -113,7 +113,7 @@ const RightSectionp = styled.div`
 `
 const RightSectionImg = styled.img`
   
-  @media (max-width : 390px) {
+  @media (max-width : 460px) {
      width: 55%;
      height: 90%;
      object-fit: cover;
@@ -130,7 +130,7 @@ const  Footer = styled.div`
   left: 0;
   bottom : 25px;
   z-index: -1;
-  @media (max-width : 390px) {
+  @media (max-width : 460px) {
     display: none;
   }
 `

@@ -10,6 +10,10 @@ const ProductContainer = styled.div`
   gap: 16px;
   margin: var(--global-margin-small)  auto;
   padding: var(--button-padding-medium);
+  @media (max-width : 490px) {
+    width: 100%;
+    height: 40vh;
+}
 `;
 
 const ProductWrapper = styled.div`
@@ -18,6 +22,9 @@ height: 100%;
 display: flex;
 align-items: center;
 gap: 16px;
+@media (max-width : 490px) {
+    width: 100%;
+}
 `
 
 const SectionDetails = styled.div`
@@ -26,6 +33,9 @@ const SectionDetails = styled.div`
   align-items: flex-start;
   flex-direction: column;
   gap: 12px;
+  @media (max-width : 490px) {
+     display: none;
+  }
 `;
 
 const SectionTitle = styled.h2`

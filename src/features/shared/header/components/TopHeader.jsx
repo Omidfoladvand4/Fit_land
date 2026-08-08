@@ -20,7 +20,7 @@ top: 60px;
 display: none;
 cursor: pointer;
 z-index: 99;
-@media (max-width : 390px) {
+@media (max-width : 460px) {
    display: block;
 }
 `
@@ -31,7 +31,7 @@ const TopHeaderMessage = styled.div`
   color: var(--color-base-background);
   font-size: var(--font-body-md);
   padding  :  10px 8px;
-  @media (max-width : 390px) {
+  @media (max-width : 460px) {
   font-size: var(--font-body-xs);
   }
 `;
@@ -48,7 +48,7 @@ const TopSectionBanner = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-      @media (max-width : 390px) {
+      @media (max-width : 460px) {
    flex-direction: column;
    gap: 16px;
    width: 100%;
@@ -65,7 +65,7 @@ const LogoImage = styled.img`
 
 const LogoTitle = styled.div`
   color: var(--color-neutral-800);
-  @media (max-width : 390px ) {
+  @media (max-width : 460px ) {
      display: none;
   }
 `;
@@ -84,7 +84,7 @@ const SearchBoxWrapper = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width : 390px) {
+  @media (max-width : 460px) {
      width: 100%;
      padding:  10px 14px;
   }
@@ -107,7 +107,7 @@ const LastSection = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  @media (max-width : 390px) {
+  @media (max-width : 460px) {
      display: none;
   }
 `;
@@ -173,7 +173,7 @@ const Menu = styled.div`
   padding: var(--global-padding-small);
   font-weight: var(--font-weight-bold);
   border-radius: 14px;
-  @media (max-width : 390px) {
+  @media (max-width : 460px) {
       display: ${({ $open }) => $open ? 'block' : 'none'};
      width: 100%;
      gap: 12px;
@@ -188,7 +188,7 @@ const MenuItems = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media (max-width : 390px) {
+  @media (max-width : 460px) {
     flex-direction: column;
     width: 100%;
     align-items: flex-start;
@@ -209,7 +209,7 @@ const MenuFeatures = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-    @media (max-width : 390px) {
+    @media (max-width : 460px) {
     flex-direction: column;
     width: 100%;
     align-items: flex-start;
