@@ -1,8 +1,9 @@
 // src/features/shared/components/Button.jsx
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
+import ButtonIcon from '../header/images/icons/ButtonIcon'
 const ButtonContainer = styled(Link)`
+  width : ${({width}) => width} ;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -37,12 +38,13 @@ const ButtonContainer = styled(Link)`
   }
 `;
 
-function Button({ icon, text, path, color, backgroundColor }) {
+function Button({ icon = <ButtonIcon />, text, path, color, backgroundColor  , width }) {
   return (
     <ButtonContainer
       to={path || '/'}
       color={color}
       backgroundColor={backgroundColor}
+      width = {width}
     >
       {icon && <span className="button-icon">{icon}</span>}
       {text}

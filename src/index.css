@@ -10,6 +10,8 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Vazirmatn';
+    list-style-type: none;
+    font-weight: var(--font-weight-regular);
 }
 :root{
     --color-base-primary : #FA541C;
@@ -70,9 +72,7 @@
 
 }
 
-*{
-    list-style-type: none;
-}
 body{
     background-color: var(--color-base-background);
+    overflow-x: hidden;
 }
