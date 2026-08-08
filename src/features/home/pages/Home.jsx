@@ -1,4 +1,4 @@
-// src/features/home/pages/Home.jsx
+
 import styled from 'styled-components';
 import Header from '../../shared/header/Header';
 import ProductSection from '../components/ProductSection/ProductSection';
@@ -6,6 +6,7 @@ import NikeImg from '../images/NikeImage.png';
 import PumaImg from '../images/PumaImage.png';
 import SectionImg from '../images/SectionImage.png'
 import Button from '../../shared/Button/Button';
+import ProductSlider from '../../shared/Slider/ProductSlider'
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -69,7 +70,55 @@ function Home() {
     { id: 1, name: 'نایک', image: NikeImg },
     { id: 2, name: 'پوما', image: PumaImg },
   ];
+const discountProducts = [
+    {
+      id: 1,
+      name: "کفش نایک مدل S-2000",
+      price: "۲۰۰,۰۰۰",
+      size: "از سایز ۱ تا XXL",
+      discount: "۲۴",
+      vipLabel: "VIP",
+      image : PumaImg
+    },
+        {
+      id: 2,
+      name: "کفش نایک مدل S-2000",
+      price: "۲۰۰,۰۰۰",
+      size: "از سایز ۱ تا XXL",
+      discount: "۲۴",
+      vipLabel: "VIP",
+       image : PumaImg
+    },
+        {
+      id: 3,
+      name: "کفش نایک مدل S-2000",
+      price: "۲۰۰,۰۰۰",
+      size: "از سایز ۱ تا XXL",
+      discount: "۲۴",
+      vipLabel: "VIP",
+       image : PumaImg
+    },
 
+     {
+      id: 4,
+      name: "کفش نایک مدل S-2000",
+      price: "۲۰۰,۰۰۰",
+      size: "از سایز ۱ تا XXL",
+      discount: "۲۴",
+      vipLabel: "VIP",
+       image : PumaImg
+    },
+     {
+      id: 5,
+      name: "کفش نایک مدل S-2000",
+      price: "۲۰۰,۰۰۰",
+      size: "از سایز ۱ تا XXL",
+      discount: "۲۴",
+      vipLabel: "VIP",
+       image : PumaImg
+    },
+    
+  ];
   return (
     <HomeWrapper>
       <Header />
@@ -90,6 +139,11 @@ function Home() {
                       <Button  text='مشاهده همه محصولات' backgroundColor='var(--color-base-secondary)'/>
             </MainBannerContainer>
         </MainBanner>
+        <ProductSlider
+        title="جدید ترین کفش های ورزشی"
+        products={discountProducts}
+        background = 'var(--color-neutral-600)'
+      />
       </MainSection>
     </HomeWrapper>
   );
