@@ -246,7 +246,7 @@ function TopHeader() {
         </TopSectionBanner>
 
         <Menu $open={isMenuOpen}>
-          <CloseIcon setIsOpen={setIsMenuOpen}/>
+          {isMenuOpen && <CloseIcon setIsOpen={setIsMenuOpen}/>}
           <MenuItems>
             {MENU_ITEMS.map((item, index) => (
               <MenuItem key={index}>{item}</MenuItem>
