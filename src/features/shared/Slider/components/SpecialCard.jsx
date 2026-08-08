@@ -13,6 +13,7 @@ const Card = styled.div`
   border: 1px solid transparent;
   transition: border 0.3s ease;
   overflow: hidden;
+  cursor: pointer;
   &:hover {
     border: 1px solid var(--color-neutral-800);
     img {
