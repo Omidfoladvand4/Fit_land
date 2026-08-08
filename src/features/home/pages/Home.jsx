@@ -24,6 +24,11 @@ const MainBanner = styled.div`
   background-size: cover;
   display: flex;
   align-items: center;
+
+  @media (max-width : 490px) {
+     background-size: cover;
+     height: 250px;
+  }
   
 `
 const MainBannerContainer = styled.div `
@@ -34,17 +39,30 @@ const MainBannerContainer = styled.div `
    justify-content: space-between;
    flex-direction: column;
    margin-right: 15%;
+
+
 `
 const MainBannerDetail = styled.div`
+
+ 
 `
 const MainBannerTitle = styled.div`
 font-size: var(--font-body-xl);
+ @media (max-width : 490px) {
+font-size: var(--font-body-large);
+   
+ }
 
 `
 const MainBannerParagraph = styled.div`
 font-size: var(--font-body-xxl);
 color: var(--color-base-secondary);
 font-weight: var(--font-weight-bold);
+ @media (max-width : 490px) {
+
+font-size: var(--font-body-large);
+   
+ }
 `
 function Home() {
   const latestProductsList = [
@@ -69,7 +87,7 @@ function Home() {
                      <MainBannerTitle>برای حال خوب</MainBannerTitle>
                     <MainBannerParagraph>لوازم ایروبیک و تناسب اندام بگیر</MainBannerParagraph>
                    </MainBannerDetail>
-                    <Button text='مشاهده همه محصولات' backgroundColor='var(--color-base-secondary)'/>
+                      <Button  text='مشاهده همه محصولات' backgroundColor='var(--color-base-secondary)'/>
             </MainBannerContainer>
         </MainBanner>
       </MainSection>
