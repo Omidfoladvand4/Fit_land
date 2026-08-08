@@ -1,10 +1,10 @@
-// src/features/shared/components/Footer/Footer.jsx
 import styled from 'styled-components';
 import FooterLinks from './components/FooterLinks';
 import FooterAbout from './components/FooterAbout';
 import FooterNewsletter from './components/FooterNewsletter';
 import FooterContact from './components/FooterContact';
 import FooterSocial from './components/FooterSocial';
+import TrustSymbols from './components/TrustSymbols';
 
 const FooterWrapper = styled.footer`
   width: 100%;
@@ -39,19 +39,16 @@ function Footer() {
   return (
     <FooterWrapper>
       <FooterContainer>
-        {/* بخش اول: درباره فروشگاه */}
         <FooterAbout />
         
-        {/* بخش دوم: لینک‌های مفید */}
         <FooterLinks />
         
-        {/* بخش سوم: اطلاعات تماس */}
         <FooterContact />
         
-        {/* بخش چهارم: خبرنامه و سوشال مدیا */}
         <div>
           <FooterNewsletter />
           <FooterSocial />
+          <TrustSymbols />
         </div>
       </FooterContainer>
     </FooterWrapper>

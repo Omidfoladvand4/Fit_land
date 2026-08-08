@@ -1,4 +1,4 @@
-// src/features/shared/components/Footer/FooterLinks.jsx
+
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 

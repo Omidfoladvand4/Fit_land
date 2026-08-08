@@ -1,4 +1,4 @@
-// src/features/shared/components/Footer/FooterContact.jsx
+
 import styled from 'styled-components';
 
 const ContactContainer = styled.div`
