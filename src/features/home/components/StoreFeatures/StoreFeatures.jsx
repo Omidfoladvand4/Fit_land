@@ -13,6 +13,7 @@ const FeaturesContainer = styled.div`
     margin :var(--global-margin-small) 0;
     @media (max-width : 490px) {
          flex-direction: column;
+         margin:  0;
     }
 `
 const Description = styled.div`

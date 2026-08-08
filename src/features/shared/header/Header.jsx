@@ -121,8 +121,8 @@ const RightSectionp = styled.div`
 const RightSectionImg = styled.img`
   
   @media (max-width : 460px) {
-     width: 55%;
-     height: 90%;
+     width: 130px;
+     height: 149px;
      object-fit: cover;
      position: absolute;
      z-index: 98;

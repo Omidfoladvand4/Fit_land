@@ -1,5 +1,5 @@
-// src/features/shared/components/ProductSlider/ProductSlider.jsx
-import React, { useState } from "react";
+
+import  { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import styled from "styled-components";
@@ -28,6 +28,10 @@ const Header = styled.div`
 const Title = styled.h2`
   font-size: var(--font-body-xl);
   font-weight: 700;
+  @media (max-width : 490px) {
+  font-size: var(--font-body-md);
+    
+  }
 `;
 
 

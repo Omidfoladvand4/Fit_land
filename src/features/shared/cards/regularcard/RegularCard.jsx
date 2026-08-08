@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Card = styled.div`
-  height: 100%;
+  height: 360px;
 
   position: relative;
   overflow: hidden;
@@ -32,7 +32,6 @@ const CardImg = styled.img`
 
 const CardOverlay = styled.div`
   position: absolute;
-
   left: 0;
   right: 0;
   bottom: 0;
@@ -45,7 +44,6 @@ const CardOverlay = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
 
   color: var(--color-base-background);
@@ -62,6 +60,9 @@ const CardOverlay = styled.div`
   border-radius: 24px 24px 16px 16px;
 
   z-index: 2;
+   @media (max-width : 390px) {
+     padding: 55px 5px 20px;
+   }
 `;
 
 const CardTitle = styled.div`
