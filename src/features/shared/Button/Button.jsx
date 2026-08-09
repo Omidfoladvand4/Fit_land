@@ -12,7 +12,7 @@ const ButtonContainer = styled(Link)`
   border-radius: 8px;
   text-decoration: none;
   font-weight: var(--font-weight-bold, 600);
-  font-size: var(--font-body-md, 14px);
+  font-size: var(--font-body-large);
   cursor: pointer;
   transition: all 0.3s ease;
   border: none;

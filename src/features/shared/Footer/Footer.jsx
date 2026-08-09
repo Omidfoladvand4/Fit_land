@@ -13,7 +13,7 @@ const FooterWrapper = styled.footer`
   padding: 40px 0 0 0;
   margin-top: 60px;
   @media (max-width : 390px) {
-      margin: 12px;
+      margin: 12px auto;
   }
 `;
 

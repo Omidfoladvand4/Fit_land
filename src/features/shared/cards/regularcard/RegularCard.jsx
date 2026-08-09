@@ -89,7 +89,6 @@ const CardTitle = styled.div`
   }
 
   @media (max-width: 490px) {
-    font-size: 8px;
     line-height: 1.3;
   }
 
