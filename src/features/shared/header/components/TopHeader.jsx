@@ -9,6 +9,7 @@ import DiscountIcon from "../images/icons/DiscountIcon";
 import MenuIcon from "../images/icons/MenuIcon";
 import CloseIcon from "../images/icons/CloseIcon";
 import AuthSection from "./AuthSection";
+import { useLocation } from "react-router-dom";
 
 const TopHeaderContainer = styled.header`
   width: 100%;
@@ -226,7 +227,10 @@ const MENU_ITEMS = ["مردانه", "زنانه", "بچگانه", "لوازم و
 
 function TopHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+   const location = useLocation()
+    if (location.pathname === '/Sign-in' || location.pathname === '/Sign-up') {
+    return null;
+  }
   return (
     <TopHeaderContainer>
       <MobileMenu onClick={() => setIsMenuOpen((prev) => !prev)}>

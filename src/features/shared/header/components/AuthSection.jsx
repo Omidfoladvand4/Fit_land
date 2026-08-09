@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import UserIcon from '../images/icons/UserIcon';
 import BasketIcon from '../images/icons/BasketIcon';
+import { Link } from 'react-router-dom';
 
 const AuthSectionContainer = styled.div`
   display: flex;
@@ -21,11 +22,13 @@ const AuthSectionContainer = styled.div`
   }
 `;
 
-const LoginBtn = styled.div`
+const LoginBtn = styled(Link)`
   display: flex;
   gap: 8px;
   cursor: pointer;
   font-weight: var(--font-weight-bold);
+  color: var(--color-base-secondary);
+
   transition: all 0.3s ease;
   &:hover {
     color: var(--color-base-primary);
@@ -37,9 +40,10 @@ const LoginBtn = styled.div`
   }
 `;
 
-const SignUpBtn = styled.div`
+const SignUpBtn = styled(Link)`
   padding-left: 6px;
   border-left: 2px solid var(--color-base-secondary);
+  color: var(--color-base-secondary);
   cursor: pointer;
   font-weight: var(--font-weight-bold);
   transition: all 0.3s ease;
@@ -87,8 +91,8 @@ const UserBasketCount = styled.div`
 function AuthSection({ isMobile = false }) {
   return (
     <AuthSectionContainer>
-      <SignUpBtn>ثبت نام</SignUpBtn>
-      <LoginBtn>
+      <SignUpBtn >ثبت نام</SignUpBtn>
+      <LoginBtn to='Sign-in'>
         ورود
         <UserIcon color='var(--color-base-secondary)'/>
       </LoginBtn>

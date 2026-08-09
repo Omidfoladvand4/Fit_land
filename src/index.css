@@ -12,6 +12,9 @@
     font-family: 'Vazirmatn';
     list-style-type: none;
     font-weight: var(--font-weight-regular);
+    text-decoration: none;
+    border: none;
+    outline: none;
 }
 :root{
     --color-base-primary : #FA541C;

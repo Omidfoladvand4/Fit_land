@@ -5,6 +5,7 @@ import FooterNewsletter from './components/FooterNewsletter';
 import FooterContact from './components/FooterContact';
 import FooterSocial from './components/FooterSocial';
 import TrustSymbols from './components/TrustSymbols';
+import { useLocation } from 'react-router-dom';
 
 const FooterWrapper = styled.footer`
   width: 100%;
@@ -39,6 +40,10 @@ const FooterContainer = styled.div`
 `;
 
 function Footer() {
+  const location = useLocation()
+    if (location.pathname === '/Sign-in' || location.pathname === '/Sign-up') {
+    return null;
+  }
   return (
     <FooterWrapper>
       <FooterContainer>
