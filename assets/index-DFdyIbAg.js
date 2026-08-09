@@ -70,7 +70,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: var(--font-body-sm);
 `;function $a({isMobile:e=!1}){return(0,d.jsxs)(Ja,{children:[(0,d.jsx)(Xa,{children:`ثبت نام`}),(0,d.jsxs)(Ya,{children:[`ورود`,(0,d.jsx)(Ka,{})]}),(0,d.jsxs)(Za,{children:[(0,d.jsx)(qa,{}),(0,d.jsx)(Qa,{children:`0`})]})]})}var eo=L.header`
   width: 100%;
 `,to=L.div`
@@ -93,9 +93,6 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   font-size: var(--font-body-md);
   padding: 10px 8px;
 
-  @media (max-width: 490px) {
-    font-size: var(--font-body-xs);
-  }
 `,ro=L.div`
   display: flex;
   align-items: center;
@@ -194,13 +191,13 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   align-items: center;
   justify-content: space-between;
   list-style: none;
+  font-size: var(--font-body-xl);
 
   @media (max-width: 490px) {
     flex-direction: column;
     width: 100%;
     align-items: flex-start;
     gap: 16px;
-    font-size: var(--font-body-xl);
   }
 `,po=L.li`
   cursor: pointer;
@@ -210,17 +207,17 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
     color: var(--color-base-primary);
   }
 `,mo=L.div`
-  width: 40%;
+  width: 45%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: var(--font-body-large);
 
   @media (max-width: 490px) {
     flex-direction: column;
     width: 100%;
     align-items: flex-start;
     gap: 16px;
-    font-size: var(--font-body-xl);
   }
 `,z=L.div`
   display: flex;
@@ -245,7 +242,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   flex-direction: column;
   gap: 12px;
 `,vo=L.h3`
-  font-size: var(--font-body-lg);
+  font-size: var(--font-body-large);
   font-weight: 700;
   margin-bottom: 8px;
 `,yo=L.ul`
@@ -293,7 +290,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   gap: 12px;
   margin-bottom: 24px;
 `,Oo=L.h3`
-  font-size: var(--font-body-lg);
+  font-size: var(--font-body-large);
   font-weight: 700;
 `,ko=L.p`
   font-size: var(--font-body-sm);
@@ -439,4 +436,4 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
     gap: 24px;
     width: 90%;
   }
-`;function as(){return(0,d.jsx)(rs,{children:(0,d.jsxs)(is,{children:[(0,d.jsx)(Eo,{}),(0,d.jsx)(So,{}),(0,d.jsx)(Bo,{}),(0,d.jsxs)(`div`,{children:[(0,d.jsx)(Mo,{}),(0,d.jsx)(Xo,{}),(0,d.jsx)(ns,{})]})]})})}function os(){return(0,d.jsx)(`div`,{children:`Loading`})}function ss(){let{pathname:e}=yt();return(0,x.useEffect)(()=>{window.scrollTo({top:0,behavior:`smooth`})},[e]),null}var cs=(0,x.lazy)(()=>te(()=>import(`./Home-D20m_cw3.js`),[])),ls=(0,x.lazy)(()=>te(()=>import(`./NotFound-CYFFzI3Y.js`),[])),us={HOME:`/`,NOTFOUND:`*`},ds=[{path:us.HOME,element:(0,d.jsx)(cs,{})},{path:us.NOTFOUND,element:(0,d.jsx)(ls,{})}],fs=(0,x.memo)(()=>(0,d.jsxs)(x.Suspense,{fallback:(0,d.jsx)(os,{}),children:[(0,d.jsx)(ss,{}),(0,d.jsxs)(qt,{children:[ds.map(({path:e,element:t})=>(0,d.jsx)(Gt,{path:e,element:t},e)),(0,d.jsx)(Gt,{path:`*`,element:(0,d.jsx)(ls,{})})]})]}));fs.displayName=`AppRoutes`,(0,S.createRoot)(document.getElementById(`root`)).render((0,d.jsx)(x.StrictMode,{children:(0,d.jsxs)(Mn,{children:[(0,d.jsx)(go,{}),(0,d.jsx)(f,{}),(0,d.jsx)(fs,{}),(0,d.jsx)(as,{})]})}));export{o as a,u as i,Nn as n,c as o,m as r,L as t};
+`;function as(){return(0,d.jsx)(rs,{children:(0,d.jsxs)(is,{children:[(0,d.jsx)(Eo,{}),(0,d.jsx)(So,{}),(0,d.jsx)(Bo,{}),(0,d.jsxs)(`div`,{children:[(0,d.jsx)(Mo,{}),(0,d.jsx)(Xo,{}),(0,d.jsx)(ns,{})]})]})})}function os(){return(0,d.jsx)(`div`,{children:`Loading`})}function ss(){let{pathname:e}=yt();return(0,x.useEffect)(()=>{window.scrollTo({top:0,behavior:`smooth`})},[e]),null}var cs=(0,x.lazy)(()=>te(()=>import(`./Home-D-XHFU0z.js`),[])),ls=(0,x.lazy)(()=>te(()=>import(`./NotFound-CMXcGKJz.js`),[])),us={HOME:`/`,NOTFOUND:`*`},ds=[{path:us.HOME,element:(0,d.jsx)(cs,{})},{path:us.NOTFOUND,element:(0,d.jsx)(ls,{})}],fs=(0,x.memo)(()=>(0,d.jsxs)(x.Suspense,{fallback:(0,d.jsx)(os,{}),children:[(0,d.jsx)(ss,{}),(0,d.jsxs)(qt,{children:[ds.map(({path:e,element:t})=>(0,d.jsx)(Gt,{path:e,element:t},e)),(0,d.jsx)(Gt,{path:`*`,element:(0,d.jsx)(ls,{})})]})]}));fs.displayName=`AppRoutes`,(0,S.createRoot)(document.getElementById(`root`)).render((0,d.jsx)(x.StrictMode,{children:(0,d.jsxs)(Mn,{children:[(0,d.jsx)(go,{}),(0,d.jsx)(f,{}),(0,d.jsx)(fs,{}),(0,d.jsx)(as,{})]})}));export{o as a,u as i,Nn as n,c as o,m as r,L as t};
