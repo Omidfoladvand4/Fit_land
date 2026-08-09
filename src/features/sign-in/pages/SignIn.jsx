@@ -63,15 +63,22 @@ const RightSectionWrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     gap: 16px;
-    
+       @media (max-width : 490px) {
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+  }
     `
 const Title = styled.div`
+width: 90%;
 color: var(--color-base-secondary);
-   font-size : var(--font-body-xxl);
+   font-size : var(--font-body-xxxl);
    font-weight: var(--font-weight-bold);
+
 `
 const Labal = styled.label`
-  font-size: var(--font-body-md);
+width: 90%;
+  font-size: var(--font-body-large);
   color: var(--color-neutral-800);
    font-weight: var(--font-weight-bold);
 
@@ -86,7 +93,7 @@ const Input = styled.input`
   border: 1px solid var(--color-neutral-800);
   border: none;
 
-
+ 
   }
 `
 const Button = styled.button`
@@ -95,13 +102,14 @@ const Button = styled.button`
   font-weight: var(--font-weight-bold);
   color: var(--color-base-background);
   background-color: var(--color-base-primary);
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xl);
   border-radius: 12px;
   margin-top: 16px ;
   cursor: pointer;
 `
 const Policy = styled.div`
-  font-size: var(--font-body-sm);
+width: 90%;
+  font-size: var(--font-body-large);
   color: var(--color-neutral-800);
   margin-top: var(--global-margin-small);
 
