@@ -35,6 +35,11 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   &:hover {
     color: var(--color-base-primary);
   }
+    @media (max-width: 490px) {
+    font-size: var(--font-body-xxl);
+    padding:  0 12px;
+     
+  }
 `,Xa=L.div`
   padding-left: 6px;
   border-left: 2px solid var(--color-base-secondary);
@@ -43,6 +48,10 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   transition: all 0.3s ease;
   &:hover {
     color: var(--color-base-primary);
+  }
+  @media (max-width: 490px) {
+    font-size: var(--font-body-xxl);
+     padding: 0 12px;
   }
 `,Za=L.div`
   width: 40px;
@@ -56,6 +65,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
  
   @media (max-width: 490px) {
     background-color: var(--color-base-primary);
+     
   }
 `,Qa=L.div`
   width: 24px;
@@ -91,6 +101,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   background: var(--color-base-secondary);
   color: var(--color-base-background);
   font-size: var(--font-body-md);
+  font-weight: 700;
   padding: 10px 8px;
 
 `,ro=L.div`
@@ -191,44 +202,55 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  font-size: var(--font-body-xl);
-
+  
   @media (max-width: 490px) {
     flex-direction: column;
     width: 100%;
     align-items: flex-start;
     gap: 16px;
   }
-`,po=L.li`
+  `,po=L.li`
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: var(--font-body-large);
+  font-weight: 700;
 
   &:hover {
     color: var(--color-base-primary);
+  }
+  @media (max-width : 490px) {
+  font-size: var(--font-body-xxxl);
+     
   }
 `,mo=L.div`
   width: 45%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: var(--font-body-large);
-
+  
+  
   @media (max-width: 490px) {
     flex-direction: column;
     width: 100%;
     align-items: flex-start;
     gap: 16px;
   }
-`,z=L.div`
+  `,z=L.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: var(--font-body-large);
+  font-weight: 700;
   gap: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
     color: var(--color-base-primary);
+  }
+    @media (max-width : 490px) {
+  font-size: var(--font-body-xxxl);
+     
   }
 `,B=L.div`
   display: none;
@@ -254,7 +276,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   a {
     color: var(--color-base-background);
     text-decoration: none;
-    font-size: var(--font-body-sm);
+    font-size: var(--font-body-md);
     opacity: 0.8;
     transition: all 0.3s ease;
 
@@ -268,12 +290,12 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   display: flex;
   flex-direction: column;
   gap: 12px;
-`,Co=L.h3`
+`,Co=L.div`
   font-size: var(--font-body-large);
   font-weight: 700;
   margin-bottom: 8px;
 `,wo=L.p`
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-md);
   line-height: 1.8;
   opacity: 0.85;
 `,To=L.div`
@@ -281,7 +303,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   align-items: center;
   gap: 8px;
   margin-top: 8px;
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-md);
   font-weight: 600;
   color: var(--color-base-primary);
 `;function Eo(){return(0,d.jsxs)(V,{children:[(0,d.jsx)(Co,{children:`فروشگاه اینترنتی فیت‌لند`}),(0,d.jsx)(wo,{children:`فروشگاه لوازم ورزشی فیت‌لند در سال ۱۴۰۳ کار خود را به صورت حرفه‌ای آغاز کرد و با هدف ارائه جدیدترین محصولات ورزشی از قبیل لوازم فوتبال، فوتسال، والیبال، تنیس و... همچنین پوشش ورزشی و تجهیزات ورزشی، از برندهای مختلف دنیا در محیط کاربری استفاده می‌کند.`}),(0,d.jsx)(wo,{children:`اطمینان و با مجرب‌ترین مشاوران و کارشناسان ورزشی فعالیت می‌کنند. فروشگاه فیت‌لند دارای تمامی خدمات و خدمات ورزشی برای شما در این بخش می‌باشند و تمامی محصولات خود را با ۷ روز ضمانت بازگشت همراه با کارتنی، سلامت فیزیکی، با سریع‌ترین روش‌های ارسال به سراسر ایران در اختیار مشتریان خود قرار می‌دهد.`}),(0,d.jsx)(To,{children:` یک هفته ضمانت بازگشت`})]})}var Do=L.div`
@@ -293,7 +315,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   font-size: var(--font-body-large);
   font-weight: 700;
 `,ko=L.p`
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-md);
   opacity: 0.8;
 `,Ao=L.form`
   display: flex;
@@ -309,7 +331,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   color: var(--color-base-background);
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-md);
   outline: none;
 
   &::placeholder {
@@ -338,17 +360,17 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   flex-direction: column;
   gap: 12px;
 `,Po=L.h3`
-  font-size: var(--font-body-lg);
+  font-size: var(--font-body-large);
   font-weight: 700;
   margin-bottom: 8px;
 `,Fo=L.div`
   display: flex;
   flex-direction: column;
   gap: 2px;
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-md);
 `,Io=L.span`
   opacity: 0.6;
-  font-size: var(--font-body-xs);
+  font-size: var(--font-body-md);
 `,Lo=L.span`
   opacity: 0.9;
 `,Ro=L.div`
@@ -360,7 +382,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   flex-direction: column;
   gap: 12px;
 `,Ko=L.h4`
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   font-weight: 600;
 `,qo=L.div`
   display: flex;
@@ -436,4 +458,4 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
     gap: 24px;
     width: 90%;
   }
-`;function as(){return(0,d.jsx)(rs,{children:(0,d.jsxs)(is,{children:[(0,d.jsx)(Eo,{}),(0,d.jsx)(So,{}),(0,d.jsx)(Bo,{}),(0,d.jsxs)(`div`,{children:[(0,d.jsx)(Mo,{}),(0,d.jsx)(Xo,{}),(0,d.jsx)(ns,{})]})]})})}function os(){return(0,d.jsx)(`div`,{children:`Loading`})}function ss(){let{pathname:e}=yt();return(0,x.useEffect)(()=>{window.scrollTo({top:0,behavior:`smooth`})},[e]),null}var cs=(0,x.lazy)(()=>te(()=>import(`./Home-CYkoQV-2.js`),[])),ls=(0,x.lazy)(()=>te(()=>import(`./NotFound-z5tI4gLT.js`),[])),us={HOME:`/`,NOTFOUND:`*`},ds=[{path:us.HOME,element:(0,d.jsx)(cs,{})},{path:us.NOTFOUND,element:(0,d.jsx)(ls,{})}],fs=(0,x.memo)(()=>(0,d.jsxs)(x.Suspense,{fallback:(0,d.jsx)(os,{}),children:[(0,d.jsx)(ss,{}),(0,d.jsxs)(qt,{children:[ds.map(({path:e,element:t})=>(0,d.jsx)(Gt,{path:e,element:t},e)),(0,d.jsx)(Gt,{path:`*`,element:(0,d.jsx)(ls,{})})]})]}));fs.displayName=`AppRoutes`,(0,S.createRoot)(document.getElementById(`root`)).render((0,d.jsx)(x.StrictMode,{children:(0,d.jsxs)(Mn,{children:[(0,d.jsx)(go,{}),(0,d.jsx)(f,{}),(0,d.jsx)(fs,{}),(0,d.jsx)(as,{})]})}));export{o as a,u as i,Nn as n,c as o,m as r,L as t};
+`;function as(){return(0,d.jsx)(rs,{children:(0,d.jsxs)(is,{children:[(0,d.jsx)(Eo,{}),(0,d.jsx)(So,{}),(0,d.jsx)(Bo,{}),(0,d.jsxs)(`div`,{children:[(0,d.jsx)(Mo,{}),(0,d.jsx)(Xo,{}),(0,d.jsx)(ns,{})]})]})})}function os(){return(0,d.jsx)(`div`,{children:`Loading`})}function ss(){let{pathname:e}=yt();return(0,x.useEffect)(()=>{window.scrollTo({top:0,behavior:`smooth`})},[e]),null}var cs=(0,x.lazy)(()=>te(()=>import(`./Home-BQ8HBrUw.js`),[])),ls=(0,x.lazy)(()=>te(()=>import(`./NotFound-DCviGyks.js`),[])),us={HOME:`/`,NOTFOUND:`*`},ds=[{path:us.HOME,element:(0,d.jsx)(cs,{})},{path:us.NOTFOUND,element:(0,d.jsx)(ls,{})}],fs=(0,x.memo)(()=>(0,d.jsxs)(x.Suspense,{fallback:(0,d.jsx)(os,{}),children:[(0,d.jsx)(ss,{}),(0,d.jsxs)(qt,{children:[ds.map(({path:e,element:t})=>(0,d.jsx)(Gt,{path:e,element:t},e)),(0,d.jsx)(Gt,{path:`*`,element:(0,d.jsx)(ls,{})})]})]}));fs.displayName=`AppRoutes`,(0,S.createRoot)(document.getElementById(`root`)).render((0,d.jsx)(x.StrictMode,{children:(0,d.jsxs)(Mn,{children:[(0,d.jsx)(go,{}),(0,d.jsx)(f,{}),(0,d.jsx)(fs,{}),(0,d.jsx)(as,{})]})}));export{o as a,u as i,Nn as n,c as o,m as r,L as t};
