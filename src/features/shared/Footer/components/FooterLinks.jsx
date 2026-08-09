@@ -25,7 +25,7 @@ const LinksItem = styled.li`
   a {
     color: var(--color-base-background);
     text-decoration: none;
-    font-size: var(--font-body-sm);
+    font-size: var(--font-body-md);
     opacity: 0.8;
     transition: all 0.3s ease;
 

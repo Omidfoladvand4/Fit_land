@@ -15,7 +15,7 @@ const NewsletterTitle = styled.h3`
 `;
 
 const NewsletterText = styled.p`
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-md);
   opacity: 0.8;
 `;
 
@@ -35,7 +35,7 @@ const Input = styled.input`
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   color: var(--color-base-background);
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-md);
   outline: none;
 
   &::placeholder {

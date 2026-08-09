@@ -10,7 +10,7 @@ const SocialContainer = styled.div`
 `;
 
 const SocialTitle = styled.h4`
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   font-weight: 600;
 `;
 

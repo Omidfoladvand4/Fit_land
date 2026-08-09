@@ -6,14 +6,14 @@ const AboutContainer = styled.div`
   gap: 12px;
 `;
 
-const AboutTitle = styled.h3`
+const AboutTitle = styled.div`
   font-size: var(--font-body-large);
   font-weight: 700;
   margin-bottom: 8px;
 `;
 
 const AboutText = styled.p`
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-md);
   line-height: 1.8;
   opacity: 0.85;
 `;
@@ -23,7 +23,7 @@ const Guarantee = styled.div`
   align-items: center;
   gap: 8px;
   margin-top: 8px;
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-md);
   font-weight: 600;
   color: var(--color-base-primary);
 `;
