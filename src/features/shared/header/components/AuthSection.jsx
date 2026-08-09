@@ -29,6 +29,11 @@ const LoginBtn = styled.div`
   &:hover {
     color: var(--color-base-primary);
   }
+    @media (max-width: 490px) {
+    font-size: var(--font-body-xxl);
+    padding:  0 12px;
+     
+  }
 `;
 
 const SignUpBtn = styled.div`
@@ -39,6 +44,10 @@ const SignUpBtn = styled.div`
   transition: all 0.3s ease;
   &:hover {
     color: var(--color-base-primary);
+  }
+  @media (max-width: 490px) {
+    font-size: var(--font-body-xxl);
+     padding: 0 12px;
   }
 `;
 
@@ -54,6 +63,7 @@ const UserBasket = styled.div`
  
   @media (max-width: 490px) {
     background-color: var(--color-base-primary);
+     
   }
 `;
 
