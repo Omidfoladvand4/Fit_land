@@ -415,7 +415,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   padding: 40px 0 0 0;
   margin-top: 60px;
   @media (max-width : 390px) {
-      margin: 12px;
+      margin: 12px auto;
   }
 `,is=L.div`
   width: 80%;
@@ -436,4 +436,4 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
     gap: 24px;
     width: 90%;
   }
-`;function as(){return(0,d.jsx)(rs,{children:(0,d.jsxs)(is,{children:[(0,d.jsx)(Eo,{}),(0,d.jsx)(So,{}),(0,d.jsx)(Bo,{}),(0,d.jsxs)(`div`,{children:[(0,d.jsx)(Mo,{}),(0,d.jsx)(Xo,{}),(0,d.jsx)(ns,{})]})]})})}function os(){return(0,d.jsx)(`div`,{children:`Loading`})}function ss(){let{pathname:e}=yt();return(0,x.useEffect)(()=>{window.scrollTo({top:0,behavior:`smooth`})},[e]),null}var cs=(0,x.lazy)(()=>te(()=>import(`./Home-D-XHFU0z.js`),[])),ls=(0,x.lazy)(()=>te(()=>import(`./NotFound-CMXcGKJz.js`),[])),us={HOME:`/`,NOTFOUND:`*`},ds=[{path:us.HOME,element:(0,d.jsx)(cs,{})},{path:us.NOTFOUND,element:(0,d.jsx)(ls,{})}],fs=(0,x.memo)(()=>(0,d.jsxs)(x.Suspense,{fallback:(0,d.jsx)(os,{}),children:[(0,d.jsx)(ss,{}),(0,d.jsxs)(qt,{children:[ds.map(({path:e,element:t})=>(0,d.jsx)(Gt,{path:e,element:t},e)),(0,d.jsx)(Gt,{path:`*`,element:(0,d.jsx)(ls,{})})]})]}));fs.displayName=`AppRoutes`,(0,S.createRoot)(document.getElementById(`root`)).render((0,d.jsx)(x.StrictMode,{children:(0,d.jsxs)(Mn,{children:[(0,d.jsx)(go,{}),(0,d.jsx)(f,{}),(0,d.jsx)(fs,{}),(0,d.jsx)(as,{})]})}));export{o as a,u as i,Nn as n,c as o,m as r,L as t};
+`;function as(){return(0,d.jsx)(rs,{children:(0,d.jsxs)(is,{children:[(0,d.jsx)(Eo,{}),(0,d.jsx)(So,{}),(0,d.jsx)(Bo,{}),(0,d.jsxs)(`div`,{children:[(0,d.jsx)(Mo,{}),(0,d.jsx)(Xo,{}),(0,d.jsx)(ns,{})]})]})})}function os(){return(0,d.jsx)(`div`,{children:`Loading`})}function ss(){let{pathname:e}=yt();return(0,x.useEffect)(()=>{window.scrollTo({top:0,behavior:`smooth`})},[e]),null}var cs=(0,x.lazy)(()=>te(()=>import(`./Home-CYkoQV-2.js`),[])),ls=(0,x.lazy)(()=>te(()=>import(`./NotFound-z5tI4gLT.js`),[])),us={HOME:`/`,NOTFOUND:`*`},ds=[{path:us.HOME,element:(0,d.jsx)(cs,{})},{path:us.NOTFOUND,element:(0,d.jsx)(ls,{})}],fs=(0,x.memo)(()=>(0,d.jsxs)(x.Suspense,{fallback:(0,d.jsx)(os,{}),children:[(0,d.jsx)(ss,{}),(0,d.jsxs)(qt,{children:[ds.map(({path:e,element:t})=>(0,d.jsx)(Gt,{path:e,element:t},e)),(0,d.jsx)(Gt,{path:`*`,element:(0,d.jsx)(ls,{})})]})]}));fs.displayName=`AppRoutes`,(0,S.createRoot)(document.getElementById(`root`)).render((0,d.jsx)(x.StrictMode,{children:(0,d.jsxs)(Mn,{children:[(0,d.jsx)(go,{}),(0,d.jsx)(f,{}),(0,d.jsx)(fs,{}),(0,d.jsx)(as,{})]})}));export{o as a,u as i,Nn as n,c as o,m as r,L as t};
