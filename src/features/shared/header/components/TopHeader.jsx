@@ -36,9 +36,6 @@ const TopHeaderMessage = styled.div`
   font-size: var(--font-body-md);
   padding: 10px 8px;
 
-  @media (max-width: 490px) {
-    font-size: var(--font-body-xs);
-  }
 `;
 
 const TopSection = styled.div`
@@ -157,13 +154,13 @@ const MenuItems = styled.ul`
   align-items: center;
   justify-content: space-between;
   list-style: none;
+  font-size: var(--font-body-xl);
 
   @media (max-width: 490px) {
     flex-direction: column;
     width: 100%;
     align-items: flex-start;
     gap: 16px;
-    font-size: var(--font-body-xl);
   }
 `;
 
@@ -177,17 +174,17 @@ const MenuItem = styled.li`
 `;
 
 const MenuFeatures = styled.div`
-  width: 40%;
+  width: 45%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: var(--font-body-large);
 
   @media (max-width: 490px) {
     flex-direction: column;
     width: 100%;
     align-items: flex-start;
     gap: 16px;
-    font-size: var(--font-body-xl);
   }
 `;
 

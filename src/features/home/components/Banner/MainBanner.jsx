@@ -47,22 +47,15 @@ const BannerContainer = styled.div`
 const BannerDetail = styled.div``;
 
 const BannerTitle = styled.div`
-  font-size: var(--font-body-xl);
+  font-size: var(--font-body-xxl);
   color: var(--color-base-background);
 
-  @media (max-width: 490px) {
-    font-size: var(--font-body-large);
-  }
 `;
 
 const BannerParagraph = styled.div`
   font-size: var(--font-body-xxl);
   color: var(--color-info-500);
   font-weight: var(--font-weight-bold);
-
-  @media (max-width: 490px) {
-    font-size: var(--font-body-large);
-  }
 `;
 
 function MainBanner({

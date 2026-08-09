@@ -23,7 +23,6 @@ const Description = styled.div`
     font-size: var(--font-body-large);
        @media (max-width : 490px) {
         width: 100%;
-    font-size: var(--font-body-large);
     text-align: center;
 
     }
@@ -47,6 +46,7 @@ const FeatureItem = styled.div`
     flex-direction: column;
     background: var(--color-base-background);
     border: 1px solid var(--color-base-secondary);
+    font-size: var(--font-body-large);
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;

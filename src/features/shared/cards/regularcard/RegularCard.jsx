@@ -20,20 +20,8 @@ const Card = styled.div`
     height: 250px;
     min-width: 140px;
   }
-
-  @media (max-width: 768px) {
-    height: 220px;
-    min-width: 120px;
-  }
-
-  @media (max-width: 490px) {
-    height: 180px;
-    min-width: 100px;
-  }
-
-  @media (max-width: 390px) {
-    height: 150px;
-    min-width: 85px;
+  @media (max-width : 490px) {
+     width: 45%;
   }
 `;
 
@@ -92,15 +80,11 @@ const CardOverlay = styled.div`
 
 const CardTitle = styled.div`
   margin: 0;
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-md);
   line-height: 1.6;
 
-  @media (max-width: 1024px) {
-    font-size: var(--font-body-xs);
-  }
 
   @media (max-width: 768px) {
-    font-size: 10px;
     line-height: 1.4;
   }
 
@@ -110,7 +94,6 @@ const CardTitle = styled.div`
   }
 
   @media (max-width: 390px) {
-    font-size: 7px;
     line-height: 1.2;
   }
 `;
@@ -118,15 +101,8 @@ const CardTitle = styled.div`
 const Discount = styled.span`
   color: var(--color-base-primary);
   font-weight: 900;
-  font-size: 1.1em;
+  font-size: (--font-body-md);
 
-  @media (max-width: 768px) {
-    font-size: 0.9em;
-  }
-
-  @media (max-width: 490px) {
-    font-size: 0.8em;
-  }
 `;
 
 function RegularCard({ item }) {

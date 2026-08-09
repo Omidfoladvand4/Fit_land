@@ -9,7 +9,7 @@ const LinksContainer = styled.div`
 `;
 
 const LinksTitle = styled.h3`
-  font-size: var(--font-body-lg);
+  font-size: var(--font-body-large);
   font-weight: 700;
   margin-bottom: 8px;
 `;

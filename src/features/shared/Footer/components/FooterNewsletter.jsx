@@ -10,7 +10,7 @@ const NewsletterContainer = styled.div`
 `;
 
 const NewsletterTitle = styled.h3`
-  font-size: var(--font-body-lg);
+  font-size: var(--font-body-large);
   font-weight: 700;
 `;
 

@@ -36,27 +36,12 @@ const ProductWrapper = styled.div`
   flex: 1;
   height: 380px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 16px;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 8px 4px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-base-primary) var(--color-neutral-200);
 
-  &::-webkit-scrollbar {
-    height: 4px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: var(--color-neutral-200);
-    border-radius: 8px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: var(--color-base-primary);
-    border-radius: 8px;
-  }
 
   @media (max-width: 1024px) {
     height: 330px;
@@ -73,13 +58,13 @@ const ProductWrapper = styled.div`
     width: 100%;
     gap: 8px;
     padding: 4px 2px;
-    justify-content: center; /* ✅ وسط‌چین کردن کارت‌ها */
+    justify-content: center; 
   }
 
   @media (max-width: 390px) {
     height: 190px;
     gap: 6px;
-    justify-content: center; /* ✅ وسط‌چین کردن کارت‌ها */
+    justify-content: center; 
   }
 `;
 
@@ -110,25 +95,14 @@ const SectionTitle = styled.h2`
   font-size: var(--font-body-xl);
   font-weight: 700;
 
-  @media (max-width: 1024px) {
-    font-size: var(--font-body-lg);
-  }
-
-  @media (max-width: 768px) {
-    font-size: var(--font-body-md);
-  }
 `;
 
 const SectionParagraph = styled.p`
   color: var(--color-neutral-800);
-  font-size: var(--font-body-md);
-
-  @media (max-width: 1024px) {
-    font-size: var(--font-body-sm);
-  }
-
+  font-size: var(--font-body-large);
+  
+  
   @media (max-width: 768px) {
-    font-size: var(--font-body-xs);
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;

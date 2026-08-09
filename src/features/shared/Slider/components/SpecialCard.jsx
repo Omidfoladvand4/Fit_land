@@ -46,9 +46,6 @@ const Productimage = styled.img`
     opacity: 0.8;
     transition: all 0.3s ease;
 `
-const VipBadge = styled.div`
-  font-weight: 700;
-`;
 
 const ProductInfo = styled.div`
   display: flex;
@@ -59,8 +56,8 @@ const ProductInfo = styled.div`
   padding: var(--button-padding-medium);
 `;
 
-const ProductName = styled.h3`
-  font-size: var(--font-body-lg);
+const ProductName = styled.div`
+  font-size: var(--font-body-);
   font-weight: 600;
   margin-bottom: 8px;
 `;
@@ -84,8 +81,7 @@ function SpecialCard({product}) {
       </DiscountBadge>
       <Productimage loading='lazy' src= {product.image} alt= {product.name}/>
       <ProductInfo>
-      <VipBadge>{product.name}</VipBadge>
-        <ProductName>{product.title}</ProductName>
+        <ProductName>{product.name}</ProductName>
         <ProductPrice>{product.price} تومان</ProductPrice>
         <ProductSize>{product.size}</ProductSize>
       </ProductInfo>

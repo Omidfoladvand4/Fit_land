@@ -60,18 +60,20 @@
    --header-margin-medium : 24px ;
    --header-margin-large : 32px ;
 
-   --font-body-xxxl : 30px ;
-   --font-body-xxl : 26px ;
-   --font-body-xl : 20px ;
-   --font-body-large : 18px ;
-   --font-body-md : 16px ;
-   --font-body-sm : 14px ;
-   --font-body-xs : 12px ;
+ --font-body-xxxl: clamp(1.5rem, 3.5vw, 1.875rem);
+  --font-body-xxl: clamp(1.25rem, 3vw, 1.625rem);
+  --font-body-xl: clamp(1rem, 2.5vw, 1.25rem);
+  --font-body-large: clamp(0.875rem, 2vw, 1.125rem);
+  --font-body-md: clamp(0.75rem, 1.5vw, 1rem);
+  --font-body-sm: clamp(0.675rem, 1.2vw, 0.875rem);
+  --font-body-xs: clamp(0.6rem, 1vw, 0.75rem);
    
    --font-weight-light : 300 ;
    --font-weight-regular : 400;
    --font-weight-medium : 500;
    --font-weight-bold : 700 ;
+    --font-weight-extrabold: 800;
+  --font-weight-black: 900;
 
 }
 

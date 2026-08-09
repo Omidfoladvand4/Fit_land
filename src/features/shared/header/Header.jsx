@@ -83,7 +83,7 @@ const RightSectionList = styled.div`
    }
 `
 const RightSectionDiv = styled.div`
- font-size: var(--font-body-md);
+ font-size: var(--font-body-large);
  color: var(--color-neutral-800);
  font-weight: var(--font-weight-medium);
  
@@ -92,26 +92,18 @@ const RightSectionTitle = styled.div`
    font-size: var(--font-body-xxl);
    color: var(--color-base-secondary);
    font-weight: var(--font-weight-medium);
-    @media (max-width : 460px) {
- font-size: var(--font-body-large);
-  
- }
+
 `
 const RightSectionSubTitle = styled.div`
      font-size: var(--font-body-xxxl);
  color: var(--color-base-primary);
    font-weight: var(--font-weight-bold);
-       @media (max-width : 460px) {
- font-size: var(--font-body-xl);
-  
- }
 
 `
 const RightSectionp = styled.div`
  color: var(--color-neutral-800);
    font-weight: var(--font-weight-bold);
        @media (max-width : 460px) {
- font-size: var(--font-body-md);
  margin: 8px 0;
   
  }

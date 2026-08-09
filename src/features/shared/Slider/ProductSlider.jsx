@@ -28,10 +28,6 @@ const Header = styled.div`
 const Title = styled.h2`
   font-size: var(--font-body-xl);
   font-weight: 700;
-  @media (max-width : 490px) {
-  font-size: var(--font-body-md);
-    
-  }
 `;
 
 
@@ -91,7 +87,7 @@ function ProductSlider({ title = "جدید ترین کفش های ورزشی", p
     },
     breakpoints: {
       "(min-width: 1024px)": {
-        slides: { perView: 3, spacing: 16 },
+        slides: { perView: 4, spacing: 16 },
       },
       "(min-width: 768px)": {
         slides: { perView: 3, spacing: 16 },
