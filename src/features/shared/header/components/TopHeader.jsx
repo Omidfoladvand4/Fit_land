@@ -48,7 +48,7 @@ const TopSection = styled.div`
 `;
 
 const TopSectionBanner = styled.div`
-  width: 80%;
+  width: 90%;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -117,7 +117,7 @@ const DesktopAuthSection = styled.div`
 `;
 
 const Menu = styled.div`
-  width: 80%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: space-between;

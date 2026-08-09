@@ -17,6 +17,7 @@ const AuthSectionContainer = styled.div`
     background: var(--color-neutral-800);
     justify-content: space-evenly;
     border-radius: 12px;
+    color: var(--color-base-background);
   }
 `;
 
@@ -89,7 +90,7 @@ function AuthSection({ isMobile = false }) {
       <SignUpBtn>ثبت نام</SignUpBtn>
       <LoginBtn>
         ورود
-        <UserIcon />
+        <UserIcon color='var(--color-base-secondary)'/>
       </LoginBtn>
       <UserBasket>
         <BasketIcon />

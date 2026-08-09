@@ -9,7 +9,7 @@ import Button from "../Button/Button";
 const SliderContainer = styled.section`
   width: 100%;
   margin: 40px auto;
-  padding: 20px 10%;
+  padding: 20px 5%;
   position: relative;
   background: ${({ background }) => background || 'var(--color-base-background)'};
   @media (max-width: 490px) {

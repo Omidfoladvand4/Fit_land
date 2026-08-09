@@ -8,13 +8,12 @@ import FooterImage from './images/icons/FooterImage.png'
 import Button from '../Button/Button';
 import ButtonIcon from './images/icons/ButtonIcon'
 const HeaderContainer = styled.div`
-  width: 95%;
+  width: 90%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: var(--global-padding-medium);
   position: relative;
-  padding: 0 10%;
 `
 const LeftSection = styled.div`
   display: flex;

@@ -3,7 +3,7 @@ import RegularCard from '../../../shared/cards/regularcard/RegularCard';
 import Button from '../../../shared/Button/Button';
 
 const ProductContainer = styled.div`
-  width: 80%;
+  width: 90%;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
