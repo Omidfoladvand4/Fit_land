@@ -131,22 +131,20 @@ const MoblieNavBar = styled.div`
       display: flex;
    }
 `
-const BackIcon = styled.div`
+const BackIcon = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `
-const CloseIcon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const CloseIcon = styled(BackIcon)`
 `
 function SignIn() {
   return (
     <SignInContainer>
       <MoblieNavBar >
-          <BackIcon > برگشتن</BackIcon>
-          <CloseIcon >بستن</CloseIcon>
+          <BackIcon to='/'> برگشتن</BackIcon>
+          <CloseIcon  to='/'>بستن</CloseIcon>
       </MoblieNavBar>
       <RightSection>
        <RightSectionWrapper>

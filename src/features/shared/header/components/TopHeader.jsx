@@ -1,6 +1,6 @@
 // src/features/shared/header/components/TopHeader.jsx
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LogoSvg from "../images/Logo.svg";
 import SearchIcon from "../images/icons/SearchIcon";
 import StarIcon from "../images/icons/StarIcon";

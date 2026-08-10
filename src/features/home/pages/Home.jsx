@@ -39,6 +39,7 @@ function Home() {
   const latestProductsList = [
     { id: 1, name: "نایک", image: NikeImg },
     { id: 2, name: "پوما", image: PumaImg },
+    
   ];
   const discountProducts = [
     {
