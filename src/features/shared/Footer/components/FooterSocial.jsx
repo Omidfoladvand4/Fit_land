@@ -7,10 +7,13 @@ const SocialContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
+  @media (max-width : 480px) {
+      align-items: center;
+  }
 `;
 
 const SocialTitle = styled.h4`
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xxl);
   font-weight: 600;
 `;
 

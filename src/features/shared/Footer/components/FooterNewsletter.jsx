@@ -10,12 +10,12 @@ const NewsletterContainer = styled.div`
 `;
 
 const NewsletterTitle = styled.h3`
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xl);
   font-weight: 700;
 `;
 
 const NewsletterText = styled.p`
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   opacity: 0.8;
 `;
 
@@ -25,6 +25,7 @@ const Form = styled.form`
 
   @media (max-width: 490px) {
     flex-direction: column;
+    width: 100%;
   }
 `;
 
@@ -35,7 +36,7 @@ const Input = styled.input`
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   color: var(--color-base-background);
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   outline: none;
 
   &::placeholder {

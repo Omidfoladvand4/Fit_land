@@ -9,7 +9,7 @@ const LinksContainer = styled.div`
 `;
 
 const LinksTitle = styled.h3`
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xxl);
   font-weight: 700;
   margin-bottom: 8px;
 `;
@@ -25,7 +25,7 @@ const LinksItem = styled.li`
   a {
     color: var(--color-base-background);
     text-decoration: none;
-    font-size: var(--font-body-md);
+    font-size: var(--font-body-large);
     opacity: 0.8;
     transition: all 0.3s ease;
 

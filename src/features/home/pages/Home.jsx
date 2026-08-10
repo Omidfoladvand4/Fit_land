@@ -28,10 +28,10 @@ const MainSection = styled.div`
 `;
 const HomeImageBanner = styled.img`
   width: 100%;
-  height: 500px;
+  height: 600px;
   object-fit: cover;
    @media (max-width: 490px) {
-    background-size: cover;
+    background-size: contain;
     height: 175px;
   }
 `

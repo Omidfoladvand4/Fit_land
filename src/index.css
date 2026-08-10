@@ -63,7 +63,7 @@
    --header-margin-medium : 24px ;
    --header-margin-large : 32px ;
 
- --font-body-xxxl: clamp(1.5rem, 3.5vw, 1.875rem);
+  --font-body-xxxl: clamp(1.5rem, 3.5vw, 1.875rem);
   --font-body-xxl: clamp(1.25rem, 3vw, 1.625rem);
   --font-body-xl: clamp(1rem, 2.5vw, 1.25rem);
   --font-body-large: clamp(0.875rem, 2vw, 1.125rem);

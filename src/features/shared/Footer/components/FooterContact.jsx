@@ -8,7 +8,7 @@ const ContactContainer = styled.div`
 `;
 
 const ContactTitle = styled.h3`
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xxl);
   font-weight: 700;
   margin-bottom: 8px;
 `;
@@ -17,12 +17,12 @@ const ContactItem = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2px;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
 `;
 
 const ContactLabel = styled.span`
   opacity: 0.6;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
 `;
 
 const ContactValue = styled.span`
