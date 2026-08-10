@@ -268,7 +268,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   flex-direction: column;
   gap: 12px;
 `,vo=L.h3`
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xxl);
   font-weight: 700;
   margin-bottom: 8px;
 `,yo=L.ul`
@@ -280,7 +280,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   a {
     color: var(--color-base-background);
     text-decoration: none;
-    font-size: var(--font-body-md);
+    font-size: var(--font-body-large);
     opacity: 0.8;
     transition: all 0.3s ease;
 
@@ -295,11 +295,11 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   flex-direction: column;
   gap: 12px;
 `,Co=L.div`
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xxl);
   font-weight: 700;
   margin-bottom: 8px;
 `,wo=L.p`
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   line-height: 1.8;
   opacity: 0.85;
 `,To=L.div`
@@ -307,7 +307,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   align-items: center;
   gap: 8px;
   margin-top: 8px;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   font-weight: 600;
   color: var(--color-base-primary);
 `;function Eo(){return(0,d.jsxs)(V,{children:[(0,d.jsx)(Co,{children:`فروشگاه اینترنتی فیت‌لند`}),(0,d.jsx)(wo,{children:`فروشگاه لوازم ورزشی فیت‌لند در سال ۱۴۰۳ کار خود را به صورت حرفه‌ای آغاز کرد و با هدف ارائه جدیدترین محصولات ورزشی از قبیل لوازم فوتبال، فوتسال، والیبال، تنیس و... همچنین پوشش ورزشی و تجهیزات ورزشی، از برندهای مختلف دنیا در محیط کاربری استفاده می‌کند.`}),(0,d.jsx)(wo,{children:`اطمینان و با مجرب‌ترین مشاوران و کارشناسان ورزشی فعالیت می‌کنند. فروشگاه فیت‌لند دارای تمامی خدمات و خدمات ورزشی برای شما در این بخش می‌باشند و تمامی محصولات خود را با ۷ روز ضمانت بازگشت همراه با کارتنی، سلامت فیزیکی، با سریع‌ترین روش‌های ارسال به سراسر ایران در اختیار مشتریان خود قرار می‌دهد.`}),(0,d.jsx)(To,{children:` یک هفته ضمانت بازگشت`})]})}var Do=L.div`
@@ -316,10 +316,10 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   gap: 12px;
   margin-bottom: 24px;
 `,Oo=L.h3`
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xl);
   font-weight: 700;
 `,ko=L.p`
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   opacity: 0.8;
 `,Ao=L.form`
   display: flex;
@@ -327,6 +327,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
 
   @media (max-width: 490px) {
     flex-direction: column;
+    width: 100%;
   }
 `,jo=L.input`
   flex: 1;
@@ -335,7 +336,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   color: var(--color-base-background);
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   outline: none;
 
   &::placeholder {
@@ -364,17 +365,17 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   flex-direction: column;
   gap: 12px;
 `,Po=L.h3`
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xxl);
   font-weight: 700;
   margin-bottom: 8px;
 `,Fo=L.div`
   display: flex;
   flex-direction: column;
   gap: 2px;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
 `,Io=L.span`
   opacity: 0.6;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
 `,Lo=L.span`
   opacity: 0.9;
 `,Ro=L.div`
@@ -385,8 +386,11 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
   display: flex;
   flex-direction: column;
   gap: 12px;
+  @media (max-width : 480px) {
+      align-items: center;
+  }
 `,Ko=L.h4`
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xxl);
   font-weight: 600;
 `,qo=L.div`
   display: flex;
@@ -462,4 +466,4 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
     gap: 24px;
     width: 90%;
   }
-`;function as(){let e=yt();return e.pathname===`/Sign-in`||e.pathname===`/Sign-up`?null:(0,d.jsx)(rs,{children:(0,d.jsxs)(is,{children:[(0,d.jsx)(Eo,{}),(0,d.jsx)(So,{}),(0,d.jsx)(Bo,{}),(0,d.jsxs)(`div`,{children:[(0,d.jsx)(Mo,{}),(0,d.jsx)(Xo,{}),(0,d.jsx)(ns,{})]})]})})}function os(){return(0,d.jsx)(`div`,{children:`Loading`})}function ss(){let{pathname:e}=yt();return(0,x.useEffect)(()=>{window.scrollTo({top:0,behavior:`smooth`})},[e]),null}var cs=(0,x.lazy)(()=>te(()=>import(`./Home-3Z1fy0an.js`),[])),ls=(0,x.lazy)(()=>te(()=>import(`./SignIn-_tlDkF7g.js`),[])),us=(0,x.lazy)(()=>te(()=>import(`./NotFound-CA46XeTY.js`),[])),ds={HOME:`/`,SIGNIN:`/Sign-in`,NOTFOUND:`*`},fs=[{path:ds.HOME,element:(0,d.jsx)(cs,{})},{path:ds.NOTFOUND,element:(0,d.jsx)(us,{})},{path:ds.SIGNIN,element:(0,d.jsx)(ls,{}),layout:null}],ps=(0,x.memo)(()=>(0,d.jsxs)(x.Suspense,{fallback:(0,d.jsx)(os,{}),children:[(0,d.jsx)(ss,{}),(0,d.jsxs)(qt,{children:[fs.map(({path:e,element:t})=>(0,d.jsx)(Gt,{path:e,element:t},e)),(0,d.jsx)(Gt,{path:`*`,element:(0,d.jsx)(us,{})})]})]}));ps.displayName=`AppRoutes`,(0,S.createRoot)(document.getElementById(`root`)).render((0,d.jsx)(x.StrictMode,{children:(0,d.jsxs)(Mn,{children:[(0,d.jsx)(go,{}),(0,d.jsx)(f,{}),(0,d.jsx)(ps,{}),(0,d.jsx)(as,{})]})}));export{u as a,m as i,L as n,o,Nn as r,c as s,za as t};
+`;function as(){let e=yt();return e.pathname===`/Sign-in`||e.pathname===`/Sign-up`?null:(0,d.jsx)(rs,{children:(0,d.jsxs)(is,{children:[(0,d.jsx)(Eo,{}),(0,d.jsx)(So,{}),(0,d.jsx)(Bo,{}),(0,d.jsxs)(`div`,{children:[(0,d.jsx)(Mo,{}),(0,d.jsx)(Xo,{}),(0,d.jsx)(ns,{})]})]})})}function os(){return(0,d.jsx)(`div`,{children:`Loading`})}function ss(){let{pathname:e}=yt();return(0,x.useEffect)(()=>{window.scrollTo({top:0,behavior:`smooth`})},[e]),null}var cs=(0,x.lazy)(()=>te(()=>import(`./Home-DMvAhHR6.js`),[])),ls=(0,x.lazy)(()=>te(()=>import(`./SignIn-BXUxdMaH.js`),[])),us=(0,x.lazy)(()=>te(()=>import(`./NotFound-Clk6Gs2I.js`),[])),ds={HOME:`/`,SIGNIN:`/Sign-in`,NOTFOUND:`*`},fs=[{path:ds.HOME,element:(0,d.jsx)(cs,{})},{path:ds.NOTFOUND,element:(0,d.jsx)(us,{})},{path:ds.SIGNIN,element:(0,d.jsx)(ls,{}),layout:null}],ps=(0,x.memo)(()=>(0,d.jsxs)(x.Suspense,{fallback:(0,d.jsx)(os,{}),children:[(0,d.jsx)(ss,{}),(0,d.jsxs)(qt,{children:[fs.map(({path:e,element:t})=>(0,d.jsx)(Gt,{path:e,element:t},e)),(0,d.jsx)(Gt,{path:`*`,element:(0,d.jsx)(us,{})})]})]}));ps.displayName=`AppRoutes`,(0,S.createRoot)(document.getElementById(`root`)).render((0,d.jsx)(x.StrictMode,{children:(0,d.jsxs)(Mn,{children:[(0,d.jsx)(go,{}),(0,d.jsx)(f,{}),(0,d.jsx)(ps,{}),(0,d.jsx)(as,{})]})}));export{u as a,m as i,L as n,o,Nn as r,c as s,za as t};
