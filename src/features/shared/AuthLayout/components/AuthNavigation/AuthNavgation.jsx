@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { replace, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import CloseIcon from '../AuthNavigation/images/CloseIcon';
 import ArrowRightIcon from '../AuthNavigation/images/ArrowRight';
 const NavigationContainer = styled.div`
