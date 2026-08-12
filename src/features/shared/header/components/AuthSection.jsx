@@ -4,12 +4,14 @@ import BasketIcon from '../images/icons/BasketIcon';
 import { Link } from 'react-router-dom';
 
 const AuthSectionContainer = styled.div`
+  width: max-content;
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 10px 14px;
   border-radius: 14px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  margin-right: 10px;
 
   @media (max-width: 490px) {
     width: 100%;

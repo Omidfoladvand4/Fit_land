@@ -14,13 +14,16 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   padding: var(--global-padding-medium);
   position: relative;
+  @media (max-width : 1024px) {
+     width : 100%;
+  }
 `
 const LeftSection = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
-  @media (max-width : 460px) {
+  @media (max-width : 768px) {
      display: none;
   }
 `
@@ -119,7 +122,7 @@ const RightSectionp = styled.div`
   
 `
 const RightSectionImg = styled.img`
-  
+  width : 30% ;
   @media (max-width : 460px) {
      width: 130px;
      height: 149px;

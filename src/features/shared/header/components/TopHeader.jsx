@@ -53,7 +53,9 @@ const TopSectionBanner = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
   @media (max-width: 490px) {
     flex-direction: column;
     gap: 16px;
@@ -130,7 +132,10 @@ const Menu = styled.div`
   svg{
     cursor: pointer;
   }
-
+  @media (max-width: 1024px) {
+    width: 100%;
+    padding : 0 ;
+  }
   @media (max-width: 490px) {
     display: ${({ $open }) => ($open ? "flex" : "none")};
     width: 100%;
@@ -156,7 +161,9 @@ const MenuItems = styled.ul`
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  
+  @media (max-width: 1024px) {
+    width: 40%;
+  }
   @media (max-width: 490px) {
     flex-direction: column;
     width: 100%;
@@ -185,6 +192,9 @@ const MenuFeatures = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+    @media (max-width: 1024px) {
+    width: 55%;
+  }
   
   
   @media (max-width: 490px) {

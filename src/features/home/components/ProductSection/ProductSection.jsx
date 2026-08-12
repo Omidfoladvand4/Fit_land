@@ -12,7 +12,7 @@ const ProductContainer = styled.div`
   padding: var(--button-padding-medium);
 
   @media (max-width: 1024px) {
-    width: 90%;
+    width: 100%;
     gap: 12px;
   }
 
@@ -69,21 +69,13 @@ const ProductWrapper = styled.div`
 `;
 
 const SectionDetails = styled.div`
-  width: 30%;
+  width: 33% ;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   gap: 12px;
   flex-shrink: 0;
 
-  @media (max-width: 1024px) {
-    width: 25%;
-  }
-
-  @media (max-width: 768px) {
-    width: 20%;
-    gap: 8px;
-  }
 
   @media (max-width: 490px) {
     display: none;
