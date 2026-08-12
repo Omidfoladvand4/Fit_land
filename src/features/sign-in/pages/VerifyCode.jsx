@@ -4,7 +4,7 @@ import AuthLayout from '../../shared/AuthLayout/AuthLayout';
 import VerifyImage from '../images/VerifyImage.png';
 
 const Title = styled.div`
-  width: 80%;
+  width: 100%;
   color: var(--color-base-secondary);
   font-size: var(--font-body-xxxl);
   font-weight: var(--font-weight-bold);
@@ -12,9 +12,9 @@ const Title = styled.div`
 `;
 
 const Subtitle = styled.p`
-  width: 80%;
-  font-size: var(--font-body-md);
-  color: var(--color-neutral-600);
+  width: 100%;
+  font-size: var(--font-body-large);
+  color: var(--color-neutral-800);
   margin : 0 auto;
 `;
 
@@ -91,7 +91,7 @@ const Button = styled.button`
 `;
 
 const ResendContainer = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -103,7 +103,7 @@ const ResendLink = styled.button`
   background: none;
   border: none;
   color: var(--color-base-primary);
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-large);
   cursor: pointer;
   font-weight: var(--font-weight-bold);
   margin-left: 8px;
@@ -120,8 +120,8 @@ const ResendLink = styled.button`
 `;
 
 const Timer = styled.span`
-  font-size: var(--font-body-sm);
-  color: var(--color-neutral-600);
+  font-size: var(--font-body-large);
+  color: var(--color-neutral-800);
   font-weight: var(--font-weight-bold);
   direction: ltr;
   display: flex;

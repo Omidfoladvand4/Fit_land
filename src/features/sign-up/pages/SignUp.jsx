@@ -5,13 +5,13 @@ import SignUpImage from '../images/SignUpImage.png';
 const Title = styled.div`
   width: 100%;
   color: var(--color-base-secondary);
-  font-size: var(--font-body-xxl);
+  font-size: var(--font-body-xxxl);
   font-weight: var(--font-weight-bold);
 `;
 
 const Label = styled.label`
   width: 100%;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   color: var(--color-neutral-800);
   font-weight: var(--font-weight-bold);
 `;
@@ -19,13 +19,19 @@ const Label = styled.label`
 const Input = styled.input`
   width: 100%;
   border: 1px solid var(--color-neutral-800);
-  padding: 8px 12px;
+  padding: 12px 14px;
   border-radius: 12px;
   font-size: var(--font-body-md);
   outline: none;
+  transition: border-color 0.3s ease;
 
   &:focus {
     border-color: var(--color-base-primary);
+  }
+
+  &::placeholder {
+    font-weight: var(--font-weight-regular);
+    color: var(--color-neutral-400);
   }
 `;
 
@@ -35,7 +41,7 @@ const Button = styled.button`
   font-weight: var(--font-weight-bold);
   color: var(--color-base-background);
   background-color: var(--color-base-primary);
-  font-size: var(--font-body-xl);
+  font-size: var(--font-body-xxl);
   border-radius: 12px;
   margin-top: 16px;
   cursor: pointer;
@@ -50,7 +56,7 @@ const Button = styled.button`
 
 const Policy = styled.div`
   width: 100%;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   color: var(--color-neutral-800);
   margin: var(--global-margin-small) 0 0 0;
  
@@ -68,7 +74,7 @@ const BackButton = styled.button`
   width: max-content;
   text-align: start;
   background: none;
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xxl);
   font-weight: var(--font-weight-bold);
   color: var(--color-base-neutral-800);
   transition: all 0.3s ease;

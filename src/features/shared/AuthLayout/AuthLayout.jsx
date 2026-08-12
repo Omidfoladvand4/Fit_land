@@ -77,7 +77,7 @@ const RightContent = styled.div`
   background-color: var(--color-base-background);
 
   @media (max-width: 490px) {
-    width: 90%;
+   padding: 10px 14px;
   }
 `;
 
