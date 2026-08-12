@@ -5,8 +5,8 @@ import ScrollToTop from "../features/shared/ScrollToTop/ScrollToTop";
 
 const Home = lazy(() => import("../features/home/pages/Home"));
 const SignIn = lazy(() => import("../features/sign-in/pages/SignIn"));
+const SignUp = lazy(() => import("../features/sign-up/pages/SignUp"));
 const VerifyCode = lazy(() => import("../features/sign-in/pages/VerifyCode"));
-import SignUp from "../features/sign-up/pages/SignUp";
 const NotFound = lazy(() => import('../features/NotFound/pages/NotFound'));
 export const ROUTES = {
   HOME: "/",
