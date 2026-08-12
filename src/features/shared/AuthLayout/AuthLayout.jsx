@@ -60,6 +60,17 @@ const RightSection = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     padding: 16px;
+    animation: animate 0.5s ease;
+    @keyframes animate {
+      0%{
+        transform: translateX(100%);
+        opacity: 0;
+      }
+        100%{
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
   }
 `;
 
