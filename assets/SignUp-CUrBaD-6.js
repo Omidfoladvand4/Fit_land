@@ -1,14 +1,14 @@
-import{n as e,o as t}from"./index-DA6voOM3.js";import{t as n}from"./AuthLayout-Dt88epWk.js";var r=`/Fit_land/assets/SignUpImage-C_lIVS7I.png`,i=t(),a=e.div`
+import{c as e,n as t}from"./index-Cp0K4MIl.js";import{t as n}from"./AuthLayout-Bu0xjJMh.js";var r=`/Fit_land/assets/SignUpImage-C_lIVS7I.png`,i=e(),a=t.div`
   width: 100%;
   color: var(--color-base-secondary);
   font-size: var(--font-body-xxxl);
   font-weight: var(--font-weight-bold);
-`,o=e.label`
+`,o=t.label`
   width: 100%;
   font-size: var(--font-body-large);
   color: var(--color-neutral-800);
   font-weight: var(--font-weight-bold);
-`,s=e.input`
+`,s=t.input`
   width: 100%;
   border: 1px solid var(--color-neutral-800);
   padding: 12px 14px;
@@ -25,7 +25,7 @@ import{n as e,o as t}from"./index-DA6voOM3.js";import{t as n}from"./AuthLayout-D
     font-weight: var(--font-weight-regular);
     color: var(--color-neutral-400);
   }
-`,c=e.button`
+`,c=t.button`
   width: 100%;
   padding: 12px 14px;
   font-weight: var(--font-weight-bold);
@@ -42,19 +42,19 @@ import{n as e,o as t}from"./index-DA6voOM3.js";import{t as n}from"./AuthLayout-D
     opacity: 0.85;
     transform: translateY(-2px);
   }
-`,l=e.div`
+`,l=t.div`
   width: 100%;
   font-size: var(--font-body-large);
   color: var(--color-neutral-800);
   margin: var(--global-margin-small) 0 0 0;
  
-`,u=e.span`
+`,u=t.span`
   font-weight: var(--font-weight-bold);
   color: var(--color-base-secondary);
-`,d=e.input`
+`,d=t.input`
   margin-left: 8px;
   accent-color: var(--color-base-primary); 
-  `,f=e.button`
+  `,f=t.button`
   width: max-content;
   text-align: start;
   background: none;
