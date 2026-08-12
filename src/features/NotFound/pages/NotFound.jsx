@@ -2,20 +2,17 @@ import styled from "styled-components"
 import NotFoundImage from "../images/NotFoundImage.png"
 import HomeIcon from "../../shared/AuthLayout/components/AuthSidebar/icons/HomeIcon"
 const NotFoundContainer = styled.div`
-  height: 50vh;
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  font-size: 2rem;
-  padding: 10% 20%;
   font-weight: bold;
   @media (max-width: 768px) {
     padding: 10% 5%; 
     }
 `
 const NotFountWrapper = styled.div`
-  width: 50%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
