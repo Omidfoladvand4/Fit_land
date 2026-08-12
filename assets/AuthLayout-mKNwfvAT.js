@@ -1,4 +1,4 @@
-import{c as e,i as t,n,r,t as i}from"./index-Cp0K4MIl.js";import{t as a}from"./HomeIcon-VZ7-IENT.js";var o=e(),s=n.div`
+import{c as e,i as t,n,r,t as i}from"./index-q_DZ_Xf_.js";import{t as a}from"./HomeIcon-Dd52wZm_.js";var o=e(),s=n.div`
   width: 100%;
   height: 100vh;
   display: flex;
