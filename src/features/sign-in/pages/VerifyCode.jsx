@@ -100,12 +100,14 @@ const ResendContainer = styled.div`
 `;
 
 const ResendLink = styled.button`
+  width: max-content;
   background: none;
   border: none;
   color: var(--color-base-primary);
   font-size: var(--font-body-sm);
   cursor: pointer;
   font-weight: var(--font-weight-bold);
+  margin-left: 8px;
 
   &:hover {
     text-decoration: underline;
@@ -123,7 +125,9 @@ const Timer = styled.span`
   color: var(--color-neutral-600);
   font-weight: var(--font-weight-bold);
   direction: ltr;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 function VerifyCode() {
@@ -167,7 +171,6 @@ function VerifyCode() {
   return (
     <AuthLayout image={VerifyImage}>
       <Title>کد تایید را وارد کنید</Title>
-      <Subtitle>کد برای شما ارسال شد</Subtitle>
 
       <InputContainer>
         {[...Array(6)].map((_, index) => (
@@ -185,8 +188,8 @@ function VerifyCode() {
 
 
       <ResendContainer>
-        <ResendLink>ارسال دوباره</ResendLink>
-        <Timer>01:29</Timer>
+         <Subtitle>کد برای شما ارسال شد</Subtitle>
+        <Timer>01:29   <ResendLink>ارسال دوباره</ResendLink></Timer>
       </ResendContainer>
       <Button onClick={handleSubmit}>ثبت</Button>
     </AuthLayout>
