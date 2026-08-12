@@ -9,7 +9,7 @@ import DiscountIcon from "../images/icons/DiscountIcon";
 import MenuIcon from "../images/icons/MenuIcon";
 import CloseIcon from "../images/icons/CloseIcon";
 import AuthSection from "./AuthSection";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const TopHeaderContainer = styled.header`
   width: 100%;
@@ -172,10 +172,11 @@ const MenuItems = styled.ul`
   }
   `;
 
-const MenuItem = styled.li`
+const MenuItem = styled(Link)`
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: var(--font-body-large);
+  color: black;
   font-weight: 700;
 
   &:hover {
@@ -205,11 +206,12 @@ const MenuFeatures = styled.div`
   }
   `;
 
-const MenuFeatur = styled.div`
+const MenuFeatur = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: var(--font-body-large);
+  color: black;
   font-weight: 700;
   gap: 4px;
   cursor: pointer;
@@ -277,20 +279,22 @@ function TopHeader() {
           {isMenuOpen && <CloseIcon setIsOpen={setIsMenuOpen}/>}
           <MenuItems>
             {MENU_ITEMS.map((item, index) => (
-              <MenuItem key={index}>{item}</MenuItem>
+              <MenuItem to={`/products/${item}`} key={index}>
+                {item}
+              </MenuItem>
             ))}
           </MenuItems>
 
           <MenuFeatures>
-            <MenuFeatur>
+            <MenuFeatur to="/products/جدیدترین محصولات">
               <StarIcon />
               جدیدترین محصولات
             </MenuFeatur>
-            <MenuFeatur>
-              <DiscountIcon />
+            <MenuFeatur to= '/products/تخفیفات ویژه'>
+              <DiscountIcon  />
               تخفیفات ویژه
             </MenuFeatur>
-            <MenuFeatur>
+            <MenuFeatur to= '/products/پرفروش ترین ها'>
               <TrendingIcon />
               پرفروش ترین ها
             </MenuFeatur>

@@ -8,12 +8,14 @@ const SignIn = lazy(() => import("../features/sign-in/pages/SignIn"));
 const SignUp = lazy(() => import("../features/sign-up/pages/SignUp"));
 const VerifyCode = lazy(() => import("../features/sign-in/pages/VerifyCode"));
 const NotFound = lazy(() => import('../features/NotFound/pages/NotFound'));
+const Products = lazy(() => import('../features/products/pages/Products'));
 export const ROUTES = {
   HOME: "/",
   SIGNIN : '/Sign-in' ,
   NOTFOUND : '*',
   VERIFYCODE : '/Verify-Code',
   SIGNUP : '/Sign-up',
+  PRODUCTS : '/Products/:category'
 
 } 
 
@@ -23,6 +25,7 @@ const routes = [
   { path: ROUTES.SIGNIN, element: <SignIn />  },
   { path: ROUTES.SIGNUP, element: <SignUp /> },
   { path: ROUTES.VERIFYCODE, element: <VerifyCode /> },
+  { path: ROUTES.PRODUCTS, element: <Products /> },
 ];
 
 const AppRoutes = memo(() => {
