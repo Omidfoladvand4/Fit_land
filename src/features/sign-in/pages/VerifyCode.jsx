@@ -4,17 +4,18 @@ import AuthLayout from '../../shared/AuthLayout/AuthLayout';
 import VerifyImage from '../images/SignInImage.png';
 
 const Title = styled.div`
-  width: 100%;
+  width: 80%;
   color: var(--color-base-secondary);
   font-size: var(--font-body-xxxl);
   font-weight: var(--font-weight-bold);
+    margin : 0 auto ;
 `;
 
 const Subtitle = styled.p`
-  width: 100%;
+  width: 80%;
   font-size: var(--font-body-md);
   color: var(--color-neutral-600);
-  margin-top: -8px;
+  margin : 0 auto;
 `;
 
 const InputContainer = styled.div`
@@ -91,11 +92,11 @@ const Button = styled.button`
 `;
 
 const ResendContainer = styled.div`
-  width: 100%;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 12px;
+  margin: 12px auto;
 `;
 
 const ResendLink = styled.button`
@@ -182,12 +183,12 @@ function VerifyCode() {
         ))}
       </InputContainer>
 
-      <Button onClick={handleSubmit}>ثبت</Button>
 
       <ResendContainer>
         <ResendLink>ارسال دوباره</ResendLink>
         <Timer>01:29</Timer>
       </ResendContainer>
+      <Button onClick={handleSubmit}>ثبت</Button>
     </AuthLayout>
   );
 }
