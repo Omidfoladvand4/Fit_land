@@ -26,7 +26,7 @@ const ContactLabel = styled.span`
 `;
 
 const ContactValue = styled.span`
-  opacity: 0.9;
+  color: var(--color-base-primary);
 `;
 
 const ContactList = styled.div`

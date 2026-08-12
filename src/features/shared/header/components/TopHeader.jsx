@@ -228,6 +228,9 @@ const MENU_ITEMS = ["مردانه", "زنانه", "بچگانه", "لوازم و
 function TopHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
    const location = useLocation()
+     useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
     if (location.pathname === '/Sign-in' || location.pathname === '/Sign-up' || location.pathname === '/Verify-code') {
     return null;
   }

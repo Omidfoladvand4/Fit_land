@@ -1,6 +1,6 @@
 
 import styled from 'styled-components' ;
-import LikeIcon from './images/icons/like.jpg';
+import LikeIcon from './images/icons/like.png';
 import productIcon from './images/icons/product.png';
 import calendarIcon from './images/icons/calendar.png';
 import ManImage from './images/icons/man.png'
@@ -26,7 +26,8 @@ const LeftSection = styled.div`
 `
 const LeftSectionItems = styled.div`
    display: flex;
-   align-items: center;
+   align-items:  flex-start;
+   justify-content: center;
    flex-direction: column;
    gap: 24px;
    `
@@ -36,25 +37,33 @@ const LeftSectionItem = styled.div`
   gap: 10px;
   `
 const LeftSectionItemIcon = styled.div`
-  width: 60px;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--color-info-200);
+  flex-shrink: 0;
+  border-radius: 12px;
 `
 const LeftSectionItemImg = styled.img`
-  display: inline-block;
-  width: 100%;
+  display: block;
+  width: 60px;
   object-fit: cover;
   `
-const LeftSectionDetils = styled.div`
-display: flex;
-align-items: flex-start;
-flex-direction: column;
-gap: 8px;
-
+const LeftSectionDetails = styled.div`
+  display: flex;
+  background-color: transparent;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center; 
+  height: 100%; 
 `
+
 const LeftSectionItemCount = styled.div`
   color: var(--color-base-secondary);
+   font-size: var(--font-body-xl);
   font-weight: 700;
   
   `
@@ -156,37 +165,38 @@ function Header() {
         <RightSectionImg src={ManImage} alt='man.png'/>
       </RightSection>
       <LeftSection>
-         <LeftSectionItems >
-          <LeftSectionItem >
-            <LeftSectionItemIcon>
-              <LeftSectionItemImg src= {productIcon} alt = 'product.png' />
-            </LeftSectionItemIcon>
-            <LeftSectionDetils>
-              <LeftSectionItemCount> 300 +</LeftSectionItemCount>
-              <LeftSectionItemTitle>محصولات متنوع</LeftSectionItemTitle>
-            </LeftSectionDetils>
-          </LeftSectionItem>
-           <LeftSectionItem >
-            <LeftSectionItemIcon>
-              <LeftSectionItemImg src= {LikeIcon} alt = 'like.png' />
-            </LeftSectionItemIcon>
-            <LeftSectionDetils>
-              <LeftSectionItemCount> 95 %</LeftSectionItemCount>
-              <LeftSectionItemTitle> رضایت مشتری</LeftSectionItemTitle>
-            </LeftSectionDetils>
-          </LeftSectionItem>
+  <LeftSectionItems>
+    <LeftSectionItem>
+      <LeftSectionItemIcon>
+        <LeftSectionItemImg src={productIcon} alt="آیکون محصولات" />
+      </LeftSectionItemIcon>
+      <LeftSectionDetails>
+        <LeftSectionItemCount>۳۰۰ +</LeftSectionItemCount>
+        <LeftSectionItemTitle>محصولات متنوع</LeftSectionItemTitle>
+      </LeftSectionDetails>
+    </LeftSectionItem>
 
-           <LeftSectionItem >
-            <LeftSectionItemIcon>
-              <LeftSectionItemImg src= {calendarIcon} alt = 'calendar.png' />
-            </LeftSectionItemIcon>
-            <LeftSectionDetils>
-              <LeftSectionItemCount>روز 4</LeftSectionItemCount>
-              <LeftSectionItemTitle>از خرید تا دریافت</LeftSectionItemTitle>
-            </LeftSectionDetils>
-          </LeftSectionItem>
-         </LeftSectionItems>
-      </LeftSection>
+    <LeftSectionItem>
+      <LeftSectionItemIcon>
+        <LeftSectionItemImg src={LikeIcon} alt="آیکون پسندیدن" />
+      </LeftSectionItemIcon>
+      <LeftSectionDetails>
+        <LeftSectionItemCount>۹۵ %</LeftSectionItemCount>
+        <LeftSectionItemTitle>رضایت مشتری</LeftSectionItemTitle>
+      </LeftSectionDetails>
+    </LeftSectionItem>
+
+    <LeftSectionItem>
+      <LeftSectionItemIcon>
+        <LeftSectionItemImg src={calendarIcon} alt="آیکون تقویم" />
+      </LeftSectionItemIcon>
+      <LeftSectionDetails>
+        <LeftSectionItemCount>۴ روز</LeftSectionItemCount>
+        <LeftSectionItemTitle>از خرید تا دریافت</LeftSectionItemTitle>
+      </LeftSectionDetails>
+    </LeftSectionItem>
+  </LeftSectionItems>
+</LeftSection>
       <Footer > 
         <FooterImg  src = {FooterImage}/>
       </Footer>

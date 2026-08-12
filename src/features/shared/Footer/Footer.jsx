@@ -19,7 +19,7 @@ const FooterWrapper = styled.footer`
 `;
 
 const FooterContainer = styled.div`
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
