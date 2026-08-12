@@ -1,22 +1,22 @@
-import{a as e,n as t,r as n,t as r}from"./styled-components.browser.esm-zjVqCnwl.js";import{t as i}from"./index-Ch7C94Xp.js";var a=e(t(),1),o=`/Fit_land/assets/VerifyImage-CAqf-XqK.png`,s=n(),c=r.div`
+import{a as e,c as t,n,o as r}from"./index-DA6voOM3.js";import{t as i}from"./AuthLayout-Dt88epWk.js";var a=t(e(),1),o=`/Fit_land/assets/VerifyImage-CAqf-XqK.png`,s=r(),c=n.div`
   width: 100%;
   color: var(--color-base-secondary);
   font-size: var(--font-body-xxxl);
   font-weight: var(--font-weight-bold);
     margin : 0 auto ;
-`,l=r.p`
+`,l=n.p`
   width: 100%;
   font-size: var(--font-body-large);
   color: var(--color-neutral-800);
   margin : 0 auto;
-`,u=r.div`
+`,u=n.div`
   display: flex;
   gap: 8px;
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
   direction: ltr;
-`,d=r.input`
+`,d=n.input`
   width: 50px;
   height: 50px;
   text-align: center;
@@ -58,7 +58,7 @@ import{a as e,n as t,r as n,t as r}from"./styled-components.browser.esm-zjVqCnwl
     height: 45px;
     font-size: var(--font-body-xl);
   }
-`,f=r.button`
+`,f=n.button`
   width: 100%;
   padding: 12px 14px;
   font-weight: var(--font-weight-bold);
@@ -75,13 +75,13 @@ import{a as e,n as t,r as n,t as r}from"./styled-components.browser.esm-zjVqCnwl
     opacity: 0.85;
     transform: translateY(-2px);
   }
-`,p=r.div`
+`,p=n.div`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 12px auto;
-`,m=r.button`
+`,m=n.button`
   width: max-content;
   background: none;
   border: none;
@@ -100,7 +100,7 @@ import{a as e,n as t,r as n,t as r}from"./styled-components.browser.esm-zjVqCnwl
     cursor: not-allowed;
     text-decoration: none;
   }
-`,h=r.span`
+`,h=n.span`
   font-size: var(--font-body-large);
   color: var(--color-neutral-800);
   font-weight: var(--font-weight-bold);
