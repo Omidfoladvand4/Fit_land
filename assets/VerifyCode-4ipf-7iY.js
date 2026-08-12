@@ -1,4 +1,4 @@
-import{a as e,n as t,r as n,t as r}from"./styled-components.browser.esm-zjVqCnwl.js";import{t as i}from"./index-kWIMyUmK.js";var a=e(t(),1),o=`/Fit_land/assets/VerifyImage-CAqf-XqK.png`,s=n(),c=r.div`
+import{a as e,n as t,r as n,t as r}from"./styled-components.browser.esm-zjVqCnwl.js";import{t as i}from"./index-Ch7C94Xp.js";var a=e(t(),1),o=`/Fit_land/assets/VerifyImage-CAqf-XqK.png`,s=n(),c=r.div`
   width: 100%;
   color: var(--color-base-secondary);
   font-size: var(--font-body-xxxl);
