@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import AuthSidebar from './components/AuthSidebar/AuthSidebar';
+import AuthNavgation from './components/AuthNavigation/AuthNavgation';
 
 const LayoutContainer = styled.div`
   width: 100%;
@@ -56,6 +57,7 @@ function AuthLayout({ image, children }) {
     <LayoutContainer>
       
       <RightSection>
+        <AuthNavgation />
         <RightContent>
           {children}
         </RightContent>
