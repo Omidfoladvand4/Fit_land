@@ -41,7 +41,7 @@ const FooterContainer = styled.div`
 
 function Footer() {
   const location = useLocation()
-    if (location.pathname === '/Sign-in' || location.pathname === '/Sign-up') {
+    if (location.pathname === '/Sign-in' || location.pathname === '/Sign-up' || location.pathname === '/Verify-code') {
     return null;
   }
   return (
