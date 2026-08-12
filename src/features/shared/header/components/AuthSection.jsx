@@ -91,7 +91,7 @@ const UserBasketCount = styled.div`
 function AuthSection({ isMobile = false }) {
   return (
     <AuthSectionContainer>
-      <SignUpBtn >ثبت نام</SignUpBtn>
+      <SignUpBtn to='Sign-up'>ثبت نام</SignUpBtn>
       <LoginBtn to='Sign-in'>
         ورود
         <UserIcon color='var(--color-base-secondary)'/>

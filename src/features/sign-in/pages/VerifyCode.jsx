@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useRef } from 'react';
 import AuthLayout from '../../shared/AuthLayout/AuthLayout';
-import VerifyImage from '../images/SignInImage.png';
+import VerifyImage from '../images/VerifyImage.png';
 
 const Title = styled.div`
   width: 80%;

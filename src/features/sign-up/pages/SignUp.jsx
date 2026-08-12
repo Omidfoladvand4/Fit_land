@@ -1,19 +1,17 @@
-
 import styled from 'styled-components';
 import AuthLayout from '../../shared/AuthLayout/AuthLayout';
-import SignInImage from '../images/SignInImage.png';
-import { useNavigate } from 'react-router-dom';
+import SignUpImage from '../images/SignUpImage.png';
 
 const Title = styled.div`
   width: 100%;
   color: var(--color-base-secondary);
-  font-size: var(--font-body-xxxl);
+  font-size: var(--font-body-xxl);
   font-weight: var(--font-weight-bold);
 `;
 
 const Label = styled.label`
   width: 100%;
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-md);
   color: var(--color-neutral-800);
   font-weight: var(--font-weight-bold);
 `;
@@ -21,19 +19,13 @@ const Label = styled.label`
 const Input = styled.input`
   width: 100%;
   border: 1px solid var(--color-neutral-800);
-  padding: 12px 14px;
+  padding: 8px 12px;
   border-radius: 12px;
   font-size: var(--font-body-md);
   outline: none;
-  transition: border-color 0.3s ease;
 
   &:focus {
     border-color: var(--color-base-primary);
-  }
-
-  &::placeholder {
-    font-weight: var(--font-weight-regular);
-    color: var(--color-neutral-400);
   }
 `;
 
@@ -68,28 +60,41 @@ const Span = styled.span`
   font-weight: var(--font-weight-bold);
   color: var(--color-base-secondary);
 `;
+const BackButton = styled.button`
+  width: max-content;
+  text-align: start;
+  background: none;
+  font-size: var(--font-body-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-base-neutral-800);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.01);
+    transform-origin: center;
+    color: var(--color-base-primary);
+   }
 
-function SignIn() {
-  const navigate = useNavigate();
-  const SignInHandler = () => {
-    navigate('/Verify-code');
-  }
+  `
 
+
+function SignUp() {
   return (
-    <AuthLayout image={SignInImage}>
-      <Title>ورود | ثبت نام</Title>
-      <Label htmlFor="input">لطفا شماره تماس یا ایمیل خود را وارد کنید</Label>
-      <Input
-        id="input"
-        placeholder="Example@gmail.com یا 09123456789"
-      />
-      <Button onClick={() => SignInHandler()}>ادامه</Button>
+    <AuthLayout image={SignUpImage}>
+      <Title>ثبت نام</Title>
+      <Label>نام و نام خانوادگی *</Label>
+      <Input placeholder="نام و نام خانوادگی" />
+      <Label>رمز عبور *</Label>
+      <Input type="password" placeholder="رمز عبور" />
+      <Label>ایمیل (اختیاری)</Label>
+      <Input placeholder="ایمیل" />
+      <Button>ثبت نام</Button>
       <Policy>
-        ورود شما به معنای پذیرش شرایط <Span>فیت لند</Span> و{' '}
-        <Span>قوانین حریم خصوصی</Span> ماست
+        با ثبت نام، شرایط <Span>فیت لند</Span> را می‌پذیرید
       </Policy>
+      <BackButton onClick={() => window.history.back()}>صفحه قبلی</BackButton>
     </AuthLayout>
   );
 }
 
-export default SignIn;
+export default SignUp;
