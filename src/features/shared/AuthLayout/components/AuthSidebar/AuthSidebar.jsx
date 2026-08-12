@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import LogSvg from '../../shared/header/images/Logo.svg';
+import LogSvg from '../../../header/images/Logo.svg';
 import HomeIcon from './icons/HomeIcon';
 
 const SidebarWrapper = styled.div`
-  width: 50%;
+  width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -72,7 +72,7 @@ const BackToHome = styled(Link)`
 function AuthSidebar({SidebarImage}) {
   return (
     <SidebarWrapper $image ={SidebarImage}>
-      <Overlay />
+    <Overlay />
       <Content>
         <LogoImage src={LogSvg} alt="لوگوی فیت‌لند" />
         <BackToHome to="/">
