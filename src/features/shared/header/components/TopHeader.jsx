@@ -237,9 +237,11 @@ function TopHeader() {
        <MenuIcon />
       </MobileMenu>
 
-      <TopHeaderMessage>
-        با عضویت در فیت لند اولین ارسال را مهمان ما باشید :)
-      </TopHeaderMessage>
+    {location.pathname === "/" && (
+  <TopHeaderMessage>
+    با عضویت در فیت لند اولین ارسال را مهمان ما باشید :)
+  </TopHeaderMessage>
+)}
 
       <TopSection>
         <TopSectionBanner>
