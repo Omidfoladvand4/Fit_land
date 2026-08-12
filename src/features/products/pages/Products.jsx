@@ -35,6 +35,7 @@ const ToolbarWrapper = styled.div`
   align-items: center;
   width: 100%;
   gap: 8px;
+  position: relative;
 `;
 
 

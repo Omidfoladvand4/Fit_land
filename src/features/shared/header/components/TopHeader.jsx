@@ -19,7 +19,8 @@ const MobileMenu = styled.div`
   width: 30px;
   position: absolute;
   left: 0;
-  top: 60px;
+  top: ${({ $isHome }) => ($isHome ? '60px' : '45px')};
+  transform: ${({ $isHome }) => ($isHome ? 'none' : 'translateY(-50%)')};
   display: none;
   cursor: pointer;
   z-index: 99;
@@ -134,7 +135,7 @@ const Menu = styled.div`
   }
   @media (max-width: 1024px) {
     width: 100%;
-    padding : 0 ;
+    padding : 16px 6px;
   }
   @media (max-width: 490px) {
     display: ${({ $open }) => ($open ? "flex" : "none")};
@@ -239,24 +240,29 @@ const MENU_ITEMS = ["مردانه", "زنانه", "بچگانه", "لوازم و
 
 function TopHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-   const location = useLocation()
-     useEffect(() => {
+  const location = useLocation()
+  
+  const isHome = location.pathname === "/";
+  
+  useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
-    if (location.pathname === '/Sign-in' || location.pathname === '/Sign-up' || location.pathname === '/Verify-code') {
+  
+  if (location.pathname === '/Sign-in' || location.pathname === '/Sign-up' || location.pathname === '/Verify-code') {
     return null;
   }
+  
   return (
     <TopHeaderContainer>
-      <MobileMenu onClick={() => setIsMenuOpen((prev) => !prev)}>
-       <MenuIcon />
+      <MobileMenu $isHome={isHome} onClick={() => setIsMenuOpen((prev) => !prev)}>
+        <MenuIcon />
       </MobileMenu>
 
-    {location.pathname === "/" && (
-  <TopHeaderMessage>
-    با عضویت در فیت لند اولین ارسال را مهمان ما باشید :)
-  </TopHeaderMessage>
-)}
+      {location.pathname === "/" && (
+        <TopHeaderMessage>
+          با عضویت در فیت لند اولین ارسال را مهمان ما باشید :)
+        </TopHeaderMessage>
+      )}
 
       <TopSection>
         <TopSectionBanner>

@@ -46,21 +46,18 @@ const ArrowButton = styled.button`
   }
 `;
 
-// ---------- منطق کامپوننت ----------
 const Pagination = ({ 
   currentPage = 1, 
   totalPages = 10, 
   onPageChange 
 }) => {
   
-  // تابعی برای تولید آرایه‌ی اعداد صفحه‌ها (با در نظر گرفتن "..." )
   const getPageNumbers = () => {
-    const delta = 1; // تعداد صفحاتی که در اطراف صفحه فعلی نشان داده می‌شود
+    const delta = 1;
     const range = [];
     const rangeWithDots = [];
     let l;
 
-    // ابتدا یک بازه از اعداد می‌سازیم
     for (let i = 1; i <= totalPages; i++) {
       if (
         i === 1 ||
@@ -71,7 +68,6 @@ const Pagination = ({
       }
     }
 
-    // سپس "..." را جایگذاری می‌کنیم
     range.forEach((i) => {
       if (l) {
         if (i - l === 2) {
@@ -91,17 +87,15 @@ const Pagination = ({
 
   return (
     <PaginationContainer>
-      {/* دکمه بعدی (>) */}
       <ArrowButton 
-        disabled={currentPage === totalPages}
-        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage === 1}
+        onClick={() => onPageChange(currentPage - 1)}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
       </ArrowButton>
 
-      {/* اعداد صفحات */}
       {pageNumbers.map((number, index) => (
         <React.Fragment key={index}>
           {number === '...' ? (
@@ -116,12 +110,11 @@ const Pagination = ({
         </React.Fragment>
       ))}
 
-      {/* دکمه قبلی (<) */}
       <ArrowButton 
-        disabled={currentPage === 1}
-        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage === totalPages}
+        onClick={() => onPageChange(currentPage + 1)}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
       </ArrowButton>

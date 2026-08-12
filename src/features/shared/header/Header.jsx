@@ -122,16 +122,12 @@ const RightSectionp = styled.div`
   
 `
 const RightSectionImg = styled.img`
-  width : 30% ;
+  width : 40% ;
+  object-fit: contain;
+  aspect-ratio: 3 /4;
   @media (max-width : 460px) {
-     width: 130px;
-     height: 149px;
-     object-fit: cover;
-     position: absolute;
-     z-index: 98;
-     button: 0;
-     left: -40px;
-     z-index: -1;
+     width: 45%;
+     height: 100%;
   }
 `
 const  Footer = styled.div`
