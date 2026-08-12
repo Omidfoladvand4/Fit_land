@@ -20,7 +20,7 @@ const Subtitle = styled.p`
 
 const InputContainer = styled.div`
   display: flex;
-  gap: 12px;
+  gap: 8px;
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
@@ -28,13 +28,13 @@ const InputContainer = styled.div`
 `;
 
 const CodeInput = styled.input`
-  width: 52px;
-  height: 65px;
+  width: 50px;
+  height: 50px;
   text-align: center;
   font-size: var(--font-body-xxxl);
   font-weight: var(--font-weight-bold);
   border: 1px solid var(--color-neutral-800);
-  border-radius: 12px;
+  border-radius: 8px;
   outline: none;
   transition: all 0.3s ease;
   background-color: var(--color-base-background);
@@ -64,10 +64,9 @@ const CodeInput = styled.input`
   &[type="number"] {
     -moz-appearance: textfield;
   }
-
   @media (max-width: 490px) {
-    width: 42px;
-    height: 55px;
+    width: 35px;
+    height: 45px;
     font-size: var(--font-body-xl);
   }
 `;

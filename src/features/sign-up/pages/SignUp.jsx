@@ -50,16 +50,20 @@ const Button = styled.button`
 
 const Policy = styled.div`
   width: 100%;
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-md);
   color: var(--color-neutral-800);
-  margin-top: var(--global-margin-small);
-  text-align: center;
+  margin: var(--global-margin-small) 0 0 0;
+ 
 `;
 
 const Span = styled.span`
   font-weight: var(--font-weight-bold);
   color: var(--color-base-secondary);
 `;
+const ConfirmInput = styled.input`
+  margin-left: 8px;
+  accent-color: var(--color-base-primary); 
+  `
 const BackButton = styled.button`
   width: max-content;
   text-align: start;
@@ -90,7 +94,8 @@ function SignUp() {
       <Input placeholder="ایمیل" />
       <Button>ثبت نام</Button>
       <Policy>
-        با ثبت نام، شرایط <Span>فیت لند</Span> را می‌پذیرید
+        <ConfirmInput type="checkbox" />
+       <Span>قوانین ومقررات </Span> را خوانده و قبول دارم. 
       </Policy>
       <BackButton onClick={() => window.history.back()}>صفحه قبلی</BackButton>
     </AuthLayout>

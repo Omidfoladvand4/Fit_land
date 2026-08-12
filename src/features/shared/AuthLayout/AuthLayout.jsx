@@ -1,6 +1,8 @@
-import styled from 'styled-components';
-import AuthSidebar from './components/AuthSidebar/AuthSidebar';
-import AuthNavgation from './components/AuthNavigation/AuthNavgation';
+import styled from "styled-components";
+import AuthSidebar from "./components/AuthSidebar/AuthSidebar";
+import AuthNavgation from "./components/AuthNavigation/AuthNavgation";
+import BImage from "./images/BImage.png";
+import AImage from "./images/AImage.png";
 
 const LayoutContainer = styled.div`
   width: 100%;
@@ -9,6 +11,7 @@ const LayoutContainer = styled.div`
   align-items: stretch;
   overflow: hidden;
   background-color: var(--color-base-background);
+  position: relative;
 `;
 
 const LeftSection = styled.div`
@@ -30,22 +33,48 @@ const RightSection = styled.div`
   flex-direction: column;
   padding: 24px;
   background-color: var(--color-base-background);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: -10px;
+    left: -10px;
+    background: url(${AImage}) no-repeat center / contain;
+    z-index: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    bottom: -10px;
+    right: -10px;
+    background: url(${BImage}) no-repeat center / contain;
+    z-index: 0;
+  }
 
   @media (max-width: 768px) {
     width: 100%;
-    padding: 0px;
+    padding: 16px;
   }
 `;
 
 const RightContent = styled.div`
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
-   border: 1px solid var(--color-neutral-800);
-   border-radius: 8px;
-   padding: 14px 16px;
-  gap: 16px;
+  border: 1px solid var(--color-neutral-800);
+  border-radius: 8px;
+  padding: 14px 16px;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-base-background);
 
   @media (max-width: 490px) {
     width: 90%;
@@ -55,12 +84,9 @@ const RightContent = styled.div`
 function AuthLayout({ image, children }) {
   return (
     <LayoutContainer>
-      
       <RightSection>
         <AuthNavgation />
-        <RightContent>
-          {children}
-        </RightContent>
+        <RightContent>{children}</RightContent>
       </RightSection>
       <LeftSection>
         <AuthSidebar SidebarImage={image} />
