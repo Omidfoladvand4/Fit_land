@@ -13,6 +13,9 @@ const AddressCard = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+    @media (max-width : 786px) {
+     flex-direction: column;
+  }
 `;
 
 const AddressInfo = styled.div`
@@ -28,7 +31,7 @@ const AddressTitle = styled.span`
 
 const AddressText = styled.span`
   color: var(--color-neutral-800);
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-xxl);
 `;
 
 const AddressActions = styled.div`
@@ -41,18 +44,17 @@ const ActionButton = styled.button`
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: var(--font-body-xs);
+  font-size: var(--font-body-xxl);
   background: ${({ variant }) =>
-    variant === 'edit' ? 'var(--color-neutral-200)' : 'var(--color-error-50)'
+    variant === 'edit' ? 'var(--color-info-500)' : 'var(--color-error-500)'
   };
-  color: ${({ variant }) =>
-    variant === 'edit' ? 'var(--color-neutral-700)' : 'var(--color-error-800)'
-  };
+  color: var(--color-base-background);
   transition: all 0.2s ease;
 
   &:hover {
     opacity: 0.8;
   }
+
 `;
 
 

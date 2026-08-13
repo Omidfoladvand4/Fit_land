@@ -26,18 +26,19 @@ const ReviewProduct = styled.span`
 
 const ReviewDate = styled.span`
   color: var(--color-neutral-800);
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
 `;
 
 const ReviewStars = styled.div`
   color: #f59e0b;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   margin-bottom: 4px;
 `;
 
 const ReviewText = styled.p`
   color: var(--color-neutral-800);
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
+  font-weight: 800;
   line-height: 1.6;
 `;
 

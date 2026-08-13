@@ -8,10 +8,10 @@ const OrdersContainer = styled.div`
 `;
 
 const OrderCard = styled.div`
-  border: 1px solid var(--color-neutral-700);
+  border: 1px solid var(--color-neutral-800);
   border-radius: 12px;
   padding: 16px;
-  background-color: var(--color-neutral-800);
+  background-color: var(--color-base-background);
 `;
 
 const OrderHeader = styled.div`
@@ -27,14 +27,13 @@ const OrderId = styled.span`
 `;
 
 const OrderDate = styled.span`
-  color: var(--color-neutral-700);
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-large);
 `;
 
 const OrderStatus = styled.span`
   padding: 2px 12px;
   border-radius: 20px;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   font-weight: 600;
   background: ${({ status }) =>
     status === 'delivered' ? 'var(--color-info-800)' :
@@ -56,7 +55,7 @@ const OrderTotal = styled.span`
 const OrderItems = styled.div`
   margin-top: 8px;
   padding-top: 8px;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   color: var(--color-base-background);
 `;
 

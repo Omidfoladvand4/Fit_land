@@ -30,7 +30,7 @@ const RemoveButton = styled.button`
   border-radius: 6px;
   color: var(--color-error-800);
   cursor: pointer;
-  font-size: var(--font-body-xs);
+  font-size: var(--font-body-xxl);
   transition: all 0.2s ease;
 
   &:hover {

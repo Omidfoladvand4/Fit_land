@@ -22,7 +22,7 @@ const FormGroup = styled.div`
 `;
 
 const Label = styled.label`
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-xxl);
   font-weight: 600;
   position: absolute;
   padding: 4px 6px;
@@ -37,7 +37,7 @@ const Input = styled.input`
   padding: 12px 14px;
   border: 1px solid var(--color-neutral-800);
   border-radius: 8px;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-xl);
   outline: none;
   transition: border-color 0.2s ease;
   height: 48px;
@@ -70,7 +70,7 @@ const Button = styled.button`
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xxl);
   font-weight: 900;
   cursor: pointer;
   transition: all 0.3s ease;

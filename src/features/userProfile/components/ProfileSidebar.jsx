@@ -39,13 +39,13 @@ const Avatar = styled.div`
 `;
 
 const UserName = styled.h3`
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xxxl);
   font-weight: 700;
   color: black;
 `;
 
 const UserEmail = styled.p`
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-xl);
   color: black;
   
 `;
@@ -62,7 +62,7 @@ const MenuItem = styled.li`
   padding: 10px 14px;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-xxl);
   color: ${({ $active }) => 
     $active ? 'var(--color-base-secondary)' : 'black'
   };
