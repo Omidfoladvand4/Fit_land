@@ -5,6 +5,16 @@ const WishlistContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 16px;
+    animation: animate  0.4s ease;
+  @keyframes animate {
+    0%{
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100%{
+   opacity: 1;
+    }
+  }
 `;
 
 const WishlistItem = styled.div`

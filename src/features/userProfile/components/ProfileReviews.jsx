@@ -4,7 +4,16 @@ const ReviewsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-
+    animation: animate  0.4s ease;
+  @keyframes animate {
+    0%{
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100%{
+   opacity: 1;
+    }
+  }
 `;
 
 const ReviewCard = styled.div`
