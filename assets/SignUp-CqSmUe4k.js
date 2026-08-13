@@ -1,4 +1,4 @@
-import{c as e,n as t}from"./index-q_DZ_Xf_.js";import{t as n}from"./AuthLayout-mKNwfvAT.js";var r=`/Fit_land/assets/SignUpImage-C_lIVS7I.png`,i=e(),a=t.div`
+import{l as e,r as t}from"./index-lVG-3YxT.js";import{t as n}from"./AuthLayout-g42qRl26.js";var r=`/Fit_land/assets/SignUpImage-C_lIVS7I.png`,i=e(),a=t.div`
   width: 100%;
   color: var(--color-base-secondary);
   font-size: var(--font-body-xxxl);

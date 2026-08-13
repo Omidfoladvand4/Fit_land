@@ -1,4 +1,4 @@
-import{c as e,i as t,n}from"./index-q_DZ_Xf_.js";import{t as r}from"./AuthLayout-mKNwfvAT.js";var i=`/Fit_land/assets/SignInImage-B1_DyrZV.png`,a=e(),o=n.div`
+import{a as e,l as t,r as n}from"./index-lVG-3YxT.js";import{t as r}from"./AuthLayout-g42qRl26.js";var i=`/Fit_land/assets/SignInImage-B1_DyrZV.png`,a=t(),o=n.div`
   width: 100%;
   color: var(--color-base-secondary);
   font-size: var(--font-body-xxxl);
@@ -51,4 +51,4 @@ import{c as e,i as t,n}from"./index-q_DZ_Xf_.js";import{t as r}from"./AuthLayout
 `,d=n.span`
   font-weight: var(--font-weight-bold);
   color: var(--color-base-secondary);
-`;function f(){let e=t(),n=()=>{e(`/Verify-code`)};return(0,a.jsxs)(r,{image:i,children:[(0,a.jsx)(o,{children:`ورود | ثبت نام`}),(0,a.jsx)(s,{htmlFor:`input`,children:`لطفا شماره تماس یا ایمیل خود را وارد کنید`}),(0,a.jsx)(c,{id:`input`,placeholder:`Example@gmail.com یا 09123456789`}),(0,a.jsx)(l,{onClick:()=>n(),children:`ادامه`}),(0,a.jsxs)(u,{children:[`ورود شما به معنای پذیرش شرایط `,(0,a.jsx)(d,{children:`فیت لند`}),` و`,` `,(0,a.jsx)(d,{children:`قوانین حریم خصوصی`}),` ماست`]})]})}export{f as default};
+`;function f(){let t=e(),n=()=>{t(`/Verify-code`)};return(0,a.jsxs)(r,{image:i,children:[(0,a.jsx)(o,{children:`ورود | ثبت نام`}),(0,a.jsx)(s,{htmlFor:`input`,children:`لطفا شماره تماس یا ایمیل خود را وارد کنید`}),(0,a.jsx)(c,{id:`input`,placeholder:`Example@gmail.com یا 09123456789`}),(0,a.jsx)(l,{onClick:()=>n(),children:`ادامه`}),(0,a.jsxs)(u,{children:[`ورود شما به معنای پذیرش شرایط `,(0,a.jsx)(d,{children:`فیت لند`}),` و`,` `,(0,a.jsx)(d,{children:`قوانین حریم خصوصی`}),` ماست`]})]})}export{f as default};
