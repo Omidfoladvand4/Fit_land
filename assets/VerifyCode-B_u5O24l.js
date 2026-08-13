@@ -1,4 +1,4 @@
-import{c as e,d as t,l as n,r}from"./index-lVG-3YxT.js";import{t as i}from"./AuthLayout-g42qRl26.js";var a=t(e(),1),o=`/Fit_land/assets/VerifyImage-CAqf-XqK.png`,s=n(),c=r.div`
+import{c as e,d as t,l as n,r}from"./index-DWVO4log.js";import{t as i}from"./AuthLayout-DSnfnUMV.js";var a=t(e(),1),o=`/Fit_land/assets/VerifyImage-CAqf-XqK.png`,s=n(),c=r.div`
   width: 100%;
   color: var(--color-base-secondary);
   font-size: var(--font-body-xxxl);

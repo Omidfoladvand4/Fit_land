@@ -1,4 +1,4 @@
-import{a as e,i as t,l as n,n as r,r as i}from"./index-lVG-3YxT.js";import{t as a}from"./HomeIcon-Bk68DNn8.js";var o=n(),s=i.div`
+import{a as e,i as t,l as n,n as r,r as i}from"./index-DWVO4log.js";import{t as a}from"./HomeIcon-Cuj-GT-q.js";var o=n(),s=i.div`
   width: 100%;
   height: 100vh;
   display: flex;

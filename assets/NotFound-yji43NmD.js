@@ -1,4 +1,4 @@
-import{l as e,r as t}from"./index-lVG-3YxT.js";import{t as n}from"./HomeIcon-Bk68DNn8.js";var r=`/Fit_land/assets/NotFoundImage-DNCfZZc6.png`,i=e(),a=t.div`
+import{l as e,r as t}from"./index-DWVO4log.js";import{t as n}from"./HomeIcon-Cuj-GT-q.js";var r=`/Fit_land/assets/NotFoundImage-DNCfZZc6.png`,i=e(),a=t.div`
   min-height: 50vh;
   display: flex;
   justify-content: center;

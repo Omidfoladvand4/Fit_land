@@ -1,4 +1,4 @@
-import{c as e,d as t,l as n,r,t as i}from"./index-lVG-3YxT.js";import{n as a,t as o}from"./ProductCard-Bi481er_.js";var s=t(e(),1),c=n(),l=r.aside`
+import{c as e,d as t,l as n,r,t as i}from"./index-DWVO4log.js";import{n as a,t as o}from"./ProductCard-CqmzwuQ-.js";var s=t(e(),1),c=n(),l=r.aside`
   width: 280px;
   flex-shrink: 0;
   background:  var(--color-base-background);
@@ -31,11 +31,11 @@ import{c as e,d as t,l as n,r,t as i}from"./index-lVG-3YxT.js";import{n as a,t a
   font-weight: 700;
   margin: 0 auto 12px;
 `,f=r.h3`
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xxxl);
   font-weight: 700;
   color: black;
 `,p=r.p`
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-xl);
   color: black;
   
 `,m=r.ul`
@@ -48,7 +48,7 @@ import{c as e,d as t,l as n,r,t as i}from"./index-lVG-3YxT.js";import{n as a,t a
   padding: 10px 14px;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-xxl);
   color: ${({$active:e})=>e?`var(--color-base-secondary)`:`black`};
   font-weight: ${({$active:e})=>e?`900`:`400`};
   border-bottom: ${({$active:e})=>e?`2px solid var(--color-base-secondary)`:`1px solid transparent`};
@@ -93,7 +93,7 @@ import{c as e,d as t,l as n,r,t as i}from"./index-lVG-3YxT.js";import{n as a,t a
     width: 100%;
   }
 `,y=r.label`
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-xxl);
   font-weight: 600;
   position: absolute;
   padding: 4px 6px;
@@ -106,7 +106,7 @@ import{c as e,d as t,l as n,r,t as i}from"./index-lVG-3YxT.js";import{n as a,t a
   padding: 12px 14px;
   border: 1px solid var(--color-neutral-800);
   border-radius: 8px;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-xl);
   outline: none;
   transition: border-color 0.2s ease;
   height: 48px;
@@ -135,7 +135,7 @@ import{c as e,d as t,l as n,r,t as i}from"./index-lVG-3YxT.js";import{n as a,t a
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xxl);
   font-weight: 900;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -150,10 +150,10 @@ import{c as e,d as t,l as n,r,t as i}from"./index-lVG-3YxT.js";import{n as a,t a
   flex-direction: column;
   gap: 12px;
 `,T=r.div`
-  border: 1px solid var(--color-neutral-700);
+  border: 1px solid var(--color-neutral-800);
   border-radius: 12px;
   padding: 16px;
-  background-color: var(--color-neutral-800);
+  background-color: var(--color-base-background);
 `,E=r.div`
   display: flex;
   justify-content: space-between;
@@ -163,12 +163,11 @@ import{c as e,d as t,l as n,r,t as i}from"./index-lVG-3YxT.js";import{n as a,t a
   font-weight: 600;
   color: black;
 `,O=r.span`
-  color: var(--color-neutral-700);
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-large);
 `,k=r.span`
   padding: 2px 12px;
   border-radius: 20px;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   font-weight: 600;
   background: ${({status:e})=>e===`delivered`?`var(--color-info-800)`:e===`processing`?`var(--color-error-800)`:`var(--color-neutral-200)`};
   color: ${({status:e})=>e===`delivered`||e===`processing`?`var(--color-base-background)`:`var(--color-neutral-800)`};
@@ -178,7 +177,7 @@ import{c as e,d as t,l as n,r,t as i}from"./index-lVG-3YxT.js";import{n as a,t a
 `,j=r.div`
   margin-top: 8px;
   padding-top: 8px;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   color: var(--color-base-background);
 `,M=r.p`
   text-align: center;
@@ -217,7 +216,7 @@ import{c as e,d as t,l as n,r,t as i}from"./index-lVG-3YxT.js";import{n as a,t a
   border-radius: 6px;
   color: var(--color-error-800);
   cursor: pointer;
-  font-size: var(--font-body-xs);
+  font-size: var(--font-body-xxl);
   transition: all 0.2s ease;
 
   &:hover {
@@ -235,6 +234,9 @@ import{c as e,d as t,l as n,r,t as i}from"./index-lVG-3YxT.js";import{n as a,t a
   display: flex;
   justify-content: space-between;
   align-items: center;
+    @media (max-width : 786px) {
+     flex-direction: column;
+  }
 `,H=r.div`
   display: flex;
   flex-direction: column;
@@ -244,7 +246,7 @@ import{c as e,d as t,l as n,r,t as i}from"./index-lVG-3YxT.js";import{n as a,t a
   color: black;
 `,W=r.span`
   color: var(--color-neutral-800);
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-xxl);
 `,G=r.div`
   display: flex;
   gap: 8px;
@@ -253,14 +255,15 @@ import{c as e,d as t,l as n,r,t as i}from"./index-lVG-3YxT.js";import{n as a,t a
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: var(--font-body-xs);
-  background: ${({variant:e})=>e===`edit`?`var(--color-neutral-200)`:`var(--color-error-50)`};
-  color: ${({variant:e})=>e===`edit`?`var(--color-neutral-700)`:`var(--color-error-800)`};
+  font-size: var(--font-body-xxl);
+  background: ${({variant:e})=>e===`edit`?`var(--color-info-500)`:`var(--color-error-500)`};
+  color: var(--color-base-background);
   transition: all 0.2s ease;
 
   &:hover {
     opacity: 0.8;
   }
+
 `;function q({addresses:e}){return e.length===0?(0,c.jsx)(I,{text:`آدرسی ثبت نشده است`}):(0,c.jsx)(B,{children:e.map(e=>(0,c.jsxs)(V,{children:[(0,c.jsxs)(H,{children:[(0,c.jsx)(U,{children:e.title}),(0,c.jsx)(W,{children:e.text})]}),(0,c.jsxs)(G,{children:[(0,c.jsx)(K,{variant:`edit`,children:`ویرایش`}),(0,c.jsx)(K,{children:`حذف`})]})]},e.id))})}var J=r.div`
   display: flex;
   flex-direction: column;
@@ -279,14 +282,15 @@ import{c as e,d as t,l as n,r,t as i}from"./index-lVG-3YxT.js";import{n as a,t a
   color: black;
 `,re=r.span`
   color: var(--color-neutral-800);
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
 `,ie=r.div`
   color: #f59e0b;
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
   margin-bottom: 4px;
 `,ae=r.p`
   color: var(--color-neutral-800);
-  font-size: var(--font-body-md);
+  font-size: var(--font-body-large);
+  font-weight: 800;
   line-height: 1.6;
 `,oe=r.button`
     margin-top: 16px;
