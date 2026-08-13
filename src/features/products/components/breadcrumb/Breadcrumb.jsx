@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ArrowLeft from './icons/ArrowLeft';
+import { Link } from 'react-router-dom';
 const BreadcrumbContainer = styled.nav`
   display: flex;
   align-items: center;
@@ -13,18 +14,22 @@ const BreadcrumbContainer = styled.nav`
 `;
 
 const BreadcrumbItem = styled.span`
-  color: ${({ $isLast }) => ($isLast ? 'var(--color-base-secondary)' : 'var(--color-neutral-800)')};
-  font-weight: ${({ $isLast }) => ($isLast ? '600' : '400')};
-  cursor: ${({ $isLast }) => ($isLast ? 'default' : 'pointer')};
-  transition: color 0.2s ease;
+  a {
+    color: ${({ $isLast }) => ($isLast ? 'var(--color-base-secondary)' : 'var(--color-neutral-800)')};
+    font-weight: ${({ $isLast }) => ($isLast ? '600' : '400')};
+    cursor: ${({ $isLast }) => ($isLast ? 'default' : 'pointer')};
+    transition: color 0.2s ease;
+    text-decoration: none;
 
-  &:hover {
-    color: ${({ $isLast }) => ($isLast ? 'var(--color-base-secondary)' : 'var( --color-info-800)')};
+    &:hover {
+      color: ${({ $isLast }) => ($isLast ? 'var(--color-base-secondary)' : 'var(--color-info-800)')};
+    }
   }
 `;
 
 const Separator = styled.span`
   font-size: var(--font-body-md);
+  display: flex;
   user-select: none;
 `;
 
@@ -38,7 +43,7 @@ const Breadcrumb = ({ items = [] }) => {
         return (
           <React.Fragment key={index}>
             <BreadcrumbItem $isLast={isLast}>
-              {item}
+              <Link to={item === 'خانه' ? '/' : null}>{item}</Link>
             </BreadcrumbItem>
             
             {!isLast && <Separator><ArrowLeft /></Separator>}

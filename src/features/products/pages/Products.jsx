@@ -41,7 +41,7 @@ const ToolbarWrapper = styled.div`
 
 function Products() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(8);
+  const [itemsPerPage] = useState(9);
   const params = useParams();
 
   const decodedCategory = decodeURIComponent(params.category);

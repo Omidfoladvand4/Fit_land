@@ -131,11 +131,11 @@ function Home() {
         <ProductSlider
           title="تخفیفات ویژه"
           products={discountProducts}
-          background="var(--color-neutral-600)"
+          background="var(--color-neutral-700)"
         />
 
         <ProductSlider
-          title="جدید ترین کفش های ورزشی"
+          title=" کفش های ورزشی"
           products={LastestShoes}
           background="var(--color-base-background)"
         />

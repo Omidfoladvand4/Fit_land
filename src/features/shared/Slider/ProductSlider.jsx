@@ -14,7 +14,7 @@ const SliderContainer = styled.section`
   background: ${({ background }) => background || 'var(--color-base-background)'};
   @media (max-width: 490px) {
      width: 100%;
-     padding: 20px 12px;
+     padding: 20px 8px;
   }
 `;
 
@@ -26,7 +26,7 @@ const Header = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: var(--font-body-xl);
+  font-size: var(--font-body-xxl);
   font-weight: 700;
 `;
 
@@ -73,7 +73,7 @@ const Dot = styled.button`
   }
 `;
 
-function ProductSlider({ title = "جدید ترین کفش های ورزشی", products = []  , background}) {
+function ProductSlider({ title = "کفش های ورزشی", products = []  , background}) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
@@ -107,7 +107,7 @@ function ProductSlider({ title = "جدید ترین کفش های ورزشی", p
     <SliderContainer background = {background}>
       <Header>
         <Title>{title}</Title>
-       <Button  text= 'مشاهده همه' color='var(--color-base-secondry)' backgroundColor= 'transparent'/>
+       <Button  text= 'مشاهده همه' color='var(--color-base-secondary)' backgroundColor= 'transparent'/>
       </Header>
 
       <StyledSlider ref={sliderRef} className="keen-slider">

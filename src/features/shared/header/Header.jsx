@@ -80,7 +80,8 @@ const RightSection = styled.div`
   position: relative;
   @media (max-width : 460px) {
      width: 100%;
-  }
+
+}
 `
 const RightSectionList = styled.div`
    line-height: 2.1;
@@ -89,8 +90,9 @@ const RightSectionList = styled.div`
    gap: 4px;
    flex-direction: column;
    @media (max-width : 460px) {
-     width: 80%;
-     line-height: 1.2;
+     flex: 1;
+     line-height: 1.4;
+ 
    }
 `
 const RightSectionDiv = styled.div`
@@ -110,6 +112,7 @@ const RightSectionSubTitle = styled.div`
  color: var(--color-base-primary);
    font-weight: var(--font-weight-bold);
 
+
 `
 const RightSectionp = styled.div`
  color: var(--color-neutral-800);
@@ -123,10 +126,9 @@ const RightSectionp = styled.div`
 `
 const RightSectionImg = styled.img`
   width : 40% ;
-  object-fit: contain;
-  aspect-ratio: 3 /4;
+  object-fit: cover;
   @media (max-width : 460px) {
-     width: 45%;
+     width: 25%;
      height: 100%;
   }
 `
@@ -154,10 +156,11 @@ function Header() {
           <RightSectionTitle>همراه تو درمسیر سلامتی</RightSectionTitle>
           <RightSectionSubTitle>سهم  بزرگ خودتان راامروز بگیرید!</RightSectionSubTitle>
           <RightSectionp>بزرگترین حراج فصل فیت لند همین حالا شروع کن و محصولات  را با یک تخفیف شفت انگیز بخر</RightSectionp>
-          <Button 
+          <Button className = 'Header-button'
           text='مشاهده محصولات' 
           path= '/' color= 'var(--color-base-background)' 
           backgroundColor = 'var(--color-base-secondary)'
+          
           icon={<ButtonIcon />}
           />
         </RightSectionList>

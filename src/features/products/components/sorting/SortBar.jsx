@@ -16,14 +16,12 @@ const SortContainer = styled.div`
   @media (max-width: 480px) {
     width: 100%;
     gap: 2px;
-    justify-content: space-between;
-    flex-wrap: wrap;
   }
 `;
 
 const SortTab = styled.div`
   padding: 6px 16px;
-  font-size: calc(var(--font-body-xl) - 3px);
+  font-size: var(--font-size-large);
   font-weight: ${({ $isActive }) => ($isActive ? '900' : '600')};
   color: ${({ $isActive }) => ($isActive ? 'var(--color-base-primary)' : 'black')};
   border-bottom: 3px solid ${({ $isActive }) => ($isActive ? 'var(--color-base-primary)' : 'transparent')};
@@ -45,14 +43,63 @@ const SortTab = styled.div`
     border-bottom-width: 2px;
   }
 
+  /* ✅ مخفی کردن تب‌ها در موبایل */
   @media (max-width: 480px) {
-    padding: 4px 10px;
-    border-bottom-width: 2px;
-    flex: 1 0 auto;
-    text-align: center;
+    display: none;
+  }
+`;
+
+/* ✅ استایل Select در موبایل */
+const SelectWrapper = styled.div`
+  display: none;
+  width: 100%;
+  position: relative;
+
+  @media (max-width: 480px) {
+    display: block;
+  }
+`;
+
+const StyledSelect = styled.select`
+  width: 100%;
+  padding: 10px 14px;
+  font-size: var(--font-body-large);
+  font-weight: 600;
+  color: var(--color-neutral-800);
+  background-color: var(--color-base-background);
+  border: 2px solid var(--color-neutral-300);
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-left: 36px;
+
+  &:focus {
+    border-color: var(--color-base-primary);
+    
+  }
+   option {
+    padding: 12px 16px;
+    font-size: var(--font-body-md);
+    font-weight: 500;
+    color: var(--color-neutral-900);
+    background-color: var(--color-base-background);
+    border: none;
+    outline: none;
   }
 
+  option:hover {
+    background-color: var(--color-base-primary) !important;
+    color: var(--color-base-background) !important;
+  }
 
+  option:checked {
+    background-color: var(--color-base-primary);
+    color: var(--color-base-background);
+    font-weight: 700;
+  }
 `;
 
 const SortBar = ({ onSortChange }) => {
@@ -68,7 +115,17 @@ const SortBar = ({ onSortChange }) => {
   const handleOptionClick = (value) => {
     const foundOption = sortOptions.find((opt) => opt.value === value);
     setSelectedOption(foundOption);
-    
+
+    if (onSortChange) {
+      onSortChange(value);
+    }
+  };
+
+  const handleSelectChange = (e) => {
+    const value = e.target.value;
+    const foundOption = sortOptions.find((opt) => opt.value === value);
+    setSelectedOption(foundOption);
+
     if (onSortChange) {
       onSortChange(value);
     }
@@ -85,6 +142,16 @@ const SortBar = ({ onSortChange }) => {
           {option.label}
         </SortTab>
       ))}
+
+      <SelectWrapper>
+        <StyledSelect value={selectedOption.value} onChange={handleSelectChange}>
+          {sortOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </StyledSelect>
+      </SelectWrapper>
     </SortContainer>
   );
 };
