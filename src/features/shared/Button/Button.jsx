@@ -38,7 +38,7 @@ const ButtonContainer = styled(Link)`
   }
 `;
 
-function Button({ icon = <ButtonIcon />, text, path, color, backgroundColor  , width }) {
+function Button({ icon = <ButtonIcon />, text, path, color, backgroundColor  , width  }) {
   return (
     <ButtonContainer
       to={path || '/'}

@@ -162,6 +162,28 @@ const FilterBadge = styled.span`
   align-items: center;
   justify-content: center;
 `;
+const DeleteFilterBtn = styled.button`
+  width: 100%;
+  padding: 12px 15px;
+  background-color: var(--color-error-800);
+  color: var(--color-base-background);
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-size: var(--font-body-md);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-bottom: 24px;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`;
 
 const ProductFilters = ({ onFilterChange }) => {
   const colors = ['#000000', '#FFFFFF', '#E74C3C', '#3498DB', '#2ECC71', '#F1C40F'];
@@ -175,6 +197,22 @@ const ProductFilters = ({ onFilterChange }) => {
     selectedSizes: [],
   });
 
+  const handleClearAllFilters = () => {
+  const resetFilters = {
+    inStock: false,
+    hasDiscount: false,
+    priceRange: [0, 5000000],
+    selectedColors: [],
+    selectedSizes: [],
+  };
+  setFilters(resetFilters);
+  if (onFilterChange) onFilterChange(resetFilters);
+};
+const isFilterEmpty =
+  !filters.inStock &&
+  !filters.hasDiscount &&
+  filters.selectedColors.length === 0 &&
+  filters.selectedSizes.length === 0;
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -186,7 +224,7 @@ const ProductFilters = ({ onFilterChange }) => {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen]);
+  }, [isOpen ,]);
 
   const updateFilter = (key, value) => {
     const newFilters = { ...filters, [key]: value };
@@ -217,7 +255,7 @@ const ProductFilters = ({ onFilterChange }) => {
   return (
     <>
       <OpenFilterButton onClick={handleOpen}>
-       <FilterIcon />
+       <FilterIcon /> 
         {getActiveFilterCount() > 0 && (
           <FilterBadge>{getActiveFilterCount()}</FilterBadge>
         )}
@@ -234,6 +272,7 @@ const ProductFilters = ({ onFilterChange }) => {
         </Title>
 
         <Section>
+            <DeleteFilterBtn onClick={handleClearAllFilters}   disabled= {isFilterEmpty}>حذف همه فیلتر ها</DeleteFilterBtn>
           <FilterToggle
             label="محصولات موجود"
             isActive={filters.inStock}
