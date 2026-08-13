@@ -43,18 +43,15 @@ const SortTab = styled.div`
     border-bottom-width: 2px;
   }
 
-  /* ✅ مخفی کردن تب‌ها در موبایل */
   @media (max-width: 480px) {
     display: none;
   }
 `;
-
-/* ✅ استایل Select در موبایل */
 const SelectWrapper = styled.div`
   display: none;
   width: 100%;
   position: relative;
-
+  
   @media (max-width: 480px) {
     display: block;
   }
@@ -62,18 +59,13 @@ const SelectWrapper = styled.div`
 
 const StyledSelect = styled.select`
   width: 100%;
-  padding: 10px 14px;
+  padding: 10px 16px;
   font-size: var(--font-body-large);
   font-weight: 600;
-  color: var(--color-neutral-800);
-  background-color: var(--color-base-background);
-  border: 2px solid var(--color-neutral-300);
+  background-color: var(--color-info-500);
   border-radius: 8px;
   outline: none;
   cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   padding-left: 36px;
 
   &:focus {
@@ -82,7 +74,7 @@ const StyledSelect = styled.select`
   }
    option {
     padding: 12px 16px;
-    font-size: var(--font-body-md);
+    font-size: var(--font-body-large);
     font-weight: 500;
     color: var(--color-neutral-900);
     background-color: var(--color-base-background);

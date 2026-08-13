@@ -11,6 +11,10 @@ const ContactTitle = styled.h3`
   font-size: var(--font-body-xxl);
   font-weight: 700;
   margin-bottom: 8px;
+    @media (max-width : 490px) {
+  font-size: var(--font-body-xxxl);
+    
+  }
 `;
 
 const ContactItem = styled.div`
@@ -18,15 +22,29 @@ const ContactItem = styled.div`
   flex-direction: column;
   gap: 2px;
   font-size: var(--font-body-large);
+    @media (max-width : 490px) {
+  font-size: var(--font-body-xxxl);
+    
+  }
 `;
 
 const ContactLabel = styled.span`
   opacity: 0.6;
   font-size: var(--font-body-large);
+    @media (max-width : 490px) {
+  font-size: var(--font-body-xxxl);
+    
+  }
 `;
 
 const ContactValue = styled.span`
   color: var(--color-base-primary);
+    font-size: var(--font-body-large);
+    @media (max-width : 490px) {
+  font-size: var(--font-body-xxl);
+    
+  }
+
 `;
 
 const ContactList = styled.div`

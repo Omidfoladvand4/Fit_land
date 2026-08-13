@@ -8,7 +8,7 @@ const ProductContainer = styled.div`
   align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
-  margin: var(--global-margin-small) auto;
+  margin: 0 auto;
   padding: var(--button-padding-medium);
 
   @media (max-width: 1024px) {

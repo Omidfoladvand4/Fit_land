@@ -1,4 +1,3 @@
-// src/features/userProfile/components/ProfileOrders.jsx
 import styled from 'styled-components';
 
 const OrdersContainer = styled.div`

@@ -11,11 +11,8 @@ const FooterWrapper = styled.footer`
   width: 100%;
   background: var(--color-base-secondary);
   color: var(--color-base-background);
+  margin: 0 auto;
   padding: 40px 0 0 0;
-  margin-top: 60px;
-  @media (max-width : 390px) {
-      margin: 12px auto;
-  }
 `;
 
 const FooterContainer = styled.div`

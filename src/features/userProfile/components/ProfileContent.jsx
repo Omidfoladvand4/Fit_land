@@ -11,7 +11,17 @@ const ContentContainer = styled.div`
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-
+  animation: animate 0.3s ease ;
+  @keyframes animate {
+    0%{
+     opacity: 0;
+     transform: translateX(-100%);
+    }
+    100%{
+opacity: 1;
+     transform: translateX(0);
+    }
+  }
   @media (max-width: 768px) {
     padding: 16px;
   }

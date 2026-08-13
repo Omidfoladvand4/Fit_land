@@ -12,11 +12,19 @@ const NewsletterContainer = styled.div`
 const NewsletterTitle = styled.h3`
   font-size: var(--font-body-xl);
   font-weight: 700;
+      @media (max-width : 490px) {
+  font-size: var(--font-body-xxl);
+    
+  }
 `;
 
 const NewsletterText = styled.p`
   font-size: var(--font-body-large);
   opacity: 0.8;
+      @media (max-width : 490px) {
+  font-size: var(--font-body-xl);
+    
+  }
 `;
 
 const Form = styled.form`

@@ -8,7 +8,7 @@ import Button from "../Button/Button";
 
 const SliderContainer = styled.section`
   width: 100%;
-  margin: 40px auto;
+  margin: 0 auto;
   padding: 20px 5%;
   position: relative;
   background: ${({ background }) => background || 'var(--color-base-background)'};

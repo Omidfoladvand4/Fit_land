@@ -15,6 +15,10 @@ const SocialContainer = styled.div`
 const SocialTitle = styled.h4`
   font-size: var(--font-body-xxl);
   font-weight: 600;
+      @media (max-width : 490px) {
+  font-size: var(--font-body-xxxl);
+    
+  }
 `;
 
 const SocialIcons = styled.div`

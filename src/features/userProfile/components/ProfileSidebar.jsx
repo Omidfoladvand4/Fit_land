@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { useNavigate} from 'react-router-dom'
 const SidebarContainer = styled.aside`
   width: 350px;
   flex-shrink: 0;
@@ -107,6 +107,7 @@ const menuItems = [
 ];
 
 function ProfileSidebar({ user, activeTab, onTabChange }) {
+  const navigete = useNavigate()
   const getInitials = () => {
     if (!user) return '?';
     return `${user.firstName?.[0] || ''}${user.lastName?.[0] || ''}`;
@@ -115,7 +116,7 @@ function ProfileSidebar({ user, activeTab, onTabChange }) {
   const handleLogout = () => {
     localStorage.removeItem('authToken');
     localStorage.removeItem('user');
-    window.location.href = '/Sign-in';
+    navigete('/Sign-in')
   };
 
   return (

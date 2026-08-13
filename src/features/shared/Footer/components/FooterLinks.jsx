@@ -12,6 +12,10 @@ const LinksTitle = styled.h3`
   font-size: var(--font-body-xxl);
   font-weight: 700;
   margin-bottom: 8px;
+    @media (max-width : 490px) {
+  font-size: var(--font-body-xxxl);
+    
+  }
 `;
 
 const LinksList = styled.ul`
@@ -34,11 +38,15 @@ const LinksItem = styled.li`
       color: var(--color-base-primary);
       padding-right: 4px;
     }
+        @media (max-width : 490px) {
+  font-size: var(--font-body-xxl);
+    
+  }
   }
 `;
 
 const footerLinks = [
-  { name: 'محبوب‌ترین‌ها', path: '/popular' },
+  { name: 'محبوب‌ترین‌ها', path: '/Product/مردانه' },
   { name: 'خدمات مشتریان', path: '/services' },
   { name: 'راهنمای خرید', path: '/guide' },
   { name: 'اطلاعات تماس', path: '/contact' },

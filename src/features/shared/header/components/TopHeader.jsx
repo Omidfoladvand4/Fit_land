@@ -18,8 +18,8 @@ const TopHeaderContainer = styled.header`
 const MobileMenu = styled.div`
   width: 30px;
   position: absolute;
-  left: 0;
-  top: ${({ $isHome }) => ($isHome ? '60px' : '45px')};
+  left: 12px;
+  top: ${({ $isHome }) => ($isHome ? '65px' : '45px')};
   transform: ${({ $isHome }) => ($isHome ? 'none' : 'translateY(-50%)')};
   display: none;
   cursor: pointer;
