@@ -22,10 +22,9 @@ const FormGroup = styled.div`
 `;
 
 const Label = styled.label`
-  font-size: var(--font-body-xxl);
+  font-size: var(--font-body-xl);
   font-weight: 600;
   position: absolute;
-  padding: 4px 6px;
   top: -20px;
   right: 12px;
   background-color: var(--color-base-background);

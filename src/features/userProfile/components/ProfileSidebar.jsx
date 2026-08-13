@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const SidebarContainer = styled.aside`
-  width: 280px;
+  width: 350px;
   flex-shrink: 0;
   background:  var(--color-base-background);
   border-radius: 16px;
