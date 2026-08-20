@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { supabase } from '../../../lib/supabase';
 import AuthLayout from '../../shared/AuthLayout/AuthLayout';
 import VerifyImage from '../images/VerifyImage.png';
 
@@ -46,7 +48,6 @@ const CodeInput = styled.input`
   }
 
   &::placeholder {
-    
     color: var(--color-neutral-400);
     font-weight: var(--font-weight-regular);
     font-size: var(--font-body-xxxl);
@@ -87,6 +88,10 @@ const Button = styled.button`
   &:hover {
     opacity: 0.85;
     transform: translateY(-2px);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 `;
 
@@ -130,6 +135,17 @@ const Timer = styled.span`
 `;
 
 function VerifyCode() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const identifier = location.state?.identifier;
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // اگر کاربر مستقیم این صفحه رو باز کرده، برگردونش به صفحه ورود
+  if (!identifier) {
+    navigate('/Sign-in');
+    return null;
+  }
+
   const inputRefs = [
     useRef(null),
     useRef(null),
@@ -162,9 +178,44 @@ function VerifyCode() {
     return inputRefs.map(ref => ref.current?.value || '').join('');
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const code = getFullCode();
-    console.log('کد کامل:', code);
+    if (code.length !== 6) {
+      alert('لطفا کد ۶ رقمی را کامل وارد کنید');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // تشخیص نوع ورودی برای تایید
+    const isEmail = identifier.includes('@');
+    const payload = isEmail 
+      ? { email: identifier, token: code, type: 'email' }
+      : { phone: identifier, token: code, type: 'sms' };
+
+    const { data, error } = await supabase.auth.verifyOtp(payload);
+
+    setIsSubmitting(false);
+
+    if (error) {
+      alert(`کد وارد شده اشتباه است یا منقضی شده: ${error.message}`);
+    } else {
+      alert('ورود با موفقیت انجام شد!');
+      navigate('/User-profile');
+    }
+  };
+
+  const handleResend = async () => {
+    const isEmail = identifier.includes('@');
+    const payload = isEmail ? { email: identifier } : { phone: identifier };
+
+    const { error } = await supabase.auth.signInWithOtp(payload);
+    if (error) {
+      alert(`خطا در ارسال مجدد: ${error.message}`);
+    } else {
+      alert('کد جدید با موفقیت ارسال شد.');
+      // اینجا می‌تونی تایمر رو ریست کنی
+    }
   };
 
   return (
@@ -185,12 +236,16 @@ function VerifyCode() {
         ))}
       </InputContainer>
 
-
       <ResendContainer>
          <Subtitle>کد برای شما ارسال شد</Subtitle>
-        <Timer>01:29   <ResendLink>ارسال دوباره</ResendLink></Timer>
+        <Timer>
+           01:29   
+           <ResendLink onClick={handleResend}>ارسال دوباره</ResendLink>
+        </Timer>
       </ResendContainer>
-      <Button onClick={handleSubmit}>ثبت</Button>
+      <Button onClick={handleSubmit} disabled={isSubmitting}>
+        {isSubmitting ? 'در حال تایید...' : 'ثبت'}
+      </Button>
     </AuthLayout>
   );
 }

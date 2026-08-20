@@ -13,13 +13,17 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.7.1",
     "@rolldown/binding-win32-x64-msvc": "^1.2.3",
+    "@supabase/supabase-js": "^2.112.3",
     "keen-slider": "^6.8.6",
     "rc-slider": "^11.1.9",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-hook-form": "^7.85.0",
     "react-router-dom": "^7.18.2",
-    "styled-components": "^6.5.0"
+    "styled-components": "^6.5.0",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
