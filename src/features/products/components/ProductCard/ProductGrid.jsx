@@ -37,8 +37,9 @@ const ProductGrid = ({ products = [] }) => {
   return (
     <GridContainer>
       {products.map((product) => (
-        <ProductCard
+        <ProductCard 
           key={product.id}
+          ProductId={product.id}
           image={product.image}
           title={product.title}
           price={product.price}

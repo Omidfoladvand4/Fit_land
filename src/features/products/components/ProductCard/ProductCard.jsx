@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const CardWrapper = styled.div`
+const CardWrapper = styled(Link)`
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
@@ -227,9 +228,10 @@ const ProductCard = ({
   title = 'NCY تیشرت زنانه',
   price = 160000,
   originalPrice = 200000,
-  rating = 4.5,
-  colors = ['#000000', '#b5651d', '#ffffff'],
-  sizes = ['XL', 'L', 'S', '2XL', 'M']
+  rating ,
+  colors ,
+  sizes ,
+  ProductId
 }) => {
   const renderRating = (rating) => {
     const stars = [];
@@ -255,7 +257,7 @@ const ProductCard = ({
   };
 
   return (
-    <CardWrapper>
+    <CardWrapper to= {`/Product-Detail/${ProductId}`}>
       <ImageWrapper>
         <img src={image} alt={title} />
         <CardSizeWrapper>

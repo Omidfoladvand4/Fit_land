@@ -1,9 +1,11 @@
 
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Card = styled.div`
+const Card = styled(Link)`
   min-height: 367px;
   background: var(--color-base-background);
+  color: black;
   border-radius: 16px;
   position: relative;
   overflow: hidden;
@@ -75,7 +77,7 @@ const ProductSize = styled.p`
 
 function SpecialCard({product}) {
   return (
-    <Card>
+    <Card to={`/Product-Detail/${product.id}`}>
       <DiscountBadge>
         %{product.discount ||  'VIP'}
       </DiscountBadge>
