@@ -11,6 +11,7 @@ const TabsContainer = styled.div`
   overflow: hidden;
       @media (max-width : 490px) {
     width: 100%;
+    padding: 0 12px;
   }
 `;
 

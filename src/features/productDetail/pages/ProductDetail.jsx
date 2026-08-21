@@ -14,7 +14,9 @@ const PageContainer = styled.div`
   max-width: 100%;
   margin: 0 auto;
   padding: 24px;
-  direction: rtl;
+  @media (max-width : 490px) {
+     padding: 12px 0;
+  }
 `;
 
 const ProductSection = styled.div`
@@ -34,7 +36,7 @@ const RelatedproductsContainer = styled.div`
   margin:  16px auto;
 `
 const StoreFeaturesContainer = styled.div`
-  width: 100vw;
+ max-width: 100%;
   @media (max-width : 490px) {
     display: none;
   }
