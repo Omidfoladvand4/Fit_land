@@ -1,4 +1,3 @@
-// src/features/productDetail/components/ProductActions.jsx
 import styled from 'styled-components';
 import { useState } from 'react';
 import ShareIcon from '../images/share';
@@ -15,7 +14,7 @@ const ActionsContainer = styled.div`
 `;
 
 const SectionTitle = styled.span`
-  font-size: var(--font-body-large);
+  font-size: var(--font-body-xxl);
   font-weight: 600;
   display: block;
   margin-bottom: 12px;
@@ -54,6 +53,10 @@ const SizeContainer = styled.div`
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
   opacity: ${({ $isOpen }) => $isOpen ? '1' : '0'};
+      @media (max-width : 490px) {
+    width: 100%;
+    margin-bottom: 12px;
+  }
 `;
 
 const SizeOption = styled.button`
@@ -82,6 +85,19 @@ const SizeOption = styled.button`
   }
 `;
 
+
+const LastSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+  gap: 12px;
+
+  @media (max-width: 490px) {
+     flex-direction: row; 
+  }
+`;
+
 const QuantityContainer = styled.div`
   width: max-content;
   display: flex;
@@ -92,6 +108,11 @@ const QuantityContainer = styled.div`
   border-radius: 8px;
   border: 0.15rem solid var(--color-base-primary);
   color: var(--color-base-primary);
+
+  @media (max-width: 490px) {
+     flex: 1; 
+     min-width: 110px;
+  }
 `;
 
 const QuantityButton = styled.button`
@@ -124,6 +145,19 @@ const QuantityDisplay = styled.span`
   text-align: center;
 `;
 
+const ButtonRow = styled.div`
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  order: 3;
+  
+  @media (max-width: 490px) {
+    flex: 1; 
+    justify-content: flex-end;
+    order: 0;
+  }
+`;
+
 const AddToCartButton = styled.button`
   padding: 14px 32px;
   background: var(--color-base-primary);
@@ -150,6 +184,11 @@ const AddToCartButton = styled.button`
     cursor: not-allowed;
     transform: none;
   }
+
+  @media (max-width: 490px) {
+    width: 100%;
+    flex: 1 0 100%;
+  }
 `;
 
 const WishlistButton = styled.button`
@@ -174,15 +213,6 @@ const WishlistButton = styled.button`
   }
 `;
 
-const ButtonRow = styled.div`
-  display: flex;
-  gap: 12px;
-  
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
 const SizeTitle = styled(SectionTitle)`
   width: 50%;
   cursor: pointer;
@@ -196,13 +226,16 @@ const SizeTitle = styled(SectionTitle)`
   &:hover {
     color: var(--color-base-primary);
   }
+  @media (max-width : 490px) {
+    width: 100%;
+  }
 `;
 
 const SizeIconWrapper = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-   width: 24px;     
+  width: 24px;     
   height: 24px;
      
   svg {
@@ -210,6 +243,7 @@ const SizeIconWrapper = styled.span`
     height: 20px;
   }
 `;
+
 
 function ProductActions({
   colors,
@@ -279,7 +313,8 @@ function ProductActions({
         </div>
       )}
 
-      <div style={{display : 'flex' , alignItems : 'center' , justifyContent : 'space-between'}}>
+      <LastSection>
+        
         <QuantityContainer>
           <QuantityButton 
             onClick={() => handleQuantityChange(-1)}
@@ -295,19 +330,23 @@ function ProductActions({
             +
           </QuantityButton>
         </QuantityContainer>
+
         <ButtonRow>
-          <AddToCartButton 
+           <ShareIcon />
+           <WishlistButton onClick={onAddToWishlist}>
+            <HeartIcon fill='red'/>
+          </WishlistButton>
+        </ButtonRow>
+
+        <AddToCartButton 
             onClick={onAddToCart}
             disabled={stock === 0}
           >
             افزودن به سبد خرید <CartIcon />
-          </AddToCartButton>
-          <WishlistButton onClick={onAddToWishlist}>
-            <HeartIcon fill='red'/>
-          </WishlistButton>
-        </ButtonRow>
-        <ShareIcon />
-      </div>
+        </AddToCartButton>
+
+      </LastSection>
+
     </ActionsContainer>
   );
 }

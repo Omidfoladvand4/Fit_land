@@ -8,26 +8,37 @@ import ProductGallery from '../components/ProductGallery';
 import ProductInfo from '../components/ProductInfo';
 import ProductTabs from '../components/ProductTabs';
 import RelatedProducts from '../components/RelatedProducts';
+import StoreFeatures  from '../../home/components/StoreFeatures/StoreFeatures'
 
 const PageContainer = styled.div`
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 24px;
   direction: rtl;
 `;
 
 const ProductSection = styled.div`
+  width: 90%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  margin: 24px 0 40px;
+  margin: 24px auto;
 
   @media (max-width: 992px) {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 `;
-
+const RelatedproductsContainer = styled.div`
+  width: 90% ;
+  margin:  16px auto;
+`
+const StoreFeaturesContainer = styled.div`
+  width: 100vw;
+  @media (max-width : 490px) {
+    display: none;
+  }
+`
 const ErrorMessage = styled.div`
   text-align: center;
   padding: 60px 20px;
@@ -92,7 +103,12 @@ function ProductDetail() {
         reviews={product.reviews}
       />
 
-      <RelatedProducts products={product.relatedProducts} />
+      <RelatedproductsContainer >
+        <RelatedProducts products={product.relatedProducts} />
+      </RelatedproductsContainer>
+      <StoreFeaturesContainer >
+         <StoreFeatures />
+      </StoreFeaturesContainer>
     </PageContainer>
   );
 }

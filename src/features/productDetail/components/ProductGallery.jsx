@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { useState } from 'react';
+import styled from "styled-components";
+import { useState } from "react";
 
-const FALLBACK_IMAGE = 'https://picsum.photos/seed/fallback/600/600';
+const FALLBACK_IMAGE = "https://picsum.photos/seed/fallback/600/600";
 
 const GalleryContainer = styled.div`
   display: flex;
@@ -14,7 +14,6 @@ const MainImage = styled.div`
   height: 380px;
   overflow: hidden;
   position: relative;
-
   img {
     width: 100%;
     height: 100%;
@@ -49,9 +48,9 @@ const Thumbnail = styled.div`
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  border: 2px solid ${({ $active }) => 
-    $active ? 'var(--color-base-primary)' : 'var(--color-neutral-800)'
-  };
+  border: 2px solid
+    ${({ $active }) =>
+      $active ? "var(--color-base-primary)" : "var(--color-neutral-800)"};
   transition: all 0.2s ease;
   flex-shrink: 0;
 
@@ -79,10 +78,7 @@ function ProductGallery({ images }) {
     return (
       <GalleryContainer>
         <MainImage>
-          <img 
-            src={FALLBACK_IMAGE} 
-            alt="تصویر محصول" 
-          />
+          <img src={FALLBACK_IMAGE} alt="تصویر محصول" />
         </MainImage>
       </GalleryContainer>
     );
@@ -91,9 +87,9 @@ function ProductGallery({ images }) {
   return (
     <GalleryContainer>
       <MainImage>
-        <img 
-          src={images[activeImage]?.url || FALLBACK_IMAGE} 
-          alt={images[activeImage]?.alt || 'تصویر محصول'} 
+        <img
+          src={images[activeImage]?.url || FALLBACK_IMAGE}
+          alt={images[activeImage]?.alt || "تصویر محصول"}
           onError={(e) => {
             e.target.src = FALLBACK_IMAGE;
           }}
@@ -104,11 +100,10 @@ function ProductGallery({ images }) {
           <Thumbnail
             key={image.id || index}
             $active={activeImage === index}
-            onClick={() => setActiveImage(index)}
-          >
-            <img 
-              src={image.url || FALLBACK_IMAGE} 
-              alt={image.alt || 'تصویر محصول'}
+            onClick={() => setActiveImage(index)}>
+            <img
+              src={image.url || FALLBACK_IMAGE}
+              alt={image.alt || "تصویر محصول"}
               onError={(e) => {
                 e.target.src = FALLBACK_IMAGE;
               }}

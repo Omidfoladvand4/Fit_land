@@ -1,4 +1,3 @@
-// src/features/productDetail/components/ProductThumbnail.jsx
 import styled from 'styled-components';
 
 const ThumbnailContainer = styled.div`

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const ReviewCard = styled.div`
   border-bottom: 1px solid var(--color-neutral-800);
   padding: 16px 0;
-  
+  position: relative;
   &:last-child {
     border-bottom: none;
   }
@@ -41,7 +41,7 @@ const UserName = styled.strong`
 `;
 
 const ReviewDate = styled.span`
-  color: var(--color-neutral-600);
+  color: var(--color-neutral-800) ;
   font-size: var(--font-body-xs);
 `;
 
@@ -49,6 +49,9 @@ const StarsContainer = styled.div`
   color: #f59e0b;
   font-size: var(--font-body-md);
   margin-bottom: 4px;
+  position: absolute;
+  top: 15px ;
+  left: 0;
 `;
 
 const ReviewText = styled.p`

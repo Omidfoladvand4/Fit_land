@@ -65,7 +65,7 @@ const DiscountBadge = styled.span`
   padding: 4px 10px;
   background: var(--color-base-primary);
   color: var(--color-base-background);
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-md);
   font-weight: 600;
   margin-right: 12px;
   border-radius: 6px;
