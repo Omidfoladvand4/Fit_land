@@ -50,7 +50,7 @@ function Footer() {
         
         <FooterContact />
         
-        <div>
+        <div >
           <FooterNewsletter />
           <FooterSocial />
           <TrustSymbols />

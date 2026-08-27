@@ -11,6 +11,7 @@ const VerifyCode = lazy(() => import("../features/sign-in/pages/VerifyCode"));
 const NotFound = lazy(() => import('../features/NotFound/pages/NotFound'));
 const Products = lazy(() => import('../features/products/pages/Products'));
 const UserProfile = lazy(() => import('../features/userProfile/pages/UserProfile'));
+const Basket = lazy(() => import('../features/basket/Basket'));
 const ProductDetail = lazy(() => import('../features/productDetail/pages/ProductDetail'));
 
 export const ROUTES = {
@@ -21,7 +22,8 @@ export const ROUTES = {
   SIGNUP: '/Sign-up',
   PRODUCTS: '/Products/:category',
   USERPROFILE: '/User-profile' ,
-  PRODUCTDETAIL : '/Product-detail/:productId'
+  PRODUCTDETAIL : '/Product-detail/:productId' ,
+  BASKET : '/Basket'
 };
 
 const routes = [
@@ -31,6 +33,7 @@ const routes = [
   { path: ROUTES.VERIFYCODE, element: <VerifyCode /> },
   { path: ROUTES.PRODUCTS, element: <Products /> },
   { path: ROUTES.PRODUCTDETAIL, element: <ProductDetail /> },
+  { path: ROUTES.BASKET, element: <Basket /> },
   {
     path: ROUTES.USERPROFILE,
     element: (

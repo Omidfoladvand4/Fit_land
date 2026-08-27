@@ -9,6 +9,7 @@ const SocialContainer = styled.div`
   gap: 12px;
   @media (max-width : 480px) {
       align-items: center;
+
   }
 `;
 
