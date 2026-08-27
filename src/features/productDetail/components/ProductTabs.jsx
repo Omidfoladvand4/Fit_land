@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import ReviewItem from "./ReviewItem";
+import ProductReview from "./ProductReview";
 import ProductDescription from "./ProductDescription";
 import ProductSpecs from "./ProductSpecs";
 const TabsContainer = styled.div`
@@ -69,11 +69,6 @@ const TabPanel = styled.div`
     }
    }
 `;
-const NoReview = styled.div`
-text-align: center;
-padding: 20px;
-color: var(--color-neutral-800);
-`
 
 function ProductTabs({ description, specs, reviews }) {
   const [activeTab, setActiveTab] = useState("description");
@@ -104,18 +99,7 @@ function ProductTabs({ description, specs, reviews }) {
           <ProductSpecs specs={specs}/>
         </TabPanel>
         <TabPanel $active={activeTab === "reviews"}>
-          {reviews?.length > 0 ? (
-            reviews.map((review, index) => (
-              <ReviewItem
-                review={review}
-                key={review.id || index} 
-              />
-            ))
-          ) : (
-            <NoReview>
-              نظری برای این محصول ثبت نشده است.
-            </NoReview>
-          )}
+        <ProductReview reviews={reviews}/>
         </TabPanel>
       </TabContent>
     </TabsContainer>

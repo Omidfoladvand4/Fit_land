@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-
 const ReviewCard = styled.div`
-  border-bottom: 1px solid var(--color-neutral-800);
-  padding: 16px 0;
+ flex: 2;
+ height: max-content;
+  border: 1px solid var(--color-neutral-800);
+  border-radius: 12px;
+  padding: 16px  24px;
   position: relative;
-  &:last-child {
-    border-bottom: none;
-  }
   `;
 
 const ReviewHeader = styled.div`
@@ -51,7 +50,7 @@ const StarsContainer = styled.div`
   margin-bottom: 4px;
   position: absolute;
   top: 15px ;
-  left: 0;
+  left: 16px;
 `;
 
 const ReviewText = styled.p`
