@@ -50,7 +50,7 @@ const ErrorMessage = styled.div`
 
 function ProductDetail() {
   const { productId } = useParams();
-  const { product, loading, error, addToCart, addToWishlist } = useProduct(productId);
+  const { product, loading, error, addToCart, addToWishlist  ,relatedProduct} = useProduct(productId);
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
@@ -106,7 +106,7 @@ function ProductDetail() {
       />
 
       <RelatedproductsContainer >
-        <RelatedProducts products={product.relatedProducts} />
+        <RelatedProducts products={relatedProduct} />
       </RelatedproductsContainer>
       <StoreFeaturesContainer >
          <StoreFeatures />

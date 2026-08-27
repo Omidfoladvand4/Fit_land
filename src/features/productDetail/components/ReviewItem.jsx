@@ -11,12 +11,12 @@ const ReviewHeader = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 `;
 
 const Avatar = styled.div`
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: var(--color-base-primary);
   color: white;
@@ -53,7 +53,7 @@ const StarsContainer = styled.div`
 `;
 
 const ReviewText = styled.p`
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-md);
   line-height: 1.6;
   margin: 0;
   padding-right: 52px;

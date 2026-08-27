@@ -1,4 +1,3 @@
-// src/features/productDetail/hooks/useProduct.js
 import { useState, useEffect } from 'react';
 import { products } from '../../products/data/products'; 
 
@@ -6,6 +5,7 @@ export const useProduct = (productId) => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [relatedProduct, setRelatedProduct] = useState([]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -18,8 +18,16 @@ export const useProduct = (productId) => {
           if (foundProduct) {
             setProduct(foundProduct);
             setError(null);
+
+            const related = products
+              .filter((item) => item.category === foundProduct.category && item.id !== foundProduct.id)
+              .slice(0, 4);
+
+            setRelatedProduct(related);
+
           } else {
             setProduct(null);
+            setRelatedProduct([]); 
             setError('محصول مورد نظر یافت نشد');
           }
 
@@ -27,7 +35,7 @@ export const useProduct = (productId) => {
         }, 600);
 
       } catch (err) {
-        setError('خطا در دریافت اطلاعات محصول');
+        setError(err , 'خطا در دریافت اطلاعات محصول');
         setLoading(false);
       }
     };
@@ -49,6 +57,5 @@ export const useProduct = (productId) => {
     console.log(`محصول ${product?.title} به علاقه‌مندی‌ها اضافه شد`);
     return true;
   };
-
-  return { product, loading, error, addToCart, addToWishlist };
+  return { product, loading, error, relatedProduct, addToCart, addToWishlist };
 };
