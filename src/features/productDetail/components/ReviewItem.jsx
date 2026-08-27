@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 const ReviewCard = styled.div`
- flex: 2;
  height: max-content;
   border: 1px solid var(--color-neutral-800);
   border-radius: 12px;
