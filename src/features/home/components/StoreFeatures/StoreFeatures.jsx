@@ -4,7 +4,7 @@ import StoreFeaturesIcon2 from "../StoreFeatures/Icons/StoreFeaturesIcon2.png";
 import StoreFeaturesIcon3 from "../StoreFeatures/Icons/StoreFeaturesIcon3.png";
 
 const FeaturesContainer = styled.div`
-  background: var(--color-info-200);
+  background: ${({ $bgColor }) => $bgColor || "var(--color-info-200)"};
   padding: 32px 10%;
   display: flex;
   align-items: center;
@@ -70,9 +70,9 @@ const Text = styled.div`
   color: var(--color-base-secondary);
 `;
 
-const StoreFeatures = () => {
+const StoreFeatures = ({bgColor}) => {
   return (
-    <FeaturesContainer>
+    <FeaturesContainer $bgColor = {bgColor}>
       <FeaturesList>
         <FeatureItem>
           <Icon src={StoreFeaturesIcon1} />

@@ -35,12 +35,6 @@ const RelatedproductsContainer = styled.div`
   width: 90% ;
   margin:  16px auto;
 `
-const StoreFeaturesContainer = styled.div`
- max-width: 100%;
-  @media (max-width : 490px) {
-    display: none;
-  }
-`
 const ErrorMessage = styled.div`
   text-align: center;
   padding: 60px 20px;
@@ -108,9 +102,7 @@ function ProductDetail() {
       <RelatedproductsContainer >
         <RelatedProducts products={relatedProduct} />
       </RelatedproductsContainer>
-      <StoreFeaturesContainer >
-         <StoreFeatures />
-      </StoreFeaturesContainer>
+         <StoreFeatures bgColor='transparnert' />
     </PageContainer>
   );
 }
