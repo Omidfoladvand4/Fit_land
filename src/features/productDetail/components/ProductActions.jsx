@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+import { Link } from "react-router-dom";
+import { useShop } from "../../../context/ShopContext";
 import ShareIcon from '../images/share';
 import CartIcon from '../images/product-cart-icon';
 import HeartIcon from '../images/heart';
@@ -84,7 +86,6 @@ const SizeOption = styled.button`
     color: white;
   }
 `;
-
 
 const LastSection = styled.div`
   display: flex;
@@ -191,6 +192,39 @@ const AddToCartButton = styled.button`
   }
 `;
 
+const ViewCartLink = styled(Link)`
+  padding: 14px 32px;
+  background: var(--color-base-secondary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: var(--font-body-large);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  &:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(10, 44, 125, 0.8);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  @media (max-width: 490px) {
+    width: 100%;
+    flex: 1 0 100%;
+  }
+`;
+
 const WishlistButton = styled.button`
   background: transparent;
   color: var(--color-base-secondary);
@@ -203,7 +237,6 @@ const WishlistButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
-
 
   &:hover {
     border-color: var(--color-error-800);
@@ -243,8 +276,8 @@ const SizeIconWrapper = styled.span`
   }
 `;
 
-
 function ProductActions({
+  product, 
   colors,
   sizes,
   selectedColor,
@@ -259,6 +292,11 @@ function ProductActions({
   isInWishlist = false
 }) {
   const [isSizeOpen, setIsSizeOpen] = useState(false);
+  
+  const { isInCart } = useShop();
+
+  // محاسبه ی وجود محصول در سبد خرید با سایز و رنگ انتخابی
+  const productIsInCart = isInCart ? isInCart(product?.id, selectedSize, selectedColor) : false;
 
   const handleQuantityChange = (delta) => {
     const newQuantity = quantity + delta;
@@ -338,12 +376,18 @@ function ProductActions({
           </WishlistButton>
         </ButtonRow>
 
-        <AddToCartButton 
+        {productIsInCart ? (
+          <ViewCartLink to="/Basket">
+            مشاهده سبد خرید <CartIcon />
+          </ViewCartLink>
+        ) : (
+          <AddToCartButton 
             onClick={onAddToCart}
             disabled={stock === 0}
           >
             افزودن به سبد خرید <CartIcon />
-        </AddToCartButton>
+          </AddToCartButton>
+        )}
 
       </LastSection>
 

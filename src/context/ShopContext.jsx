@@ -45,7 +45,13 @@ export const ShopProvider = ({ children }) => {
       ];
     });
   }, []);
-
+   const isInCart = useCallback((productId, size = null, color = null) => {
+  return cartItems.some((item) => 
+    item.id === productId && 
+    (size ? item.selectedSize === size : true) && 
+    (color ? item.selectedColor?.id === color.id : true)
+  );
+}, [cartItems]);
   const removeFromCart = useCallback((itemId) => {
     toast.success( 'با موفقیت سبد خرید حذف شد')
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
@@ -116,6 +122,7 @@ export const ShopProvider = ({ children }) => {
     cartTotalDiscount,
     finalPrice,
     cartCount,
+    isInCart
   };
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;

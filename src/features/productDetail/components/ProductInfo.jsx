@@ -109,6 +109,7 @@ function ProductInfo({
 
 
       <ProductActions
+        product={product} 
         colors={product.colors}
         sizes={product.sizes}
         selectedColor={selectedColor}
