@@ -38,7 +38,6 @@ const ToolbarWrapper = styled.div`
   position: relative;
 `;
 
-
 function Products() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(9);
@@ -46,55 +45,69 @@ function Products() {
 
   const decodedCategory = decodeURIComponent(params.category);
 
+  // State فیلترها (هماهنگ با ProductFilters)
+  const [filters, setFilters] = useState({
+    inStock: false,
+    hasDiscount: false,
+    priceRange: [0, 5000000],
+    selectedColors: [],
+    selectedSizes: [],
+  });
+
+  // لیست اولیه محصولات فیلتر شده
   const [filteredProducts, setFilteredProducts] = useState(products);
 
+  // اعمال دسته‌بندی و فیلترها
   useEffect(() => {
+    let result = products;
+
+    // 1. فیلتر دسته‌بندی
     if (decodedCategory) {
-      const filtered = products.filter((product) => {
-
-        return product.category === decodedCategory;
-      });
-      setFilteredProducts(filtered);
-      setCurrentPage(1);
-    } else {
-      setFilteredProducts(products);
-    }
-  }, [decodedCategory]);
-
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentProducts = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
-
-  const handleFilterChange = (filters) => {
-    setCurrentPage(1);
-    console.log('فیلترهای انتخاب شده:', filters);
-
-    let filtered = products.filter((product) => {
-      if (decodedCategory && product.category !== decodedCategory) {
-        return false;
-      }
-      return true;
-    });
-
-    // اینجا می‌توانید فیلترهای دیگر مثل قیمت، رنگ، سایز و ... را اعمال کنید
-    // فعلاً فقط نمونه:
-
-    if (filters?.minPrice) {
-      filtered = filtered.filter((p) => p.price >= filters.minPrice);
-    }
-    if (filters?.maxPrice) {
-      filtered = filtered.filter((p) => p.price <= filters.maxPrice);
+      result = result.filter((product) => product.category === decodedCategory);
     }
 
-    setFilteredProducts(filtered);
-  };
+    // 2. فیلتر موجودی
+    if (filters.inStock) {
+      result = result.filter((product) => product.inStock);
+    }
 
-  // ---------- هندلر مرتب‌سازی ----------
+    // 3. فیلتر تخفیف
+    if (filters.hasDiscount) {
+      result = result.filter((product) => product.hasDiscount);
+    }
+
+    // 4. فیلتر قیمت
+    result = result.filter(
+      (product) =>
+        product.price >= filters.priceRange[0] &&
+        product.price <= filters.priceRange[1]
+    );
+
+    // 5. فیلتر رنگ (بر اساس hex)
+    if (filters.selectedColors.length > 0) {
+      result = result.filter((product) =>
+        product.colors.some((color) =>
+          filters.selectedColors.includes(color.hex)
+        )
+      );
+    }
+
+    // 6. فیلتر سایز
+    if (filters.selectedSizes.length > 0) {
+      result = result.filter((product) =>
+        product.sizes.some((size) =>
+          filters.selectedSizes.includes(size)
+        )
+      );
+    }
+
+    setFilteredProducts(result);
+    setCurrentPage(1); // با تغییر فیلتر، به صفحه اول برمی‌گردیم
+  }, [decodedCategory, filters]);
+
+  // مرتب‌سازی
   const handleSortChange = (sortValue) => {
     setCurrentPage(1);
-    console.log('مرتب‌سازی بر اساس:', sortValue);
-
     const sorted = [...filteredProducts].sort((a, b) => {
       if (sortValue === 'cheapest') return a.price - b.price;
       if (sortValue === 'most_expensive') return b.price - a.price;
@@ -104,18 +117,22 @@ function Products() {
     });
     setFilteredProducts(sorted);
   };
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-const getBreadcrumbItems = () => {
-  if (decodedCategory) {
-    return ['خانه', decodedCategory];
-  }
-  return ['خانه', 'همه محصولات'];
-};
+  const getBreadcrumbItems = () => {
+    if (decodedCategory) {
+      return ['خانه', decodedCategory];
+    }
+    return ['خانه', 'همه محصولات'];
+  };
 
   return (
     <PageWrapper>
@@ -123,7 +140,8 @@ const getBreadcrumbItems = () => {
       <Breadcrumb items={getBreadcrumbItems()} />
 
       <PageLayout>
-        <ProductFilters onFilterChange={handleFilterChange} />
+        <ProductFilters onFilterChange={setFilters} />
+
         <ContentArea>
           <ToolbarWrapper>
             <SortBar onSortChange={handleSortChange} />

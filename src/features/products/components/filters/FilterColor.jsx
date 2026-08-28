@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 const ColorGrid = styled.div`
@@ -13,7 +12,7 @@ const ColorCircle = styled.button`
   height: 28px;
   border-radius: 50%;
   background-color: ${({ $color }) => $color};
-  border: 2px solid ${({ $isSelected }) => ($isSelected ? 'var(--color-neutral-800)' : 'var(--color-base-primary)')};
+  border: 2px solid ${({ $isSelected }) => ($isSelected ? 'var(--color-neutral-800)' : 'var(--color-neutral-300)')};
   cursor: pointer;
   transition: all 0.2s ease;
   outline: none;
