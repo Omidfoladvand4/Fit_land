@@ -12,6 +12,9 @@ const NotFound = lazy(() => import('../features/NotFound/pages/NotFound'));
 const Products = lazy(() => import('../features/products/pages/Products'));
 const UserProfile = lazy(() => import('../features/userProfile/pages/UserProfile'));
 const Basket = lazy(() => import('../features/basket/Basket'));
+const BasketItemsList = lazy(() => import('../features/basket/pages/BasketItemsList'));
+const AddLocation = lazy(() => import('../features/basket/pages/AddLocation'));
+const Pay = lazy(() => import('../features/basket/pages/Pay'));
 const ProductDetail = lazy(() => import('../features/productDetail/pages/ProductDetail'));
 
 export const ROUTES = {
@@ -22,8 +25,8 @@ export const ROUTES = {
   SIGNUP: '/Sign-up',
   PRODUCTS: '/Products/:category',
   USERPROFILE: '/User-profile' ,
-  PRODUCTDETAIL : '/Product-detail/:productId' ,
-  BASKET : '/Basket'
+  PRODUCTDETAIL: '/Product-detail/:productId' ,
+  BASKET: '/Basket',
 };
 
 const routes = [
@@ -33,7 +36,15 @@ const routes = [
   { path: ROUTES.VERIFYCODE, element: <VerifyCode /> },
   { path: ROUTES.PRODUCTS, element: <Products /> },
   { path: ROUTES.PRODUCTDETAIL, element: <ProductDetail /> },
-  { path: ROUTES.BASKET, element: <Basket /> },
+  {
+    path: ROUTES.BASKET,
+    element: <Basket />,
+    children: [
+      { path: "", element: <BasketItemsList /> },
+      { path: "address", element: <AddLocation /> },
+      { path: "pay", element: <Pay /> },
+    ],
+  },
   {
     path: ROUTES.USERPROFILE,
     element: (
@@ -49,8 +60,12 @@ const AppRoutes = memo(() => {
     <Suspense fallback={<Loading />}>
       <ScrollToTop />
       <Routes>
-        {routes.map(({ path, element }) => (
-          <Route key={path} path={path} element={element} />
+        {routes.map((route) => (
+          <Route key={route.path} path={route.path} element={route.element}>
+            {route.children?.map((child) => (
+              <Route key={child.path} path={child.path} element={child.element} />
+            ))}
+          </Route>
         ))}
         <Route path="*" element={<NotFound />} />
       </Routes>
