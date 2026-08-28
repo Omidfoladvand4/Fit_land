@@ -1,23 +1,22 @@
+// src/features/basket/Basket.jsx
 import styled from "styled-components";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import BasketSteps from "./components/BasketSteps";
 import OrderSummary from "./components/OrderSummary";
-import { products } from "../products/data/products";
+import { useShop } from "../../context/ShopContext"; // ایمپورت کانتکست
 
 const BasketContainer = styled.div`
   width: 90%;
   margin: 0 auto;
   padding: 32px 0;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 24px;
-  position: relative;
 
-  @media (max-width: 1030px) {
+  @media (max-width: 768px) {
     flex-direction: column;
-    padding: 0 10px;
-    width: 100%;
   }
 `;
 
@@ -26,48 +25,21 @@ const BasketContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 50px; /* فاصله از بالا برای استپ‌ها */
+  padding-top: 50px;
   margin-left: 24px;
 
-  @media (max-width: 1030px) {
+  @media (max-width: 768px) {
     padding-top: 0;
     margin-left: 0;
-    width: 100%;
-  }
-`;
-const SubmitButton = styled.button`
-  width: 400px;
-  margin-top: 16px;
-  background: var(--color-base-primary);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 14px;
-  font-size: var(--font-body-large);
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 36px;
-  @media (max-width : 1024px) {
-     width: 95%;
-     margin: 12px auto;
-     
   }
 `;
 
 function Basket() {
   const location = useLocation();
   const navigate = useNavigate();
-
-  // مدیریت State (بدون Context)
-  const basketItems = [products[0], products[5], products[2], products[3]];
-  const removeItem = (itemId) => {
-    // اینجا می‌توانید State واقعی بگذارید یا به سرور بفرستید
-    console.log("حذف آیتم با شناسه:", itemId);
-  };
+  
+  // دریافت آیتم‌ها از کانتکست
+  const { cartItems, removeFromCart, updateCartQuantity } = useShop();
 
   const handleProceed = () => {
     if (location.pathname === "/Basket/") {
@@ -80,21 +52,20 @@ function Basket() {
   return (
     <BasketContainer>
       <BasketContent>
-      <BasketSteps />
-
-        {/* اینجا داده‌ها از طریق useOutletContext به فرزندان می‌رسند */}
-        <Outlet context={{ items: basketItems, onRemove: removeItem }} />
+        <BasketSteps />
+        
+        {/* پاس دادن آیتم‌ها و توابع به Outlet */}
+        <Outlet context={{ 
+          items: cartItems, 
+          removeFromCart, 
+          updateCartQuantity 
+        }} />
       </BasketContent>
 
+      {/* فقط در صفحه اصلی سبد خرید نمایش داده شود */}
       {location.pathname === "/Basket/" && (
-        <OrderSummary items={basketItems} onProceed={handleProceed} />
+        <OrderSummary items={cartItems} onProceed={handleProceed} />
       )}
-       {location.pathname === "/Basket/address" && (
-             <SubmitButton onClick={handleProceed}>
-          ثبت نشانی <span>←</span>
-      </SubmitButton>
-      )}
-      
     </BasketContainer>
   );
 }

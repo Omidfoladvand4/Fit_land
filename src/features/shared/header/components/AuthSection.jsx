@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import UserIcon from '../images/icons/UserIcon';
 import BasketIcon from '../images/icons/BasketIcon';
 import { Link } from 'react-router-dom';
+import { useShop } from '../../../../context/ShopContext';
 
 const AuthSectionContainer = styled.div`
   width: max-content;
@@ -91,6 +92,7 @@ const UserBasketCount = styled.div`
 `;
 
 function AuthSection({ isMobile = false }) {
+  const { cartCount } = useShop()
   return (
     <AuthSectionContainer>
       <SignUpBtn to='Sign-up'>ثبت نام</SignUpBtn>
@@ -100,7 +102,7 @@ function AuthSection({ isMobile = false }) {
       </LoginBtn>
       <UserBasket to= '/Basket/'>
         <BasketIcon />
-        <UserBasketCount>0</UserBasketCount>
+        <UserBasketCount>{cartCount}</UserBasketCount>
       </UserBasket>
     </AuthSectionContainer>
   );

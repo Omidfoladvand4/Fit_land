@@ -192,10 +192,8 @@ const AddToCartButton = styled.button`
 `;
 
 const WishlistButton = styled.button`
-  padding: 12px 24px;
   background: transparent;
   color: var(--color-base-secondary);
-  border: 2px solid var(--color-neutral-300);
   border-radius: 12px;
   font-size: var(--font-body-md);
   font-weight: 600;
@@ -205,6 +203,7 @@ const WishlistButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
+
 
   &:hover {
     border-color: var(--color-error-800);
@@ -257,6 +256,7 @@ function ProductActions({
   onAddToCart,
   onAddToWishlist,
   stock,
+  isInWishlist = false
 }) {
   const [isSizeOpen, setIsSizeOpen] = useState(false);
 
@@ -333,8 +333,8 @@ function ProductActions({
 
         <ButtonRow>
            <ShareIcon />
-           <WishlistButton onClick={onAddToWishlist}>
-            <HeartIcon fill='red'/>
+           <WishlistButton onClick={onAddToWishlist} $isInWishlist={isInWishlist}>
+            <HeartIcon fill={isInWishlist ? 'red' : 'black'} />
           </WishlistButton>
         </ButtonRow>
 

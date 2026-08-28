@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import CloseIcon from "../../shared/header/images/icons/CloseIcon";
-import { useState } from "react";
 
 const CartItem = styled.div`
   width: 100%;
@@ -118,8 +117,12 @@ const DeleteIcon = styled.div`
   cursor: pointer;
 `;
 
-function BasketItem({ item, onRemove }) {
-  const [quantity, setQuantity] = useState(1); // State داخلی برای تعداد
+
+// ... (استایل‌های قبلی شما بدون تغییر)
+
+function BasketItem({ item, onRemove, onUpdateQuantity }) {
+  // تعداد از پراپ می‌آید
+  const quantity = item.quantity;
 
   return (
     <CartItem>
@@ -131,23 +134,19 @@ function BasketItem({ item, onRemove }) {
         <ItemName>{item.title}</ItemName>
         <ItemCategory>{item.category}</ItemCategory>
         <Price>{item.price.toLocaleString()} تومان</Price>
-        {item.hasDiscount && (
-          <Oldprice>{item.originalPrice.toLocaleString()} تومان</Oldprice>
-        )}
-        <Size>سایز: {item.sizes[0]}</Size>
+        {item.hasDiscount && <Oldprice>{item.originalPrice.toLocaleString()} تومان</Oldprice>}
+        <Size>سایز: {item.selectedSize || item.sizes[0]}</Size>
         <ColorBox>
-          <ColorName>رنگ: {item.colors[0].name}</ColorName>
-          <Color $bgColor={item.colors[0].hex} />
+          <ColorName>رنگ: {item.selectedColor?.name || item.colors[0].name}</ColorName>
+          <Color $bgColor={item.selectedColor?.hex || item.colors[0].hex} />
         </ColorBox>
         <Buttons>
-          <Btn onClick={() => setQuantity((q) => Math.max(1, q - 1))}>-</Btn>
+          <Btn onClick={() => onUpdateQuantity(item.id, Math.max(1, quantity - 1))}>-</Btn>
           <Count>{quantity}</Count>
-          <Btn onClick={() => setQuantity((q) => q + 1)}>+</Btn>
+          <Btn onClick={() => onUpdateQuantity(item.id, quantity + 1)}>+</Btn>
         </Buttons>
       </ItemInfo>
-      <DeleteIcon onClick={() => onRemove(item.id)}>
-        <CloseIcon />
-      </DeleteIcon>
+      <DeleteIcon onClick={() => onRemove(item.id)}><CloseIcon /></DeleteIcon>
     </CartItem>
   );
 }

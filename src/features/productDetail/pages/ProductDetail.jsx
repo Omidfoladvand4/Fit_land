@@ -3,12 +3,14 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useProduct } from '../hooks/useProduct';
+import { useShop } from '../../../context/ShopContext';
 import Loading from '../../shared/Loading/Loading';
 import ProductGallery from '../components/ProductGallery';
 import ProductInfo from '../components/ProductInfo';
 import ProductTabs from '../components/ProductTabs';
 import RelatedProducts from '../components/RelatedProducts';
-import StoreFeatures  from '../../home/components/StoreFeatures/StoreFeatures'
+import StoreFeatures from '../../home/components/StoreFeatures/StoreFeatures';
+import { toast } from "sonner"; // ایمپورت toast
 
 const PageContainer = styled.div`
   max-width: 100%;
@@ -44,7 +46,10 @@ const ErrorMessage = styled.div`
 
 function ProductDetail() {
   const { productId } = useParams();
-  const { product, loading, error, addToCart, addToWishlist  ,relatedProduct} = useProduct(productId);
+  const { product, loading, error, relatedProduct } = useProduct(productId);
+  
+  const { addToCart, addToWishlist, isInWishlist } = useShop();
+
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
@@ -63,16 +68,20 @@ function ProductDetail() {
 
   const handleAddToCart = () => {
     if (!selectedSize) {
-      alert('لطفاً سایز مورد نظر را انتخاب کنید');
+      toast.error('لطفاً سایز مورد نظر را انتخاب کنید'); 
       return;
     }
-    addToCart(quantity, selectedSize, selectedColor);
-    alert(`${product.title} به سبد خرید اضافه شد!`);
+    addToCart(product, quantity, selectedSize, selectedColor);
+    toast.success(`${product.title} به سبد خرید اضافه شد!`);
   };
 
   const handleAddToWishlist = () => {
-    addToWishlist();
-    alert(`${product.title} به علاقه‌مندی‌ها اضافه شد!`);
+    addToWishlist(product);
+    if (isInWishlist(product.id)) {
+      toast(`${product.title} از علاقه‌مندی‌ها حذف شد!`); 
+    } else {
+      toast.success(`${product.title} به علاقه‌مندی‌ها اضافه شد!`);
+    }
   };
 
   return (
@@ -90,6 +99,7 @@ function ProductDetail() {
           setQuantity={setQuantity}
           onAddToCart={handleAddToCart}
           onAddToWishlist={handleAddToWishlist}
+           isInWishlist={isInWishlist(product.id)} 
         />
       </ProductSection>
 

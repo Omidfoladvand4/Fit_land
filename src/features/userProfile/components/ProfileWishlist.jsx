@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import ProductCard from '../../products/components/ProductCard/ProductCard'
 import EmptyMessage from './EmptyMessage';
+import { useShop } from '../../../context/ShopContext';
 const WishlistContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -50,17 +51,19 @@ const RemoveButton = styled.button`
 `;
 
 
-function ProfileWishlist({ items }) {
-  if (items.length === 0) {
+function ProfileWishlist() {
+  const { wishlistItems , removeFromWishlist } = useShop()
+  if (wishlistItems.length === 0) {
     return <EmptyMessage text = 'هیچ محصولی در علاقه مندی وجود ندارد' />
   }
 
   return (
     <WishlistContainer>
-      {items.map((item) => (
+      {wishlistItems.map((item) => (
         <WishlistItem key={item.id}>
           <ProductCard 
             key={item.id}
+            ProductId={item.id}
           image={item.image}
           title={item.title}
           price={item.price}
@@ -69,7 +72,7 @@ function ProfileWishlist({ items }) {
           colors={item.colors}
           sizes={item.sizes}
           />
-          <RemoveButton>حذف</RemoveButton>
+          <RemoveButton onClick={() => removeFromWishlist(item.id)}>حذف</RemoveButton>
         </WishlistItem>
       ))}
     </WishlistContainer>

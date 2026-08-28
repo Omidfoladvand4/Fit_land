@@ -82,6 +82,7 @@ function ProductInfo({
   setQuantity,
   onAddToCart,
   onAddToWishlist,
+  isInWishlist 
 }) {
 
   return (
@@ -119,6 +120,7 @@ function ProductInfo({
         onAddToCart={onAddToCart}
         onAddToWishlist={onAddToWishlist}
         stock={product.stock}
+        isInWishlist={isInWishlist}
       />
     </InfoContainer>
   );

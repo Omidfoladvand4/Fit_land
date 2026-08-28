@@ -15,7 +15,6 @@ import SlideImage_4 from "../images/sliderImage/SlideImage4.png";
 import SlideImage_5 from "../images/sliderImage/SlideImage5.png";
 import SlideImage_7 from "../images/sliderImage/SlideImage7.png";
 import HomeImage from '../images/HomeImage.png'
-import { products } from "../../products/data/products";
 
 const HomeWrapper = styled.div`
   display: flex;

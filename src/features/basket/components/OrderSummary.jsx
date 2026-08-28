@@ -74,7 +74,7 @@ function OrderSummary({ items, onProceed }) {
       <Row>
         <input
           type="text"
-          placeholder="تیتر"
+          placeholder="DF98$#Ff"
           style={{
             padding: "8px",
             border: "1px solid var(--color-neutral-800)",
