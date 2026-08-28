@@ -21,6 +21,7 @@ const BasketStepsContainer = styled.div`
     width: 100%;
     justify-content: center;
     position: static;
+    margin: 16px 0;
   }
 `;
 

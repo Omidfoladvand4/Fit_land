@@ -1,5 +1,21 @@
+// src/features/basket/pages/Pay.jsx
 import styled from "styled-components";
 import { useOutletContext } from "react-router-dom";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+
+// رفع مشکل آیکون‌های Leaflet
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+let DefaultIcon = L.icon({
+    iconUrl: icon,
+    shadowUrl: iconShadow,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41]
+});
+L.Marker.prototype.options.icon = DefaultIcon;
 
 const PaymentContainer = styled.div`
   width: 100%;
@@ -55,12 +71,16 @@ const AddressBox = styled.div`
 const AddressText = styled.div`
   flex: 1;
 `;
-const MapThumbnail = styled.img`
-  width: 150px;
-  height: 100px;
+
+const MapWrapper = styled.div`
+  flex: 1;
+  height: 200px;
   border-radius: 8px;
-  object-fit: cover;
+  overflow: hidden;
+  border: 1px solid var(--color-neutral-300);
+  background: #f4f4f4;
 `;
+
 const TimeSelection = styled.div`
   display: flex;
   align-items: center;
@@ -79,6 +99,17 @@ const TimeButton = styled.button`
 
 function Pay() {
   const { items } = useOutletContext();
+
+  // آدرس انتخابی (این آدرس باید از مرحله قبل ذخیره شده باشد)
+  // اگر آدرس هنوز ذخیره نشده، از آدرس پیش‌فرض استفاده می‌کنیم
+  const selectedAddress = "بجنورد، میدان شهید بهشتی، خیابان ۱۷ شهریور، کوچه عزیز معرف پلاک ۱۳";
+  
+  // مختصات آدرس انتخابی (پیش‌فرض: بجنورد)
+  const selectedPosition = [37.5485, 57.3235];
+
+  if (!items || items.length === 0) {
+    return <div>سبد خرید شما خالی است.</div>;
+  }
 
   return (
     <PaymentContainer>
@@ -123,12 +154,26 @@ function Pay() {
         <Title style={{ marginBottom: "16px" }}>آدرس انتخابی شما</Title>
         <AddressBox>
           <AddressText>
-            بجنورد، میدان شهید بهشتی، خیابان ۱۷ شهریور، کوچه عزیز معرف پلاک ۱۳
+            {selectedAddress}
           </AddressText>
-          <MapThumbnail
-            src="https://via.placeholder.com/150x100?text=Map"
-            alt="نقشه"
-          />
+
+          {/* فقط نمایش نقشه */}
+          <MapWrapper>
+            <MapContainer
+              center={selectedPosition}
+              zoom={13}
+              scrollWheelZoom={false}
+              style={{ height: "100%", width: "100%" }}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={selectedPosition}>
+                <Popup>{selectedAddress}</Popup>
+              </Marker>
+            </MapContainer>
+          </MapWrapper>
         </AddressBox>
       </Box>
 
