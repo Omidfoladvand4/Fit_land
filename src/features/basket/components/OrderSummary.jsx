@@ -12,6 +12,7 @@ const SummaryContainer = styled.div`
   margin-top: 32px;
   @media (max-width : 1030px) {
      width: 100%;
+     margin-bottom: 16px;
   }
 `;
 

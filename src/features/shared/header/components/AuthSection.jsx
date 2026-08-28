@@ -58,7 +58,7 @@ const SignUpBtn = styled(Link)`
   }
 `;
 
-const UserBasket = styled.div`
+const UserBasket = styled(Link)`
   width: 40px;
   height: 40px;
   display: flex;
@@ -98,7 +98,7 @@ function AuthSection({ isMobile = false }) {
         ورود
         <UserIcon color='var(--color-base-secondary)'/>
       </LoginBtn>
-      <UserBasket>
+      <UserBasket to= '/Basket/'>
         <BasketIcon />
         <UserBasketCount>0</UserBasketCount>
       </UserBasket>

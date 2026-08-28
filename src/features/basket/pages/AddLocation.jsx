@@ -87,7 +87,7 @@ const MapBox = styled.div`
   border-radius: 12px;
   overflow: hidden;
   background: #e5e3df;
-  z-index: -1;
+  z-index: 1;
 `;
 
 const ConfirmButton = styled.button`
@@ -106,6 +106,9 @@ const ConfirmButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
+  @media (max-width : 786px) {
+    width : 8em ;
+  }
 `;
 
 // کامپوننت داخلی برای کلیک روی نقشه و دریافت آدرس

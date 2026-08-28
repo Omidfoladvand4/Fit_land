@@ -26,7 +26,7 @@ const PaymentContainer = styled.div`
   margin: 16px 0;
 `;
 const Title = styled.h2`
-  font-size: var(--font-body-lg);
+  font-size: var(--font-body-large);
   color: var(--color-base-secondary);
 `;
 const Box = styled.div`
@@ -70,6 +70,7 @@ const AddressBox = styled.div`
 `;
 const AddressText = styled.div`
   flex: 1;
+  font-size: var(--font-body-large);
 `;
 
 const MapWrapper = styled.div`

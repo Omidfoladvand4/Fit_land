@@ -45,6 +45,9 @@ const ItemInfo = styled.div`
   padding: 14px 16px;
   position: relative;
   line-height: 1.8;
+  @media (max-width : 768px) {
+     padding: 8px 0;
+  }
 `;
 const ItemName = styled.h1`
   font-size: var(--font-body-xl);
