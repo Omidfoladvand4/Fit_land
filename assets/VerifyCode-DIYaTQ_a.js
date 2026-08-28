@@ -1,22 +1,22 @@
-import{c as e,f as t,h as n,i as r,p as i,s as a}from"./index-OylXGWMp.js";import{n as o,t as s}from"./AuthLayout-Ct6GM0Eq.js";var c=n(t(),1),l=`/Fit_land/assets/VerifyImage-CAqf-XqK.png`,u=i(),d=r.div`
+import{a as e,n as t,r as n,t as r}from"./jsx-runtime-yu_Uq3ru.js";import{c as i,l as a}from"./index-DPNvDcSj.js";import{n as o,t as s}from"./AuthLayout-UGShe3TI.js";var c=e(n(),1),l=`/Fit_land/assets/VerifyImage-CAqf-XqK.png`,u=r(),d=t.div`
   width: 100%;
   color: var(--color-base-secondary);
   font-size: var(--font-body-xxxl);
   font-weight: var(--font-weight-bold);
-    margin : 0 auto ;
-`,f=r.p`
+  margin: 0 auto;
+`,f=t.p`
   width: 100%;
   font-size: var(--font-body-large);
   color: var(--color-neutral-800);
-  margin : 0 auto;
-`,p=r.div`
+  margin: 0 auto;
+`,p=t.div`
   display: flex;
   gap: 8px;
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
   direction: ltr;
-`,m=r.input`
+`,m=t.input`
   width: 50px;
   height: 50px;
   text-align: center;
@@ -52,12 +52,13 @@ import{c as e,f as t,h as n,i as r,p as i,s as a}from"./index-OylXGWMp.js";impor
   &[type="number"] {
     -moz-appearance: textfield;
   }
+
   @media (max-width: 490px) {
     width: 35px;
     height: 45px;
     font-size: var(--font-body-xl);
   }
-`,h=r.button`
+`,h=t.button`
   width: 100%;
   padding: 12px 14px;
   font-weight: var(--font-weight-bold);
@@ -78,13 +79,13 @@ import{c as e,f as t,h as n,i as r,p as i,s as a}from"./index-OylXGWMp.js";impor
     opacity: 0.5;
     cursor: not-allowed;
   }
-`,g=r.div`
+`,g=t.div`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 12px auto;
-`,_=r.button`
+`,_=t.button`
   width: max-content;
   background: none;
   border: none;
@@ -103,7 +104,7 @@ import{c as e,f as t,h as n,i as r,p as i,s as a}from"./index-OylXGWMp.js";impor
     cursor: not-allowed;
     text-decoration: none;
   }
-`,v=r.span`
+`,v=t.span`
   font-size: var(--font-body-large);
   color: var(--color-neutral-800);
   font-weight: var(--font-weight-bold);
@@ -111,4 +112,4 @@ import{c as e,f as t,h as n,i as r,p as i,s as a}from"./index-OylXGWMp.js";impor
   display: flex;
   align-items: center;
   justify-content: center;
-`;function y(){let t=e(),n=a().state?.identifier,[r,i]=(0,c.useState)(!1);if(!n)return t(`/Sign-in`),null;let y=[(0,c.useRef)(null),(0,c.useRef)(null),(0,c.useRef)(null),(0,c.useRef)(null),(0,c.useRef)(null),(0,c.useRef)(null)],b=(e,t)=>{let n=t.target.value;/^\d*$/.test(n)&&(n.length===1&&e<5&&y[e+1].current.focus(),n.length===0&&e>0&&y[e-1].current.focus())},x=(e,t)=>{t.key===`Backspace`&&e>0&&!t.target.value&&y[e-1].current.focus()},S=()=>y.map(e=>e.current?.value||``).join(``),C=async()=>{let e=S();if(e.length!==6){alert(`لطفا کد ۶ رقمی را کامل وارد کنید`);return}i(!0);let r=n.includes(`@`)?{email:n,token:e,type:`email`}:{phone:n,token:e,type:`sms`},{data:a,error:s}=await o.auth.verifyOtp(r);i(!1),s?alert(`کد وارد شده اشتباه است یا منقضی شده: ${s.message}`):(alert(`ورود با موفقیت انجام شد!`),t(`/User-profile`))},w=async()=>{let e=n.includes(`@`)?{email:n}:{phone:n},{error:t}=await o.auth.signInWithOtp(e);alert(t?`خطا در ارسال مجدد: ${t.message}`:`کد جدید با موفقیت ارسال شد.`)};return(0,u.jsxs)(s,{image:l,children:[(0,u.jsx)(d,{children:`کد تایید را وارد کنید`}),(0,u.jsx)(p,{children:[...[,,,,,,]].map((e,t)=>(0,u.jsx)(m,{ref:y[t],type:`number`,maxLength:1,placeholder:`_`,onChange:e=>b(t,e),onKeyDown:e=>x(t,e)},t))}),(0,u.jsxs)(g,{children:[(0,u.jsx)(f,{children:`کد برای شما ارسال شد`}),(0,u.jsxs)(v,{children:[`01:29`,(0,u.jsx)(_,{onClick:w,children:`ارسال دوباره`})]})]}),(0,u.jsx)(h,{onClick:C,disabled:r,children:r?`در حال تایید...`:`ثبت`})]})}export{y as default};
+`;function y(){let e=a(),t=i().state?.fullPhone,[n,r]=(0,c.useState)(!1);if(!t)return e(`/Sign-in`),null;let y=[(0,c.useRef)(null),(0,c.useRef)(null),(0,c.useRef)(null),(0,c.useRef)(null),(0,c.useRef)(null),(0,c.useRef)(null)],b=(e,t)=>{let n=t.target.value;/^\d*$/.test(n)&&(n.length===1&&e<5&&y[e+1].current.focus(),n.length===0&&e>0&&y[e-1].current.focus())},x=(e,t)=>{t.key===`Backspace`&&e>0&&!t.target.value&&y[e-1].current.focus()},S=()=>y.map(e=>e.current?.value||``).join(``),C=async()=>{let n=S();if(n.length!==6){alert(`لطفا کد ۶ رقمی را کامل وارد کنید`);return}r(!0);let{data:i,error:a}=await o.auth.verifyOtp({phone:t,token:n,type:`sms`});r(!1),a?alert(`کد وارد شده اشتباه است یا منقضی شده: ${a.message}`):(alert(`ورود با موفقیت انجام شد!`),e(`/User-profile`))},w=async()=>{let{error:e}=await o.auth.signInWithOtp({phone:t});alert(e?`خطا در ارسال مجدد: ${e.message}`:`کد جدید با موفقیت ارسال شد.`)};return(0,u.jsxs)(s,{image:l,children:[(0,u.jsx)(d,{children:`کد تایید را وارد کنید`}),(0,u.jsx)(p,{children:[...[,,,,,,]].map((e,t)=>(0,u.jsx)(m,{ref:y[t],type:`number`,maxLength:1,placeholder:`_`,onChange:e=>b(t,e),onKeyDown:e=>x(t,e)},t))}),(0,u.jsxs)(g,{children:[(0,u.jsx)(f,{children:`کد برای شما ارسال شد`}),(0,u.jsxs)(v,{children:[`01:29`,(0,u.jsx)(_,{onClick:w,children:`ارسال دوباره`})]})]}),(0,u.jsx)(h,{onClick:C,disabled:n,children:n?`در حال تایید...`:`ثبت`})]})}export{y as default};
