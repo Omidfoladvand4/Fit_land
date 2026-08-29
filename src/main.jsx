@@ -7,30 +7,33 @@ import TopHeader from "./features/shared/header/components/TopHeader.jsx";
 import Footer from "./features/shared/Footer/Footer.jsx";
 import AppRoutes from "./app/routes.jsx";
 import { ShopProvider } from "./context/ShopContext";
+import { AuthProvider } from "./context/AuthContext";
 import "keen-slider/keen-slider.min.css";
 import { Toaster } from "sonner";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <HashRouter>
-      <ShopProvider>
-        <TopHeader />
-        <AppRoutes />
-        <Footer />
-        <Toaster
-          position="top-center"
-          richColors
-          closeButton
-          toastOptions={{
-            style: {
-              direction: "rtl",
-              textAlign: "right",
-              borderRadius: "12px",
-              fontFamily: "inherit",
-            },
-          }}
-        />
-      </ShopProvider>
+      <AuthProvider>
+        <ShopProvider>
+          <TopHeader />
+          <AppRoutes />
+          <Footer />
+          <Toaster
+            position="top-center"
+            richColors
+            closeButton
+            toastOptions={{
+              style: {
+                direction: "rtl",
+                textAlign: "right",
+                borderRadius: "12px",
+                fontFamily: "inherit",
+              },
+            }}
+          />
+        </ShopProvider>
+      </AuthProvider>
     </HashRouter>
   </StrictMode>,
 );

@@ -1,12 +1,12 @@
-// src/features/auth/components/SignUp.jsx
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { useNavigate } from 'react-router-dom';
-import { supabase } from '../../../lib/supabase';
+import { useLocation } from 'react-router-dom';
+import { useAuth } from '../../sign-in/hooks/useAuth';
+import { signUpSchema } from '../validation/signUpSchema';
 import AuthLayout from '../../shared/AuthLayout/AuthLayout';
 import SignUpImage from '../images/SignUpImage.png';
+
 
 const Title = styled.div`
   width: 100%;
@@ -44,8 +44,7 @@ const ErrorMessage = styled.p`
   width: 100%;
   color: var(--color-error-800);
   font-size: var(--font-body-xs);
-  margin-top: -4px;
-  margin-bottom: 8px;
+ margin: 8px 0;
 `;
 
 const Button = styled.button`
@@ -71,112 +70,58 @@ const Button = styled.button`
   }
 `;
 
-const Policy = styled.div`
-  width: 100%;
-  font-size: var(--font-body-large);
-  color: var(--color-neutral-800);
-  margin: var(--global-margin-small) 0 0 0;
-`;
-
-const Span = styled.span`
-  font-weight: var(--font-weight-bold);
-  color: var(--color-base-secondary);
-`;
-const ConfirmInput = styled.input`
-  margin-left: 8px;
-  accent-color: var(--color-base-primary);
-`;
-
-const BackButton = styled.button`
-  width: max-content;
-  text-align: start;
-  background: none;
-  font-size: var(--font-body-xxl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-base-neutral-800);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.01);
-    color: var(--color-base-primary);
-  }
-`;
-
-// اعتبارسنجی اطلاعات ثبت‌نام (بدون کد ملی)
-const signUpSchema = z.object({
-  fullName: z.string().min(1, 'نام و نام خانوادگی الزامی است'),
-  email: z.string().email('ایمیل معتبر وارد کنید'),
-  password: z.string().min(6, 'رمز عبور باید حداقل ۶ کاراکتر باشد'),
-  acceptTerms: z.boolean().refine((val) => val === true, {
-    message: 'لطفا قوانین و مقررات را بپذیرید',
-  }),
-});
-
 function SignUp() {
-  const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
+  const location = useLocation();
+  
+  const initialPhone = location.state?.fullPhone || '';
+
+  const { isSubmitting, authError, fieldErrors, registerUser } = useAuth();
+  const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(signUpSchema),
-    defaultValues: { acceptTerms: false },
+    defaultValues: {
+      fullName: '',
+      phone: initialPhone,
+      password: '',
+      confirmPassword: '',
+    },
   });
 
-  // ثبت‌نام در Supabase با رمز عبور
-  const onSubmit = async (data) => {
-    const { fullName, email, password } = data;
-
-    // ۱. ثبت‌نام کاربر با ایمیل و رمز عبور در Supabase Auth
-    const { data: authData, error } = await supabase.auth.signUp({
-      email: email,
-      password: password,
-      options: {
-        data: {
-          full_name: fullName,
-        },
-      },
-    });
-
-    if (error) {
-      alert(`خطا در ثبت‌نام: ${error.message}`);
-    } else {
-      // ✅ اصلاح: کاربر به صفحه ورود برمی‌گردد تا کد OTP را وارد کند
-      alert('ثبت‌نام با موفقیت انجام شد! لطفاً برای ورود، کد تایید ارسال شده به ایمیل خود را وارد کنید.');
-      
-      // به صفحه ورود برمی‌گردیم و ایمیل رو به عنوان مقدار اولیه می‌فرستیم تا کاربر دوباره تایپ نکنه
-      navigate('/Sign-in', { 
-        state: { 
-          emailToAutoFill: email,
-        } 
-      });
-    }
+  const onSubmit = (data) => {
+    registerUser({ ...data });
   };
 
   return (
     <AuthLayout image={SignUpImage}>
       <Title>ثبت نام</Title>
       <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
+
         <Label>نام و نام خانوادگی *</Label>
         <Input placeholder="نام و نام خانوادگی" {...register('fullName')} />
         {errors.fullName && <ErrorMessage>{errors.fullName.message}</ErrorMessage>}
-
-        <Label>ایمیل *</Label>
-        <Input placeholder="ایمیل" {...register('email')} />
-        {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+        
+        <Label>شماره موبایل *</Label>
+        <Input
+          placeholder="09123456789"
+          inputMode="numeric"
+          {...register('phone')}
+        />
+        {errors.phone && <ErrorMessage>{errors.phone.message}</ErrorMessage>}
 
         <Label>رمز عبور *</Label>
         <Input type="password" placeholder="رمز عبور (حداقل ۶ کاراکتر)" {...register('password')} />
         {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
 
+        <Label>تکرار رمز عبور *</Label>
+        <Input type="password" placeholder="تکرار رمز عبور" {...register('confirmPassword')} />
+        {errors.confirmPassword && <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>}
+
+        {fieldErrors.phone && <ErrorMessage>{fieldErrors.phone}</ErrorMessage>}
+        {authError && <ErrorMessage>{authError}</ErrorMessage>}
+
         <Button type="submit" disabled={isSubmitting}>
           {isSubmitting ? 'در حال ثبت‌نام...' : 'ثبت نام'}
         </Button>
-
-        <Policy>
-          <ConfirmInput type="checkbox" {...register('acceptTerms')} />
-          <Span>قوانین ومقررات </Span> را خوانده و قبول دارم.
-          {errors.acceptTerms && <ErrorMessage>{errors.acceptTerms.message}</ErrorMessage>}
-        </Policy>
       </form>
-
-      <BackButton onClick={() => window.history.back()}>صفحه قبلی</BackButton>
     </AuthLayout>
   );
 }

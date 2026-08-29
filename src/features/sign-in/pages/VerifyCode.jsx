@@ -1,74 +1,48 @@
+
 import styled from 'styled-components';
-import { useRef, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { supabase } from '../../../lib/supabase';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 import AuthLayout from '../../shared/AuthLayout/AuthLayout';
 import VerifyImage from '../images/VerifyImage.png';
+
 
 const Title = styled.div`
   width: 100%;
   color: var(--color-base-secondary);
   font-size: var(--font-body-xxxl);
   font-weight: var(--font-weight-bold);
-    margin : 0 auto ;
+  margin: 0 auto;
 `;
 
 const Subtitle = styled.p`
   width: 100%;
   font-size: var(--font-body-large);
   color: var(--color-neutral-800);
-  margin : 0 auto;
+  margin: 0 auto;
 `;
 
-const InputContainer = styled.div`
-  display: flex;
-  gap: 8px;
+const Label = styled.label`
   width: 100%;
-  justify-content: center;
-  flex-wrap: wrap;
-  direction: ltr;
+  font-size: var(--font-body-large);
+  color: var(--color-neutral-800);
+  font-weight: var(--font-weight-bold);
 `;
 
-const CodeInput = styled.input`
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  font-size: var(--font-body-xxxl);
-  font-weight: var(--font-weight-bold);
+const Input = styled.input`
+  width: 100%;
   border: 1px solid var(--color-neutral-800);
-  border-radius: 8px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: var(--font-body-md);
   outline: none;
-  transition: all 0.3s ease;
-  background-color: var(--color-base-background);
-  color: var(--color-base-secondary);
+  transition: border-color 0.3s ease;
 
   &:focus {
     border-color: var(--color-base-primary);
-    box-shadow: 0 0 0 4px rgba(250, 84, 28, 0.15);
   }
-
   &::placeholder {
     color: var(--color-neutral-400);
-    font-weight: var(--font-weight-regular);
-    font-size: var(--font-body-xxxl);
-    position: relative;
-    top: 20%;
-    color: var(--color-neutral-800);
-  }
-
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  &[type="number"] {
-    -moz-appearance: textfield;
-  }
-  @media (max-width: 490px) {
-    width: 35px;
-    height: 45px;
-    font-size: var(--font-body-xl);
   }
 `;
 
@@ -94,158 +68,50 @@ const Button = styled.button`
     cursor: not-allowed;
   }
 `;
-
-const ResendContainer = styled.div`
+const ErrorMessage = styled.p`
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 12px auto;
+  color: var(--color-error-800);
+  font-size: var(--font-body-xs);
+  margin: 8px 0;
 `;
-
-const ResendLink = styled.button`
-  width: max-content;
-  background: none;
-  border: none;
-  color: var(--color-base-primary);
-  font-size: var(--font-body-large);
-  cursor: pointer;
-  font-weight: var(--font-weight-bold);
-  margin-left: 8px;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    text-decoration: none;
-  }
-`;
-
-const Timer = styled.span`
-  font-size: var(--font-body-large);
-  color: var(--color-neutral-800);
-  font-weight: var(--font-weight-bold);
-  direction: ltr;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 function VerifyCode() {
-  const navigate = useNavigate();
   const location = useLocation();
-  const identifier = location.state?.identifier;
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const phone = location.state?.phone;
 
-  // اگر کاربر مستقیم این صفحه رو باز کرده، برگردونش به صفحه ورود
-  if (!identifier) {
-    navigate('/Sign-in');
-    return null;
+  const { isSubmitting, authError, loginWithPassword } = useAuth();
+  const [password, setPassword] = useState('');
+
+  if (!phone) {
+    return null; 
   }
 
-  const inputRefs = [
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-  ];
-
-  const handleChange = (index, e) => {
-    const value = e.target.value;
-    if (!/^\d*$/.test(value)) return;
-
-    if (value.length === 1 && index < 5) {
-      inputRefs[index + 1].current.focus();
-    }
-
-    if (value.length === 0 && index > 0) {
-      inputRefs[index - 1].current.focus();
-    }
-  };
-
-  const handleKeyDown = (index, e) => {
-    if (e.key === 'Backspace' && index > 0 && !e.target.value) {
-      inputRefs[index - 1].current.focus();
-    }
-  };
-
-  const getFullCode = () => {
-    return inputRefs.map(ref => ref.current?.value || '').join('');
-  };
-
-  const handleSubmit = async () => {
-    const code = getFullCode();
-    if (code.length !== 6) {
-      alert('لطفا کد ۶ رقمی را کامل وارد کنید');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (password.length < 6) {
+      alert('لطفا رمز عبور را وارد کنید');
       return;
     }
-
-    setIsSubmitting(true);
-
-    // تشخیص نوع ورودی برای تایید
-    const isEmail = identifier.includes('@');
-    const payload = isEmail 
-      ? { email: identifier, token: code, type: 'email' }
-      : { phone: identifier, token: code, type: 'sms' };
-
-    const { data, error } = await supabase.auth.verifyOtp(payload);
-
-    setIsSubmitting(false);
-
-    if (error) {
-      alert(`کد وارد شده اشتباه است یا منقضی شده: ${error.message}`);
-    } else {
-      alert('ورود با موفقیت انجام شد!');
-      navigate('/User-profile');
-    }
-  };
-
-  const handleResend = async () => {
-    const isEmail = identifier.includes('@');
-    const payload = isEmail ? { email: identifier } : { phone: identifier };
-
-    const { error } = await supabase.auth.signInWithOtp(payload);
-    if (error) {
-      alert(`خطا در ارسال مجدد: ${error.message}`);
-    } else {
-      alert('کد جدید با موفقیت ارسال شد.');
-      // اینجا می‌تونی تایمر رو ریست کنی
-    }
+    loginWithPassword(phone, password);
   };
 
   return (
     <AuthLayout image={VerifyImage}>
-      <Title>کد تایید را وارد کنید</Title>
+      <Title>ورود</Title>
+      <Subtitle>شماره موبایل: {phone}</Subtitle>
 
-      <InputContainer>
-        {[...Array(6)].map((_, index) => (
-          <CodeInput
-            key={index}
-            ref={inputRefs[index]}
-            type="number"
-            maxLength={1}
-            placeholder="_"
-            onChange={(e) => handleChange(index, e)}
-            onKeyDown={(e) => handleKeyDown(index, e)}
-          />
-        ))}
-      </InputContainer>
-
-      <ResendContainer>
-         <Subtitle>کد برای شما ارسال شد</Subtitle>
-        <Timer>
-           01:29   
-           <ResendLink onClick={handleResend}>ارسال دوباره</ResendLink>
-        </Timer>
-      </ResendContainer>
-      <Button onClick={handleSubmit} disabled={isSubmitting}>
-        {isSubmitting ? 'در حال تایید...' : 'ثبت'}
-      </Button>
+      <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+        <Label>رمز عبور</Label>
+        <Input
+          type="password"
+          placeholder="رمز عبور خود را وارد کنید"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        {authError && <ErrorMessage>{authError}</ErrorMessage>}
+        <Button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? 'در حال ورود...' : 'ورود'}
+        </Button>
+      </form>
     </AuthLayout>
   );
 }

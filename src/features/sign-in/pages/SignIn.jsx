@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { useNavigate } from 'react-router-dom';
-import { supabase } from '../../../lib/supabase';
+import { useAuth } from '../hooks/useAuth';
+import { signInSchema } from '../validation/signInSchema';
 import AuthLayout from '../../shared/AuthLayout/AuthLayout';
 import SignInImage from '../images/SignInImage.png';
+
 
 const Title = styled.div`
   width: 100%;
@@ -33,7 +33,6 @@ const Input = styled.input`
   &:focus {
     border-color: var(--color-base-primary);
   }
-
   &::placeholder {
     font-weight: var(--font-weight-regular);
     color: var(--color-neutral-400);
@@ -68,73 +67,38 @@ const Button = styled.button`
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    background-color: var(--color-neutral-400); /* خاکستری کردن دکمه */
   }
 `;
 
-const Policy = styled.div`
-  width: 100%;
-  font-size: var(--font-body-large);
-  color: var(--color-neutral-800);
-  margin-top: var(--global-margin-small);
-  text-align: center;
-`;
-
-const Span = styled.span`
-  font-weight: var(--font-weight-bold);
-  color: var(--color-base-secondary);
-`;
-
-const signInSchema = z.object({
-  identifier: z.string().min(1, 'لطفا شماره تماس یا ایمیل را وارد کنید'),
-});
 
 function SignIn() {
-  const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
+  const { isSubmitting, authError, checkUserExists } = useAuth();
+  const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(signInSchema),
   });
 
-  // 🌟 توضیح: این خطا وقتی پیش میاد که کاربر چند بار دکمه رو بزنه
-  const onSubmit = async (data) => {
-    const { identifier } = data;
-    const isEmail = identifier.includes('@');
-    const payload = isEmail ? { email: identifier } : { phone: identifier };
-
-    const { error } = await supabase.auth.signInWithOtp(payload);
-
-    if (error) {
-      // اگر خطای Rate Limit بود، به کاربر پیام مناسب بده
-      if (error.message.includes('rate limit')) {
-        alert('⚠️ شما بیش از حد مجاز درخواست فرستاده‌اید. لطفاً ۱ دقیقه صبر کنید و دوباره تلاش کنید.');
-      } else {
-        alert(`خطا در ارسال کد: ${error.message}`);
-      }
-    } else {
-      navigate('/Verify-code', { state: { identifier } });
-    }
+  const onSubmit = (data) => {
+    checkUserExists(data.phone);
   };
 
   return (
     <AuthLayout image={SignInImage}>
       <Title>ورود | ثبت نام</Title>
       <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
-        <Label htmlFor="input">لطفا شماره تماس یا ایمیل خود را وارد کنید</Label>
+        <Label>شماره موبایل</Label>
         <Input
-          id="input"
-          placeholder="Example@gmail.com یا 09123456789"
-          {...register('identifier')}
+          placeholder="09123456789"
+          {...register('phone')}
+          inputMode="numeric"
         />
-        {errors.identifier && <ErrorMessage>{errors.identifier.message}</ErrorMessage>}
+        {errors.phone && <ErrorMessage>{errors.phone.message}</ErrorMessage>}
+
+        {authError && <ErrorMessage>{authError}</ErrorMessage>}
 
         <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'در حال ارسال کد...' : 'ادامه'}
+          {isSubmitting ? 'در حال بررسی...' : 'ادامه'}
         </Button>
       </form>
-      <Policy>
-        ورود شما به معنای پذیرش شرایط <Span>فیت لند</Span> و{' '}
-        <Span>قوانین حریم خصوصی</Span> ماست
-      </Policy>
     </AuthLayout>
   );
 }

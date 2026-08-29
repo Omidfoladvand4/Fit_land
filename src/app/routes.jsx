@@ -26,7 +26,7 @@ export const ROUTES = {
   PRODUCTS: '/Products/:category',
   USERPROFILE: '/User-profile' ,
   PRODUCTDETAIL: '/Product-detail/:productId' ,
-  BASKET: '/Basket',
+  BASKET: '/Basket/',
 };
 
 const routes = [
