@@ -1,4 +1,4 @@
-import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{i as n,u as r}from"./index-DPNvDcSj.js";var i=t(),a=e.div`
+import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{a as n,d as r}from"./index-By7vYwek.js";var i=t(),a=e.div`
   width: 100%;
   display: flex;
   height: 230px;
@@ -10,8 +10,8 @@ import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{i as n,u as r}from"./inde
 `,o=e.div`
   width: 40%;
   position: relative;
-  @media (max-width : 768px) {
-     width: 30%;
+  @media (max-width: 768px) {
+    width: 30%;
   }
 `,s=e.img`
   width: 100%;
@@ -21,7 +21,7 @@ import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{i as n,u as r}from"./inde
   display: flex;
   align-items: center;
   justify-content: center;
-  width:  4em;
+  width: 4em;
   height: 2em;
   background-color: var(--color-base-primary);
   position: absolute;
@@ -37,8 +37,8 @@ import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{i as n,u as r}from"./inde
   padding: 14px 16px;
   position: relative;
   line-height: 1.8;
-  @media (max-width : 768px) {
-     padding: 8px 0;
+  @media (max-width: 768px) {
+    padding: 8px 0;
   }
 `,u=e.h1`
   font-size: var(--font-body-xl);
@@ -55,8 +55,8 @@ import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{i as n,u as r}from"./inde
   color: var(--color-neutral-800);
   font-weight: 500;
   text-decoration: line-through;
-  @media (max-width : 768px) {
-     display: none;
+  @media (max-width: 768px) {
+    display: none;
   }
 `,m=e.div`
   color: var(--color-base-secondary);
@@ -74,7 +74,7 @@ import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{i as n,u as r}from"./inde
   width: 1em;
   height: 1em;
   border-radius: 50%;
-  background-color: ${({$bgColor:e})=>e||`var(--color-neutral-300)`};
+  background-color: ${({$bgColor:e})=>e||`var(--color-neutral-500)`};
 `,v=e.div`
   width: 6em;
   position: absolute;
@@ -109,6 +109,6 @@ import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{i as n,u as r}from"./inde
   justify-content: center;
   font-size: var(--font-body-xl);
   color: var(--color-neutral-800);
-  border: 1px dashed var(--color-neutral-300);
+  border: 1px dashed var(--color-neutral-500);
   border-radius: 12px;
 `;function T(){let{items:e,removeFromCart:t,updateCartQuantity:n}=r();return!e||e.length===0?(0,i.jsx)(C,{children:(0,i.jsx)(w,{children:`سبد خرید شما خالی است.`})}):(0,i.jsx)(C,{children:e.map(e=>(0,i.jsx)(S,{item:e,onRemove:t,onUpdateQuantity:n},e.id))})}export{T as default};

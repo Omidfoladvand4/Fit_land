@@ -1,4 +1,4 @@
-import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{o as n}from"./index-DPNvDcSj.js";var r=t(),i=e(n)`
+import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{s as n}from"./index-By7vYwek.js";var r=t(),i=e(n)`
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
@@ -107,7 +107,7 @@ import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{o as n}from"./index-DPNvD
   margin-bottom: 4px;
 
   span {
-    color: #d1d5db;
+    color: var(--color-neutral-700);
   }
 
   @media (max-width: 480px) {
@@ -135,7 +135,7 @@ import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{o as n}from"./index-DPNvD
 `,d=e.div`
   font-size: var(--font-body-sm);
   font-weight: 400;
-  color: #6b7280;
+  color: var(--color-neutral-800);
   text-align: right;
   margin-bottom: 4px;
 
@@ -167,7 +167,7 @@ import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{o as n}from"./index-DPNvD
 `,m=e.div`
   font-size: var(--font-body-sm);
   font-weight: 400;
-  color: #9ca3af;
+  color: var(--color-neutral-800);
   text-decoration: line-through;
 
   @media (max-width: 480px) {
@@ -187,11 +187,11 @@ import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{o as n}from"./index-DPNvD
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: ${({$color:e})=>e};
-  border: 1px solid #e5e7eb;
+  background: ${({$color:e})=>e};
+  border: 1px solid var(--color-neutral-800);
 
   @media (max-width: 480px) {
     width: 16px;
     height: 16px;
   }
-`,_=({image:e=`/placeholder-image.jpg`,title:t=`NCY تیشرت زنانه`,price:n=16e4,originalPrice:_=2e5,rating:v,colors:y,sizes:b,ProductId:x})=>{let S=e=>{let t=[],n=Math.floor(e),i=e%1>=.5;for(let e=0;e<n;e++)t.push(`★`);for(i&&t.push(`★`);t.length<5;)t.push((0,r.jsx)(`span`,{children:`★`},t.length));return t},C=_&&_>n;return(0,r.jsxs)(i,{to:`/Product-Detail/${x}`,children:[(0,r.jsxs)(a,{children:[(0,r.jsx)(`img`,{src:e,alt:t}),(0,r.jsx)(o,{children:b.slice(0,5).map((e,t)=>(0,r.jsx)(s,{children:e},t))})]}),(0,r.jsxs)(c,{children:[(0,r.jsx)(l,{children:S(v)}),(0,r.jsx)(u,{children:t}),(0,r.jsx)(d,{children:(e=>{if(!e||e.length===0)return``;let t=[...e].sort((e,t)=>{let n=[`XS`,`S`,`M`,`L`,`XL`,`2XL`,`3XL`];return n.indexOf(e)-n.indexOf(t)});return`از سایز ${t[0]} تا ${t[t.length-1]}`})(b)}),(0,r.jsxs)(f,{children:[(0,r.jsxs)(p,{children:[n.toLocaleString(),` تومان`]}),C&&(0,r.jsxs)(m,{children:[_.toLocaleString(),` تومان`]})]}),(0,r.jsxs)(h,{children:[y.slice(0,3).map((e,t)=>(0,r.jsx)(g,{$color:e},t)),y.length>3&&(0,r.jsxs)(g,{$color:`#e5e7eb`,style:{display:`flex`,alignItems:`center`,justifyContent:`center`,fontSize:`8px`,fontWeight:`bold`,color:`#6b7280`},children:[`+`,y.length-3]})]})]})]})};export{_ as t};
+`,_=({image:e=`/placeholder-image.jpg`,title:t=`NCY تیشرت زنانه`,price:n=16e4,originalPrice:_=2e5,rating:v,colors:y,sizes:b,ProductId:x})=>{let S=e=>{let t=[],n=Math.floor(e),i=e%1>=.5;for(let e=0;e<n;e++)t.push(`★`);for(i&&t.push(`★`);t.length<5;)t.push((0,r.jsx)(`span`,{children:`★`},t.length));return t},C=_&&_>n;return(0,r.jsxs)(i,{to:`/Product-Detail/${x}`,children:[(0,r.jsxs)(a,{children:[(0,r.jsx)(`img`,{src:e,alt:t}),(0,r.jsx)(o,{children:b.slice(0,5).map((e,t)=>(0,r.jsx)(s,{children:e},t))})]}),(0,r.jsxs)(c,{children:[(0,r.jsx)(l,{children:S(v)}),(0,r.jsx)(u,{children:t}),(0,r.jsx)(d,{children:(e=>{if(!e||e.length===0)return``;let t=[...e].sort((e,t)=>{let n=[`XS`,`S`,`M`,`L`,`XL`,`2XL`,`3XL`];return n.indexOf(e)-n.indexOf(t)});return`از سایز ${t[0]} تا ${t[t.length-1]}`})(b)}),(0,r.jsxs)(f,{children:[(0,r.jsxs)(p,{children:[n.toLocaleString(),` تومان`]}),C&&(0,r.jsxs)(m,{children:[_.toLocaleString(),` تومان`]})]}),(0,r.jsxs)(h,{children:[y.slice(0,3).map((e,t)=>(0,r.jsx)(g,{$color:e.hex},t)),y.length>3&&(0,r.jsxs)(g,{$color:``,style:{display:`flex`,alignItems:`center`,justifyContent:`center`,fontSize:`8px`,fontWeight:`bold`,color:`#6b7280`},children:[`+`,y.length-3]})]})]})]})};export{_ as t};

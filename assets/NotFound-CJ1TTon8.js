@@ -4,36 +4,37 @@ import{n as e,t}from"./jsx-runtime-yu_Uq3ru.js";import{t as n}from"./HomeIcon-Bq
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  margin-bottom: 16px;
   @media (max-width: 768px) {
-    padding: 10% 5%; 
-    }
+    padding: 10% 5%;
+  }
 `,o=e.div`
   width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
-  @media (max-width: 768px) {
-    width: 100%;
+  justify-content: center;
+  @media (max-width: 1030px) {
+    width: 95%;
   }
-  `,s=e.div`
+`,s=e.div`
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   gap: 10px;
   margin-top: 20px;
   border-radius: 8px;
   cursor: pointer;
-  font-size : var(--font-body-md);
+  font-size: var(--font-body-md);
   background-color: var(--color-base-secondary);
   color: var(--color-base-background);
   padding: 10px 20px;
-    `,c=e.div`
+`,c=e.div`
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
 `,l=e.img`
-  width: 100%; 
-  `,u=e.button`
-  margin-top: 20px; 
-    `;function d(){return(0,i.jsx)(a,{children:(0,i.jsxs)(o,{children:[(0,i.jsx)(l,{src:r,alt:`404 Not Found`}),(0,i.jsx)(c,{children:`صفحه مورد نظر یافت نشد`}),(0,i.jsxs)(s,{onClick:()=>window.location.href=`/`,children:[(0,i.jsx)(u,{}),(0,i.jsx)(n,{}),` بازگشت به صفحه اصلی`]})]})})}export{d as default};
+  width: 100%;
+`,u=e.button`
+  margin-top: 20px;
+`;function d(){return(0,i.jsx)(a,{children:(0,i.jsxs)(o,{children:[(0,i.jsx)(l,{src:r,alt:`404 Not Found`}),(0,i.jsx)(c,{children:`صفحه مورد نظر یافت نشد`}),(0,i.jsxs)(s,{onClick:()=>window.location.href=`/`,children:[(0,i.jsx)(u,{}),(0,i.jsx)(n,{}),` بازگشت به صفحه اصلی`]})]})})}export{d as default};
