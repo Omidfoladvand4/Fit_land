@@ -1,8 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import PageButton from './PageButton';
+import React from "react";
+import styled from "styled-components";
+import PageButton from "./PageButton";
 
-// ---------- استایل‌های کانتینر ----------
 const PaginationContainer = styled.div`
   display: flex;
   align-items: center;
@@ -21,8 +20,8 @@ const ArrowButton = styled.button`
   height: 36px;
   border-radius: 8px;
   border: 1px solid #e5e7eb;
-  background-color: #ffffff;
-  color: #374151;
+  background-color: var(--color-base-background);
+  color: var(--color-base-secondary-light);
   cursor: pointer;
   transition: all 0.2s ease;
 
@@ -35,7 +34,7 @@ const ArrowButton = styled.button`
     opacity: 0.5;
     cursor: not-allowed;
     &:hover {
-      background-color: #ffffff;
+      background-color: var(--color-base-background);
       border-color: #e5e7eb;
     }
   }
@@ -46,12 +45,7 @@ const ArrowButton = styled.button`
   }
 `;
 
-const Pagination = ({ 
-  currentPage = 1, 
-  totalPages = 10, 
-  onPageChange 
-}) => {
-  
+const Pagination = ({ currentPage = 1, totalPages = 10, onPageChange }) => {
   const getPageNumbers = () => {
     const delta = 1;
     const range = [];
@@ -73,7 +67,7 @@ const Pagination = ({
         if (i - l === 2) {
           rangeWithDots.push(l + 1);
         } else if (i - l !== 1) {
-          rangeWithDots.push('...');
+          rangeWithDots.push("...");
         }
       }
       rangeWithDots.push(i);
@@ -87,19 +81,32 @@ const Pagination = ({
 
   return (
     <PaginationContainer>
-      <ArrowButton 
+      <ArrowButton
         disabled={currentPage === 1}
-        onClick={() => onPageChange(currentPage - 1)}
-      >
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        onClick={() => onPageChange(currentPage - 1)}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round">
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
       </ArrowButton>
 
       {pageNumbers.map((number, index) => (
         <React.Fragment key={index}>
-          {number === '...' ? (
-            <span style={{ padding: '0 8px', color: '#9ca3af', fontSize: 'var(--font-body-large)' }}>...</span>
+          {number === "..." ? (
+            <span
+              style={{
+                padding: "0 8px",
+                color: "#9ca3af",
+                fontSize: "var(--font-body-large)",
+              }}>
+              ...
+            </span>
           ) : (
             <PageButton
               number={number}
@@ -110,11 +117,17 @@ const Pagination = ({
         </React.Fragment>
       ))}
 
-      <ArrowButton 
+      <ArrowButton
         disabled={currentPage === totalPages}
-        onClick={() => onPageChange(currentPage + 1)}
-      >
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        onClick={() => onPageChange(currentPage + 1)}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
       </ArrowButton>

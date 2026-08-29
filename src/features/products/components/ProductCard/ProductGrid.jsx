@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import ProductCard from './ProductCard';
+import styled from "styled-components";
+import ProductCard from "./ProductCard";
 
 const GridContainer = styled.div`
   display: grid;
@@ -28,7 +28,12 @@ const GridContainer = styled.div`
 const ProductGrid = ({ products = [] }) => {
   if (!products || products.length === 0) {
     return (
-      <div style={{ padding: '40px', textAlign: 'center', color: '#6b7280' }}>
+      <div
+        style={{
+          padding: "40px",
+          textAlign: "center",
+          color: "var(--color-base-secondary-light)",
+        }}>
         محصولی یافت نشد.
       </div>
     );
@@ -37,7 +42,7 @@ const ProductGrid = ({ products = [] }) => {
   return (
     <GridContainer>
       {products.map((product) => (
-        <ProductCard 
+        <ProductCard
           key={product.id}
           ProductId={product.id}
           image={product.image}

@@ -1,24 +1,24 @@
-import styled from 'styled-components';
-import FilterToggle from './FilterToggle';
-import FilterColor from './FilterColor';
-import FilterSize from './FilterSize';
-import PriceRangeSlider from './PriceRangeSlider';
-import { useState, useEffect } from 'react';
-import FilterIcon from './icons/FilterIcon';
+import styled from "styled-components";
+import FilterToggle from "./FilterToggle";
+import FilterColor from "./FilterColor";
+import FilterSize from "./FilterSize";
+import PriceRangeSlider from "./PriceRangeSlider";
+import { useState, useEffect } from "react";
+import FilterIcon from "./icons/FilterIcon";
 
 const SidebarContainer = styled.div`
   width: 100%;
-  max-width: 260px;
-  background-color: #ffffff;
+  max-width: 290px;
+  background-color: var(--color-base-background);
   padding: 16px;
   border-radius: 8px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-base-secondary-light);
   position: sticky;
   top: 16px;
   height: fit-content;
 
   @media (max-width: 1024px) {
-    display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
+    display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
     position: fixed;
     top: 0;
     right: 0;
@@ -29,7 +29,7 @@ const SidebarContainer = styled.div`
     border-radius: 0;
     border: none;
     overflow-y: auto;
-    background: var(--color-base-background, #ffffff);
+    background: var(--color-base-background, var(--color-base-background));
     animation: slideIn 0.3s ease;
 
     @keyframes slideIn {
@@ -49,7 +49,7 @@ const Overlay = styled.div`
   display: none;
 
   @media (max-width: 1024px) {
-    display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
+    display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
     position: fixed;
     top: 0;
     left: 0;
@@ -73,7 +73,7 @@ const Title = styled.h2`
   @media (max-width: 1024px) {
     font-size: var(--font-body-xxl);
     padding-bottom: 16px;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--color-base-secondary-light);
   }
 `;
 
@@ -89,12 +89,12 @@ const CloseButton = styled.button`
     width: 36px;
     height: 36px;
     font-size: 24px;
-    color: #374151;
+    color: var(--color-base-secondary-light);
     border-radius: 50%;
     transition: all 0.2s ease;
 
     &:hover {
-      background-color: #f3f4f6;
+      background-color: var(--color-negtral-500);
     }
   }
 `;
@@ -102,7 +102,7 @@ const CloseButton = styled.button`
 const Section = styled.div`
   margin-bottom: 20px;
   padding-bottom: 16px;
-  border-bottom: 1px solid #f3f4f6;
+  border-bottom: 1px solid var(--color-negtral-500);
 
   &:last-child {
     border-bottom: none;
@@ -115,7 +115,7 @@ const SectionTitle = styled.span`
   display: block;
   font-size: var(--font-body-large);
   font-weight: 500;
-  color: #374151;
+  color: var(--color-base-secondary-light);
   margin-bottom: 12px;
 `;
 
@@ -129,7 +129,7 @@ const OpenFilterButton = styled.button`
   height: 56px;
   border-radius: 50%;
   background: var(--color-base-primary);
-  color: #ffffff;
+  color: var(--color-base-background);
   border: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   cursor: pointer;
@@ -151,8 +151,8 @@ const FilterBadge = styled.span`
   position: absolute;
   top: -4px;
   right: -4px;
-  background: #ef4444;
-  color: #ffffff;
+  background: var(--color-error-800);
+  color: var(--color-base-background);
   font-size: 10px;
   font-weight: 700;
   width: 20px;
@@ -186,8 +186,15 @@ const DeleteFilterBtn = styled.button`
 `;
 
 const ProductFilters = ({ onFilterChange }) => {
-  const colors = ['#000000', '#FFFFFF', '#E74C3C', '#3498DB', '#2ECC71', '#F1C40F'];
-  const sizes = ['XS', 'S', 'M', 'L', 'XL', '2XL'];
+  const colors = [
+    "#000000",
+    "var(--color-base-background)",
+    "#E74C3C",
+    "#3498DB",
+    "#2ECC71",
+    "#F1C40F",
+  ];
+  const sizes = ["XS", "S", "M", "L", "XL", "2XL"];
 
   const [filters, setFilters] = useState({
     inStock: false,
@@ -198,33 +205,33 @@ const ProductFilters = ({ onFilterChange }) => {
   });
 
   const handleClearAllFilters = () => {
-  const resetFilters = {
-    inStock: false,
-    hasDiscount: false,
-    priceRange: [0, 5000000],
-    selectedColors: [],
-    selectedSizes: [],
+    const resetFilters = {
+      inStock: false,
+      hasDiscount: false,
+      priceRange: [0, 5000000],
+      selectedColors: [],
+      selectedSizes: [],
+    };
+    setFilters(resetFilters);
+    if (onFilterChange) onFilterChange(resetFilters);
   };
-  setFilters(resetFilters);
-  if (onFilterChange) onFilterChange(resetFilters);
-};
-const isFilterEmpty =
-  !filters.inStock &&
-  !filters.hasDiscount &&
-  filters.selectedColors.length === 0 &&
-  filters.selectedSizes.length === 0;
+  const isFilterEmpty =
+    !filters.inStock &&
+    !filters.hasDiscount &&
+    filters.selectedColors.length === 0 &&
+    filters.selectedSizes.length === 0;
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
-  }, [isOpen ,]);
+  }, [isOpen]);
 
   const updateFilter = (key, value) => {
     const newFilters = { ...filters, [key]: value };
@@ -255,7 +262,7 @@ const isFilterEmpty =
   return (
     <>
       <OpenFilterButton onClick={handleOpen}>
-       <FilterIcon /> 
+        <FilterIcon />
         {getActiveFilterCount() > 0 && (
           <FilterBadge>{getActiveFilterCount()}</FilterBadge>
         )}
@@ -266,22 +273,24 @@ const isFilterEmpty =
       <SidebarContainer $isOpen={isOpen}>
         <Title>
           فیلترها
-          <CloseButton onClick={handleClose}>
-            ✕
-          </CloseButton>
+          <CloseButton onClick={handleClose}>✕</CloseButton>
         </Title>
 
         <Section>
-            <DeleteFilterBtn onClick={handleClearAllFilters}   disabled= {isFilterEmpty}>حذف همه فیلتر ها</DeleteFilterBtn>
+          <DeleteFilterBtn
+            onClick={handleClearAllFilters}
+            disabled={isFilterEmpty}>
+            حذف همه فیلتر ها
+          </DeleteFilterBtn>
           <FilterToggle
             label="محصولات موجود"
             isActive={filters.inStock}
-            onToggle={() => updateFilter('inStock', !filters.inStock)}
+            onToggle={() => updateFilter("inStock", !filters.inStock)}
           />
           <FilterToggle
             label="محصولات تخفیف‌دار"
             isActive={filters.hasDiscount}
-            onToggle={() => updateFilter('hasDiscount', !filters.hasDiscount)}
+            onToggle={() => updateFilter("hasDiscount", !filters.hasDiscount)}
           />
         </Section>
 
@@ -292,7 +301,7 @@ const isFilterEmpty =
             max={5000000}
             step={100000}
             value={filters.priceRange}
-            onChange={(val) => updateFilter('priceRange', val)}
+            onChange={(val) => updateFilter("priceRange", val)}
           />
         </Section>
 
@@ -301,7 +310,9 @@ const isFilterEmpty =
           <FilterColor
             colors={colors}
             selectedColors={filters.selectedColors}
-            onColorSelect={(color) => handleArrayToggle('selectedColors', color)}
+            onColorSelect={(color) =>
+              handleArrayToggle("selectedColors", color)
+            }
           />
         </Section>
 
@@ -310,7 +321,7 @@ const isFilterEmpty =
           <FilterSize
             sizes={sizes}
             selectedSizes={filters.selectedSizes}
-            onSizeSelect={(size) => handleArrayToggle('selectedSizes', size)}
+            onSizeSelect={(size) => handleArrayToggle("selectedSizes", size)}
           />
         </Section>
       </SidebarContainer>

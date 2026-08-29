@@ -20,13 +20,6 @@ const PriceLabels = styled.div`
   font-weight: 500;
 `;
 
-const MinMaxLabels = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 0 4px;
-  font-size: var(--font-body-md);
-  color: #9ca3af;
-`;
 
 const StyledSlider = styled(Slider)`
   margin: 8px 4px;
@@ -80,10 +73,6 @@ const PriceRangeSlider = ({ min = 0, max = 5000000, step = 100000, value, onChan
         onChange={onChange}
       />
 
-      <MinMaxLabels>
-        <span>{formatPrice(min)}</span>
-        <span>{formatPrice(max)}</span>
-      </MinMaxLabels>
     </Wrapper>
   );
 };

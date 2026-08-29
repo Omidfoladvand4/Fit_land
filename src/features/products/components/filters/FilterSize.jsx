@@ -17,8 +17,8 @@ const SizeButton = styled.button`
   font-size: var(--font-body-md);
   font-weight: 500;
   border-radius: 4px;
-  border: 1px solid ${({ $isSelected }) => ($isSelected ? 'var(--color-base-secondary)' : '#d1d5db')};
-  background-color: ${({ $isSelected }) => ($isSelected ? 'var(--color-base-secondary)' : 'var(--color-base-background)')}; // ✅ پرانتز بسته شد
+  border: 1px solid ${({ $isSelected }) => ($isSelected ? 'var(--color-base-secondary)' : 'var(--color-neutral-800)')};
+  background-color: ${({ $isSelected }) => ($isSelected ? 'var(--color-base-secondary)' : 'var(--color-base-background)')};
   color: ${({ $isSelected }) => ($isSelected ? 'var(--color-base-background)' : 'var(--color-base-secondary)')};
   cursor: pointer;
   transition: all 0.2s ease;

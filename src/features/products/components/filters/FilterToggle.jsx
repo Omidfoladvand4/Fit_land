@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const ToggleContainer = styled.div`
   display: flex;
@@ -19,22 +19,23 @@ const ToggleButton = styled.button`
   height: 20px;
   border-radius: 9999px;
   border: none;
-  background-color: ${({ $isActive }) => ($isActive ? 'var(--color-base-secondary)' : '#d1d5db')};
+  background-color: ${({ $isActive }) =>
+    $isActive ? "var(--color-base-secondary)" : "var(--color-info-200)"};
   position: relative;
   cursor: pointer;
   transition: background-color 0.3s ease;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 2px;
-    left: ${({ $isActive }) => ($isActive ? '22px' : '2px')};
+    left: ${({ $isActive }) => ($isActive ? "22px" : "2px")};
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--color-base-background);
     transition: left 0.3s ease;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   }
 `;
 

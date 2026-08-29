@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import styled from 'styled-components';
+import { useState } from "react";
+import styled from "styled-components";
 
 const SortContainer = styled.div`
   display: flex;
@@ -22,9 +22,12 @@ const SortContainer = styled.div`
 const SortTab = styled.div`
   padding: 6px 16px;
   font-size: var(--font-size-large);
-  font-weight: ${({ $isActive }) => ($isActive ? '900' : '600')};
-  color: ${({ $isActive }) => ($isActive ? 'var(--color-base-primary)' : 'black')};
-  border-bottom: 3px solid ${({ $isActive }) => ($isActive ? 'var(--color-base-primary)' : 'transparent')};
+  font-weight: ${({ $isActive }) => ($isActive ? "900" : "600")};
+  color: ${({ $isActive }) =>
+    $isActive ? "var(--color-base-primary)" : "black"};
+  border-bottom: 3px solid
+    ${({ $isActive }) =>
+      $isActive ? "var(--color-base-primary)" : "transparent"};
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
@@ -51,7 +54,7 @@ const SelectWrapper = styled.div`
   display: none;
   width: 100%;
   position: relative;
-  
+
   @media (max-width: 480px) {
     display: block;
   }
@@ -70,9 +73,8 @@ const StyledSelect = styled.select`
 
   &:focus {
     border-color: var(--color-base-primary);
-    
   }
-   option {
+  option {
     padding: 12px 16px;
     font-size: var(--font-body-large);
     font-weight: 500;
@@ -96,10 +98,10 @@ const StyledSelect = styled.select`
 
 const SortBar = ({ onSortChange }) => {
   const sortOptions = [
-    { label: 'جدیدترین', value: 'newest' },
-    { label: 'پرفروش‌ترین', value: 'bestseller' },
-    { label: 'گران‌ترین', value: 'most_expensive' },
-    { label: 'ارزان‌ترین', value: 'cheapest' },
+    { label: "جدیدترین", value: "newest" },
+    { label: "پرفروش‌ترین", value: "bestseller" },
+    { label: "گران‌ترین", value: "most_expensive" },
+    { label: "ارزان‌ترین", value: "cheapest" },
   ];
 
   const [selectedOption, setSelectedOption] = useState(sortOptions[0]);
@@ -129,14 +131,15 @@ const SortBar = ({ onSortChange }) => {
         <SortTab
           key={option.value}
           $isActive={selectedOption.value === option.value}
-          onClick={() => handleOptionClick(option.value)}
-        >
+          onClick={() => handleOptionClick(option.value)}>
           {option.label}
         </SortTab>
       ))}
 
       <SelectWrapper>
-        <StyledSelect value={selectedOption.value} onChange={handleSelectChange}>
+        <StyledSelect
+          value={selectedOption.value}
+          onChange={handleSelectChange}>
           {sortOptions.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}

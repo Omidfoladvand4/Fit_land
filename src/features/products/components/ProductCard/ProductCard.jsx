@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const CardWrapper = styled(Link)`
   width: 100%;
@@ -120,7 +120,7 @@ const RatingStars = styled.div`
   margin-bottom: 4px;
 
   span {
-    color: #d1d5db;
+    color: var(--color-neutral-700);
   }
 
   @media (max-width: 480px) {
@@ -152,7 +152,7 @@ const Title = styled.h3`
 const SizeRange = styled.div`
   font-size: var(--font-body-sm);
   font-weight: 400;
-  color: #6b7280;
+  color: var(--color-neutral-800);
   text-align: right;
   margin-bottom: 4px;
 
@@ -190,7 +190,7 @@ const Price = styled.div`
 const OriginalPrice = styled.div`
   font-size: var(--font-body-sm);
   font-weight: 400;
-  color: #9ca3af;
+  color: var(--color-neutral-800);
   text-decoration: line-through;
 
   @media (max-width: 480px) {
@@ -214,8 +214,8 @@ const ColorCircle = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: ${({ $color }) => $color};
-  border: 1px solid #e5e7eb;
+  background: ${({ $color }) => $color};
+  border: 1px solid var(--color-neutral-800);
 
   @media (max-width: 480px) {
     width: 16px;
@@ -224,22 +224,22 @@ const ColorCircle = styled.div`
 `;
 
 const ProductCard = ({
-  image = '/placeholder-image.jpg',
-  title = 'NCY تیشرت زنانه',
+  image = "/placeholder-image.jpg",
+  title = "NCY تیشرت زنانه",
   price = 160000,
   originalPrice = 200000,
-  rating ,
-  colors ,
-  sizes ,
-  ProductId
+  rating,
+  colors,
+  sizes,
+  ProductId,
 }) => {
   const renderRating = (rating) => {
     const stars = [];
     const fullStars = Math.floor(rating);
     const hasHalf = rating % 1 >= 0.5;
 
-    for (let i = 0; i < fullStars; i++) stars.push('★');
-    if (hasHalf) stars.push('★');
+    for (let i = 0; i < fullStars; i++) stars.push("★");
+    if (hasHalf) stars.push("★");
     while (stars.length < 5) stars.push(<span key={stars.length}>★</span>);
 
     return stars;
@@ -248,16 +248,16 @@ const ProductCard = ({
   const hasDiscount = originalPrice && originalPrice > price;
 
   const getSizeRange = (sizes) => {
-    if (!sizes || sizes.length === 0) return '';
+    if (!sizes || sizes.length === 0) return "";
     const sorted = [...sizes].sort((a, b) => {
-      const order = ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL'];
+      const order = ["XS", "S", "M", "L", "XL", "2XL", "3XL"];
       return order.indexOf(a) - order.indexOf(b);
     });
     return `از سایز ${sorted[0]} تا ${sorted[sorted.length - 1]}`;
   };
 
   return (
-    <CardWrapper to= {`/Product-Detail/${ProductId}`}>
+    <CardWrapper to={`/Product-Detail/${ProductId}`}>
       <ImageWrapper>
         <img src={image} alt={title} />
         <CardSizeWrapper>
@@ -268,9 +268,7 @@ const ProductCard = ({
       </ImageWrapper>
 
       <CardInformation>
-        <RatingStars>
-          {renderRating(rating)}
-        </RatingStars>
+        <RatingStars>{renderRating(rating)}</RatingStars>
 
         <Title>{title}</Title>
 
@@ -279,26 +277,27 @@ const ProductCard = ({
         <PriceWrapper>
           <Price>{price.toLocaleString()} تومان</Price>
           {hasDiscount && (
-            <OriginalPrice>{originalPrice.toLocaleString()} تومان</OriginalPrice>
+            <OriginalPrice>
+              {originalPrice.toLocaleString()} تومان
+            </OriginalPrice>
           )}
         </PriceWrapper>
 
         <ColorOptions>
           {colors.slice(0, 3).map((color, index) => (
-            <ColorCircle key={index} $color={color} />
+            <ColorCircle key={index} $color={color.hex} />
           ))}
           {colors.length > 3 && (
-            <ColorCircle 
-              $color="#e5e7eb" 
-              style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center', 
-                fontSize: '8px', 
-                fontWeight: 'bold', 
-                color: '#6b7280' 
-              }}
-            >
+            <ColorCircle
+              $color=""
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "8px",
+                fontWeight: "bold",
+                color: "#6b7280",
+              }}>
               +{colors.length - 3}
             </ColorCircle>
           )}

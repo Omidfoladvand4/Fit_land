@@ -1,16 +1,16 @@
-import styled from 'styled-components';
-import { products } from '../data/products';
-import Breadcrumb from '../components/breadcrumb/Breadcrumb';
-import ProductFilters from '../components/filters/ProductFilters';
-import ProductGrid from '../components/ProductCard/ProductGrid';
-import SortBar from '../components/sorting/SortBar';
-import Pagination from '../components/pagination/Pagination';
-import ResultCount from '../components/result/ResultCount';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import styled from "styled-components";
+import { products } from "../data/products";
+import Breadcrumb from "../components/breadcrumb/Breadcrumb";
+import ProductFilters from "../components/filters/ProductFilters";
+import ProductGrid from "../components/ProductCard/ProductGrid";
+import SortBar from "../components/sorting/SortBar";
+import Pagination from "../components/pagination/Pagination";
+import ResultCount from "../components/result/ResultCount";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const PageWrapper = styled.div`
-  max-width: 1200px;
+  max-width: 90%;
   margin: 0 auto;
   padding: 24px;
   direction: rtl;
@@ -45,7 +45,6 @@ function Products() {
 
   const decodedCategory = decodeURIComponent(params.category);
 
-  // State فیلترها (هماهنگ با ProductFilters)
   const [filters, setFilters] = useState({
     inStock: false,
     hasDiscount: false,
@@ -54,89 +53,80 @@ function Products() {
     selectedSizes: [],
   });
 
-  // لیست اولیه محصولات فیلتر شده
   const [filteredProducts, setFilteredProducts] = useState(products);
 
-  // اعمال دسته‌بندی و فیلترها
   useEffect(() => {
     let result = products;
 
-    // 1. فیلتر دسته‌بندی
     if (decodedCategory) {
       result = result.filter((product) => product.category === decodedCategory);
     }
 
-    // 2. فیلتر موجودی
     if (filters.inStock) {
       result = result.filter((product) => product.inStock);
     }
 
-    // 3. فیلتر تخفیف
     if (filters.hasDiscount) {
       result = result.filter((product) => product.hasDiscount);
     }
 
-    // 4. فیلتر قیمت
     result = result.filter(
       (product) =>
         product.price >= filters.priceRange[0] &&
-        product.price <= filters.priceRange[1]
+        product.price <= filters.priceRange[1],
     );
 
-    // 5. فیلتر رنگ (بر اساس hex)
     if (filters.selectedColors.length > 0) {
       result = result.filter((product) =>
         product.colors.some((color) =>
-          filters.selectedColors.includes(color.hex)
-        )
+          filters.selectedColors.includes(color.hex),
+        ),
       );
     }
 
-    // 6. فیلتر سایز
     if (filters.selectedSizes.length > 0) {
       result = result.filter((product) =>
-        product.sizes.some((size) =>
-          filters.selectedSizes.includes(size)
-        )
+        product.sizes.some((size) => filters.selectedSizes.includes(size)),
       );
     }
 
     setFilteredProducts(result);
-    setCurrentPage(1); // با تغییر فیلتر، به صفحه اول برمی‌گردیم
+    setCurrentPage(1);
   }, [decodedCategory, filters]);
 
-  // مرتب‌سازی
   const handleSortChange = (sortValue) => {
     setCurrentPage(1);
     const sorted = [...filteredProducts].sort((a, b) => {
-      if (sortValue === 'cheapest') return a.price - b.price;
-      if (sortValue === 'most_expensive') return b.price - a.price;
-      if (sortValue === 'newest') return b.id - a.id;
-      if (sortValue === 'bestseller') return (b.sales || 0) - (a.sales || 0);
+      if (sortValue === "cheapest") return a.price - b.price;
+      if (sortValue === "most_expensive") return b.price - a.price;
+      if (sortValue === "newest") return b.id - a.id;
+      if (sortValue === "bestseller") return (b.sales || 0) - (a.sales || 0);
       return 0;
     });
     setFilteredProducts(sorted);
   };
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentProducts = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstItem,
+    indexOfLastItem,
+  );
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const getBreadcrumbItems = () => {
     if (decodedCategory) {
-      return ['خانه', decodedCategory];
+      return ["خانه", decodedCategory];
     }
-    return ['خانه', 'همه محصولات'];
+    return ["خانه", "همه محصولات"];
   };
 
   return (
     <PageWrapper>
-
       <Breadcrumb items={getBreadcrumbItems()} />
 
       <PageLayout>

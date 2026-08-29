@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const ColorGrid = styled.div`
   display: flex;
@@ -12,13 +12,21 @@ const ColorCircle = styled.button`
   height: 28px;
   border-radius: 50%;
   background-color: ${({ $color }) => $color};
-  border: 2px solid ${({ $isSelected }) => ($isSelected ? 'var(--color-neutral-800)' : 'var(--color-neutral-300)')};
+  border: 2px solid
+    ${({ $isSelected }) =>
+      $isSelected
+        ? "var(--color-base-secondary-light)"
+        : "var(--color-neutral-800)"};
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   outline: none;
+
+  transform: scale(${({ $isSelected }) => ($isSelected ? "1.2" : "1")});
+  opacity: ${({ $isSelected }) => ($isSelected ? "1" : "0.5")};
 
   &:hover {
     transform: scale(1.1);
+    opacity: 1;
   }
 `;
 
