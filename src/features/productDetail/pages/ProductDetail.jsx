@@ -10,7 +10,7 @@ import ProductInfo from '../components/ProductInfo';
 import ProductTabs from '../components/ProductTabs';
 import RelatedProducts from '../components/RelatedProducts';
 import StoreFeatures from '../../home/components/StoreFeatures/StoreFeatures';
-import { toast } from "sonner"; // ایمپورت toast
+import { toast } from "sonner"; 
 
 const PageContainer = styled.div`
   max-width: 100%;

@@ -14,8 +14,8 @@ const CartItem = styled.div`
 const ImageBoxItem = styled.div`
   width: 40%;
   position: relative;
-  @media (max-width : 768px) {
-     width: 30%;
+  @media (max-width: 768px) {
+    width: 30%;
   }
 `;
 const ImageItem = styled.img`
@@ -27,7 +27,7 @@ const Discount = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  width:  4em;
+  width: 4em;
   height: 2em;
   background-color: var(--color-base-primary);
   position: absolute;
@@ -44,8 +44,8 @@ const ItemInfo = styled.div`
   padding: 14px 16px;
   position: relative;
   line-height: 1.8;
-  @media (max-width : 768px) {
-     padding: 8px 0;
+  @media (max-width: 768px) {
+    padding: 8px 0;
   }
 `;
 const ItemName = styled.h1`
@@ -66,8 +66,8 @@ const Oldprice = styled.div`
   color: var(--color-neutral-800);
   font-weight: 500;
   text-decoration: line-through;
-  @media (max-width : 768px) {
-     display: none;
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 const Size = styled.div`
@@ -89,7 +89,7 @@ const Color = styled.div`
   width: 1em;
   height: 1em;
   border-radius: 50%;
-  background-color: ${({ $bgColor }) => $bgColor || "var(--color-neutral-300)"};
+  background-color: ${({ $bgColor }) => $bgColor || "var(--color-neutral-500)"};
 `;
 const Buttons = styled.div`
   width: 6em;
@@ -117,11 +117,7 @@ const DeleteIcon = styled.div`
   cursor: pointer;
 `;
 
-
-// ... (استایل‌های قبلی شما بدون تغییر)
-
 function BasketItem({ item, onRemove, onUpdateQuantity }) {
-  // تعداد از پراپ می‌آید
   const quantity = item.quantity;
 
   return (
@@ -134,19 +130,30 @@ function BasketItem({ item, onRemove, onUpdateQuantity }) {
         <ItemName>{item.title}</ItemName>
         <ItemCategory>{item.category}</ItemCategory>
         <Price>{item.price.toLocaleString()} تومان</Price>
-        {item.hasDiscount && <Oldprice>{item.originalPrice.toLocaleString()} تومان</Oldprice>}
+        {item.hasDiscount && (
+          <Oldprice>{item.originalPrice.toLocaleString()} تومان</Oldprice>
+        )}
         <Size>سایز: {item.selectedSize || item.sizes[0]}</Size>
         <ColorBox>
-          <ColorName>رنگ: {item.selectedColor?.name || item.colors[0].name}</ColorName>
+          <ColorName>
+            رنگ: {item.selectedColor?.name || item.colors[0].name}
+          </ColorName>
           <Color $bgColor={item.selectedColor?.hex || item.colors[0].hex} />
         </ColorBox>
         <Buttons>
-          <Btn onClick={() => onUpdateQuantity(item.id, Math.max(1, quantity - 1))}>-</Btn>
+          <Btn
+            onClick={() =>
+              onUpdateQuantity(item.id, Math.max(1, quantity - 1))
+            }>
+            -
+          </Btn>
           <Count>{quantity}</Count>
           <Btn onClick={() => onUpdateQuantity(item.id, quantity + 1)}>+</Btn>
         </Buttons>
       </ItemInfo>
-      <DeleteIcon onClick={() => onRemove(item.id)}><CloseIcon /></DeleteIcon>
+      <DeleteIcon onClick={() => onRemove(item.id)}>
+        <CloseIcon />
+      </DeleteIcon>
     </CartItem>
   );
 }

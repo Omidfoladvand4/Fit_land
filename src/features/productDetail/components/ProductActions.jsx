@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import { useState } from 'react';
+import styled from "styled-components";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useShop } from "../../../context/ShopContext";
-import ShareIcon from '../images/share';
-import CartIcon from '../images/product-cart-icon';
-import HeartIcon from '../images/heart';
-import ArrowUpIcon from '../images/ArrowUpIcon';
-import ArrowDownIcon from '../images/ArrowDownIcon';
+import ShareIcon from "../images/share";
+import CartIcon from "../images/product-cart-icon";
+import HeartIcon from "../images/heart";
+import ArrowUpIcon from "../images/ArrowUpIcon";
+import ArrowDownIcon from "../images/ArrowDownIcon";
 
 const ActionsContainer = styled.div`
   display: flex;
@@ -32,9 +32,9 @@ const ColorOption = styled.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 3px solid ${({ $active }) => 
-    $active ? 'var(--color-base-primary)' : 'var(--color-neutral-800)'
-  };
+  border: 3px solid
+    ${({ $active }) =>
+      $active ? "var(--color-base-primary)" : "var(--color-neutral-800)"};
   background: ${({ color }) => color};
   cursor: pointer;
   transition: all 0.2s ease;
@@ -51,11 +51,11 @@ const SizeContainer = styled.div`
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  max-height: ${({ $isOpen }) => $isOpen ? '200px' : '0'};
+  max-height: ${({ $isOpen }) => ($isOpen ? "200px" : "0")};
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
-  opacity: ${({ $isOpen }) => $isOpen ? '1' : '0'};
-      @media (max-width : 490px) {
+  opacity: ${({ $isOpen }) => ($isOpen ? "1" : "0")};
+  @media (max-width: 490px) {
     width: 100%;
     margin-bottom: 12px;
   }
@@ -64,15 +64,12 @@ const SizeContainer = styled.div`
 const SizeOption = styled.button`
   padding: 8px 28px;
   border-radius: 8px;
-  border: 2px solid ${({ $active }) => 
-    $active ? 'var(--color-base-primary)' : 'var(--color-neutral-300)'
-  };
-  background: ${({ $active }) => 
-    $active ? 'var(--color-base-primary)' : 'var(--color-neutral-500)'
-  };
-  color: ${({ $active }) => 
-    $active ? 'white' : 'black'
-  };
+  border: 2px solid
+    ${({ $active }) =>
+      $active ? "var(--color-base-primary)" : "var(--color-neutral-300)"};
+  background: ${({ $active }) =>
+    $active ? "var(--color-base-primary)" : "var(--color-neutral-500)"};
+  color: ${({ $active }) => ($active ? "white" : "black")};
   cursor: pointer;
   transition: all 0.2s ease;
   font-weight: 600;
@@ -80,9 +77,8 @@ const SizeOption = styled.button`
 
   &:hover {
     border-color: var(--color-base-primary);
-    background: ${({ $active }) => 
-      $active ? 'var(--color-base-primary)' : 'var(--color-neutral-800)'
-    };
+    background: ${({ $active }) =>
+      $active ? "var(--color-base-primary)" : "var(--color-neutral-800)"};
     color: white;
   }
 `;
@@ -91,11 +87,11 @@ const LastSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   gap: 12px;
 
   @media (max-width: 490px) {
-     flex-direction: row; 
+    flex-direction: row;
   }
 `;
 
@@ -111,8 +107,8 @@ const QuantityContainer = styled.div`
   color: var(--color-base-primary);
 
   @media (max-width: 490px) {
-     flex: 1; 
-     min-width: 110px;
+    flex: 1;
+    min-width: 110px;
   }
 `;
 
@@ -151,9 +147,9 @@ const ButtonRow = styled.div`
   gap: 12px;
   align-items: center;
   order: 3;
-  
+
   @media (max-width: 490px) {
-    flex: 1; 
+    flex: 1;
     justify-content: flex-end;
     order: 0;
   }
@@ -254,11 +250,11 @@ const SizeTitle = styled(SectionTitle)`
   gap: 8px;
   user-select: none;
   margin-bottom: 8px;
-  
+
   &:hover {
     color: var(--color-base-primary);
   }
-  @media (max-width : 490px) {
+  @media (max-width: 490px) {
     width: 100%;
   }
 `;
@@ -267,9 +263,9 @@ const SizeIconWrapper = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;     
+  width: 24px;
   height: 24px;
-     
+
   svg {
     width: 20px;
     height: 20px;
@@ -277,7 +273,7 @@ const SizeIconWrapper = styled.span`
 `;
 
 function ProductActions({
-  product, 
+  product,
   colors,
   sizes,
   selectedColor,
@@ -289,14 +285,16 @@ function ProductActions({
   onAddToCart,
   onAddToWishlist,
   stock,
-  isInWishlist = false
+  isInWishlist = false,
 }) {
   const [isSizeOpen, setIsSizeOpen] = useState(false);
-  
+
   const { isInCart } = useShop();
 
   // محاسبه ی وجود محصول در سبد خرید با سایز و رنگ انتخابی
-  const productIsInCart = isInCart ? isInCart(product?.id, selectedSize, selectedColor) : false;
+  const productIsInCart = isInCart
+    ? isInCart(product?.id, selectedSize, selectedColor)
+    : false;
 
   const handleQuantityChange = (delta) => {
     const newQuantity = quantity + delta;
@@ -336,14 +334,13 @@ function ProductActions({
               {isSizeOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
             </SizeIconWrapper>
           </SizeTitle>
-          
+
           <SizeContainer $isOpen={isSizeOpen}>
             {sizes.map((size) => (
               <SizeOption
                 key={size}
                 $active={selectedSize === size}
-                onClick={() => setSelectedSize(size)}
-              >
+                onClick={() => setSelectedSize(size)}>
                 {size}
               </SizeOption>
             ))}
@@ -352,45 +349,39 @@ function ProductActions({
       )}
 
       <LastSection>
-        
         <QuantityContainer>
-          <QuantityButton 
+          <QuantityButton
             onClick={() => handleQuantityChange(-1)}
-            disabled={quantity <= 1}
-          >
+            disabled={quantity <= 1}>
             −
           </QuantityButton>
           <QuantityDisplay>{quantity}</QuantityDisplay>
-          <QuantityButton 
+          <QuantityButton
             onClick={() => handleQuantityChange(1)}
-            disabled={quantity >= stock}
-          >
+            disabled={quantity >= stock}>
             +
           </QuantityButton>
         </QuantityContainer>
 
         <ButtonRow>
-           <ShareIcon />
-           <WishlistButton onClick={onAddToWishlist} $isInWishlist={isInWishlist}>
-            <HeartIcon fill={isInWishlist ? 'red' : 'black'} />
+          <ShareIcon />
+          <WishlistButton
+            onClick={onAddToWishlist}
+            $isInWishlist={isInWishlist}>
+            <HeartIcon fill={isInWishlist ? "red" : "black"} />
           </WishlistButton>
         </ButtonRow>
 
         {productIsInCart ? (
-          <ViewCartLink to="/Basket">
+          <ViewCartLink to="/Basket/">
             مشاهده سبد خرید <CartIcon />
           </ViewCartLink>
         ) : (
-          <AddToCartButton 
-            onClick={onAddToCart}
-            disabled={stock === 0}
-          >
+          <AddToCartButton onClick={onAddToCart} disabled={stock === 0}>
             افزودن به سبد خرید <CartIcon />
           </AddToCartButton>
         )}
-
       </LastSection>
-
     </ActionsContainer>
   );
 }

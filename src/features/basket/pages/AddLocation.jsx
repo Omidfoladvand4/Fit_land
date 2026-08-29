@@ -1,21 +1,30 @@
-// src/features/basket/pages/AddLocation.jsx
 import styled from "styled-components";
 import { useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMapEvents,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import LocIcon from "../Icons/LocationIcon";
+import { Link } from "react-router-dom";
 
-// رفع مشکل آیکون‌های Leaflet
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-
-let DefaultIcon = L.icon({
-    iconUrl: icon,
-    shadowUrl: iconShadow,
-    iconSize: [25, 41],
-    iconAnchor: [12, 41]
+let DefaultIcon = L.divIcon({
+  className: "custom-div-icon",
+  html: `
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#FA541C" stroke="none">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+      <circle cx="12" cy="10" r="3" fill="#FFFFFF" stroke="none"></circle>
+    </svg>
+  `,
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
 });
+
 L.Marker.prototype.options.icon = DefaultIcon;
 
 const LocationContainer = styled.div`
@@ -51,7 +60,7 @@ const InputGroup = styled.div`
   justify-content: space-between;
   gap: 18px;
   margin-bottom: 12px;
-    @media (max-width : 490px) {
+  @media (max-width: 490px) {
     flex-direction: column;
   }
 `;
@@ -62,7 +71,7 @@ const Input = styled.input`
   border-radius: 8px;
   margin: 16px;
   font-size: var(--font-body-md);
-  @media (max-width : 490px) {
+  @media (max-width: 490px) {
     width: 100%;
     margin: 10px 0;
   }
@@ -73,8 +82,8 @@ const Select = styled.select`
   padding: 10px;
   border: 1px solid var(--color-neutral-800);
   border-radius: 8px;
-  background: white;
-    @media (max-width : 490px) {
+  background: var(--color-base-background);
+  @media (max-width: 490px) {
     width: 100%;
     margin: 10px 0;
   }
@@ -86,32 +95,32 @@ const MapBox = styled.div`
   margin-top: 16px;
   border-radius: 12px;
   overflow: hidden;
-  background: #e5e3df;
+  background: var(--color-base-background);
   z-index: 1;
 `;
 
-const ConfirmButton = styled.button`
+const ConfirmButton = styled(Link)`
   width: 100%;
   max-width: 300px;
   margin-top: 24px;
   background: var(--color-base-primary);
-  color: white;
+  color: var(--color-base-background);
+
   border: none;
   border-radius: 12px;
   padding: 14px;
-  font-size: var(--font-body-lg);
+  font-size: var(--font-body-large);
   font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  @media (max-width : 786px) {
-    width : 8em ;
+  @media (max-width: 786px) {
+    width: 10em;
   }
 `;
 
-// کامپوننت داخلی برای کلیک روی نقشه و دریافت آدرس
 function ClickHandler({ setPosition, setAddress }) {
   useMapEvents({
     async click(e) {
@@ -119,19 +128,18 @@ function ClickHandler({ setPosition, setAddress }) {
       setPosition(e.latlng);
 
       try {
-        // دریافت آدرس فارسی
         const response = await fetch(
           `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=jsonv2&accept-language=fa`,
           {
             headers: {
-              'User-Agent': 'MyFitLandApp/1.0 (my-email@example.com)'
-            }
-          }
+              "User-Agent": "MyFitLandApp/1.0 (my-email@example.com)",
+            },
+          },
         );
         const data = await response.json();
         setAddress(data.display_name || "آدرس نامشخص");
       } catch (error) {
-        setAddress("آدرس نامشخص");
+        setAddress(error, "آدرس نامشخص");
       }
     },
   });
@@ -139,7 +147,7 @@ function ClickHandler({ setPosition, setAddress }) {
 }
 
 function AddLocation() {
-  // مختصات پیش‌فرض (تهران)
+  // Defulat loc (tehran)
   const [position, setPosition] = useState([35.7219, 51.3347]);
   const [address, setAddress] = useState("آدرس خود را روی نقشه انتخاب کنید");
 
@@ -151,12 +159,16 @@ function AddLocation() {
       <FormBox>
         <InputGroup>
           <Select defaultValue="">
-            <option value="" disabled>استان</option>
+            <option value="" disabled>
+              استان
+            </option>
             <option>تهران</option>
             <option>اصفهان</option>
           </Select>
           <Select defaultValue="">
-            <option value="" disabled>شهر</option>
+            <option value="" disabled>
+              شهر
+            </option>
             <option>تهران</option>
           </Select>
         </InputGroup>
@@ -165,14 +177,12 @@ function AddLocation() {
         <Input placeholder="کد پستی" />
       </FormBox>
 
-      {/* نقشه واقعی */}
       <MapBox>
         <MapContainer
           center={position}
           zoom={13}
           scrollWheelZoom={true}
-          style={{ height: "100%", width: "100%" }}
-        >
+          style={{ height: "100%", width: "100%" }}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -186,12 +196,16 @@ function AddLocation() {
         </MapContainer>
       </MapBox>
 
-      {/* نمایش آدرس دریافتی */}
-      <p style={{ marginTop: "8px", color: "var(--color-base-secondary)", fontWeight: "bold" }}>
+      <p
+        style={{
+          marginTop: "8px",
+          color: "var(--color-base-secondary)",
+          fontWeight: "bold",
+        }}>
         {address}
       </p>
 
-      <ConfirmButton>
+      <ConfirmButton to="/Basket/Pay">
         ثبت آدرس <LocIcon />
       </ConfirmButton>
     </LocationContainer>

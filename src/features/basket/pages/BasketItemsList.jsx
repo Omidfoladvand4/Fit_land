@@ -1,4 +1,3 @@
-// src/features/basket/pages/BasketItemsList.jsx
 import { useOutletContext } from "react-router-dom";
 import styled from "styled-components";
 import BasketItem from "../components/BasketItem";
@@ -18,7 +17,7 @@ const EmptyBasketMessage = styled.div`
   justify-content: center;
   font-size: var(--font-body-xl);
   color: var(--color-neutral-800);
-  border: 1px dashed var(--color-neutral-300);
+  border: 1px dashed var(--color-neutral-500);
   border-radius: 12px;
 `;
 
@@ -28,9 +27,7 @@ function BasketItemsList() {
   if (!items || items.length === 0) {
     return (
       <BasketItemsContainer>
-        <EmptyBasketMessage>
-          سبد خرید شما خالی است.
-        </EmptyBasketMessage>
+        <EmptyBasketMessage>سبد خرید شما خالی است.</EmptyBasketMessage>
       </BasketItemsContainer>
     );
   }

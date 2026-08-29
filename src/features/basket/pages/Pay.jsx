@@ -1,19 +1,20 @@
-// src/features/basket/pages/Pay.jsx
 import styled from "styled-components";
 import { useOutletContext } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
-// رفع مشکل آیکون‌های Leaflet
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-
-let DefaultIcon = L.icon({
-    iconUrl: icon,
-    shadowUrl: iconShadow,
-    iconSize: [25, 41],
-    iconAnchor: [12, 41]
+let DefaultIcon = L.divIcon({
+  className: "custom-div-icon",
+  html: `
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#FA541C" stroke="none">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+      <circle cx="12" cy="10" r="3" fill="#FFFFFF" stroke="none"></circle>
+    </svg>
+  `,
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
@@ -33,7 +34,7 @@ const Box = styled.div`
   border: 1px solid var(--color-neutral-800);
   border-radius: 12px;
   padding: 20px;
-  background: white;
+  background: var(--color-base-background);
 `;
 const PaymentMethod = styled.div`
   display: flex;
@@ -45,13 +46,13 @@ const MethodRow = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 12px;
-  border: 1px solid var(--color-neutral-300);
+  border: 1px solid var(--color-neutral-500);
   border-radius: 8px;
   cursor: pointer;
   background: ${({ $selected }) =>
-    $selected ? "var(--color-info-100)" : "white"};
+    $selected ? "var(--color-info-200)" : "var(--color-base-background)"};
   border-color: ${({ $selected }) =>
-    $selected ? "var(--color-base-primary)" : "var(--color-neutral-300)"};
+    $selected ? "var(--color-base-primary)" : "var(--color-neutral-500)"};
 `;
 const MethodLabel = styled.div`
   display: flex;
@@ -78,8 +79,8 @@ const MapWrapper = styled.div`
   height: 200px;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid var(--color-neutral-300);
-  background: #f4f4f4;
+  border: 1px solid var(--color-neutral-500);
+  background: var(--color-base-background);
 `;
 
 const TimeSelection = styled.div`
@@ -90,7 +91,8 @@ const TimeSelection = styled.div`
 `;
 const TimeButton = styled.button`
   background: var(--color-base-primary);
-  color: white;
+  color: var(--color-base-background);
+
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
@@ -101,12 +103,10 @@ const TimeButton = styled.button`
 function Pay() {
   const { items } = useOutletContext();
 
-  // آدرس انتخابی (این آدرس باید از مرحله قبل ذخیره شده باشد)
-  // اگر آدرس هنوز ذخیره نشده، از آدرس پیش‌فرض استفاده می‌کنیم
-  const selectedAddress = "بجنورد، میدان شهید بهشتی، خیابان ۱۷ شهریور، کوچه عزیز معرف پلاک ۱۳";
-  
-  // مختصات آدرس انتخابی (پیش‌فرض: بجنورد)
-  const selectedPosition = [37.5485, 57.3235];
+  const selectedAddress =
+    "تهران، میدان انقلاب، خیابان انقلاب، ابتدای خیابان کارگر شمالی، پلاک ۱۲";
+  //  centeral theran location
+  const selectedPosition = [35.6997, 51.338];
 
   if (!items || items.length === 0) {
     return <div>سبد خرید شما خالی است.</div>;
@@ -124,7 +124,7 @@ function Pay() {
         </MethodRow>
         <MethodRow>
           <MethodLabel>
-            <span>💳</span> تو بانک
+            <span>💳</span> بانک شهر
           </MethodLabel>
           <input type="radio" />
         </MethodRow>
@@ -154,18 +154,14 @@ function Pay() {
       <Box>
         <Title style={{ marginBottom: "16px" }}>آدرس انتخابی شما</Title>
         <AddressBox>
-          <AddressText>
-            {selectedAddress}
-          </AddressText>
-
-          {/* فقط نمایش نقشه */}
+          <AddressText>{selectedAddress}</AddressText>
+          {/* just for show map */}
           <MapWrapper>
             <MapContainer
               center={selectedPosition}
               zoom={13}
               scrollWheelZoom={false}
-              style={{ height: "100%", width: "100%" }}
-            >
+              style={{ height: "100%", width: "100%" }}>
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

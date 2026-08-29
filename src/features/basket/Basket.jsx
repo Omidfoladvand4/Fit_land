@@ -1,9 +1,8 @@
-// src/features/basket/Basket.jsx
 import styled from "styled-components";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import BasketSteps from "./components/BasketSteps";
 import OrderSummary from "./components/OrderSummary";
-import { useShop } from "../../context/ShopContext"; // ایمپورت کانتکست
+import { useShop } from "../../context/ShopContext";
 
 const BasketContainer = styled.div`
   width: 90%;
@@ -37,8 +36,7 @@ const BasketContent = styled.div`
 function Basket() {
   const location = useLocation();
   const navigate = useNavigate();
-  
-  // دریافت آیتم‌ها از کانتکست
+
   const { cartItems, removeFromCart, updateCartQuantity } = useShop();
 
   const handleProceed = () => {
@@ -53,16 +51,16 @@ function Basket() {
     <BasketContainer>
       <BasketContent>
         <BasketSteps />
-        
-        {/* پاس دادن آیتم‌ها و توابع به Outlet */}
-        <Outlet context={{ 
-          items: cartItems, 
-          removeFromCart, 
-          updateCartQuantity 
-        }} />
+
+        <Outlet
+          context={{
+            items: cartItems,
+            removeFromCart,
+            updateCartQuantity,
+          }}
+        />
       </BasketContent>
 
-      {/* فقط در صفحه اصلی سبد خرید نمایش داده شود */}
       {location.pathname === "/Basket/" && (
         <OrderSummary items={cartItems} onProceed={handleProceed} />
       )}

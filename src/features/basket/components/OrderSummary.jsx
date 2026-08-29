@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const SummaryContainer = styled.div`
   width: 420px;
-  background: var(--color-neutral-100);
   border-radius: 12px;
   padding: 16px;
   border: 1px solid var(--color-neutral-800);
@@ -10,9 +9,9 @@ const SummaryContainer = styled.div`
   position: sticky;
   top: 20px;
   margin-top: 32px;
-  @media (max-width : 1030px) {
-     width: 100%;
-     margin-bottom: 16px;
+  @media (max-width: 1030px) {
+    width: 100%;
+    margin-bottom: 16px;
   }
 `;
 
@@ -46,7 +45,7 @@ const SubmitButton = styled.button`
   width: 100%;
   margin-top: 16px;
   background: var(--color-base-primary);
-  color: white;
+  color: var(--color-base-background);
   border: none;
   border-radius: 12px;
   padding: 14px;
@@ -74,7 +73,7 @@ function OrderSummary({ items, onProceed }) {
       <Row>
         <input
           type="text"
-          placeholder="DF98$#Ff"
+          placeholder="مثلا :DF98$#Ff"
           style={{
             padding: "8px",
             border: "1px solid var(--color-neutral-800)",
@@ -88,7 +87,7 @@ function OrderSummary({ items, onProceed }) {
         قیمت کالاها <Price>{totalPrice.toLocaleString()} تومان</Price>
       </Row>
       <Row>
-        سود شما از خرید{" "}
+        سود شما از خرید
         <DiscountAmount>{totalDiscount.toLocaleString()} تومان</DiscountAmount>
       </Row>
       <Row>

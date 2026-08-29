@@ -1,67 +1,73 @@
 // src/context/ShopContext.jsx
-import { createContext, useContext, useState, useMemo, useCallback } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useMemo,
+  useCallback,
+} from "react";
 import { toast } from "sonner";
 
 const ShopContext = createContext(null);
 
 export const ShopProvider = ({ children }) => {
-  // State سبد خرید
   const [cartItems, setCartItems] = useState([]);
-  
-  // State علاقه‌مندی‌ها
+
   const [wishlistItems, setWishlistItems] = useState([]);
 
-  // --- توابع سبد خرید ---
+  const addToCart = useCallback(
+    (product, quantity = 1, size = null, color = null) => {
+      setCartItems((prevItems) => {
+        const existingItemIndex = prevItems.findIndex(
+          (item) =>
+            item.id === product.id &&
+            item.selectedSize === size &&
+            item.selectedColor?.id === color?.id,
+        );
 
-  const addToCart = useCallback((product, quantity = 1, size = null, color = null) => {
-    setCartItems((prevItems) => {
-      // بررسی می‌کنیم آیا محصول با همان سایز و رنگ قبلاً اضافه شده است یا خیر
-      const existingItemIndex = prevItems.findIndex(
-        (item) =>
-          item.id === product.id &&
-          item.selectedSize === size &&
-          item.selectedColor?.id === color?.id
-      );
+        if (existingItemIndex > -1) {
+          const updatedItems = [...prevItems];
+          updatedItems[existingItemIndex] = {
+            ...updatedItems[existingItemIndex],
+            quantity: updatedItems[existingItemIndex].quantity + quantity,
+          };
+          return updatedItems;
+        }
 
-      if (existingItemIndex > -1) {
-        // اگر وجود داشت، فقط تعداد را افزایش می‌دهیم
-        const updatedItems = [...prevItems];
-        updatedItems[existingItemIndex] = {
-          ...updatedItems[existingItemIndex],
-          quantity: updatedItems[existingItemIndex].quantity + quantity,
-        };
-        return updatedItems;
-      }
-
-      // اگر وجود نداشت، آیتم جدید اضافه می‌کنیم
-      return [
-        ...prevItems,
-        {
-          ...product,
-          quantity,
-          selectedSize: size,
-          selectedColor: color,
-        },
-      ];
-    });
-  }, []);
-   const isInCart = useCallback((productId, size = null, color = null) => {
-  return cartItems.some((item) => 
-    item.id === productId && 
-    (size ? item.selectedSize === size : true) && 
-    (color ? item.selectedColor?.id === color.id : true)
+        return [
+          ...prevItems,
+          {
+            ...product,
+            quantity,
+            selectedSize: size,
+            selectedColor: color,
+          },
+        ];
+      });
+    },
+    [],
   );
-}, [cartItems]);
+  const isInCart = useCallback(
+    (productId, size = null, color = null) => {
+      return cartItems.some(
+        (item) =>
+          item.id === productId &&
+          (size ? item.selectedSize === size : true) &&
+          (color ? item.selectedColor?.id === color.id : true),
+      );
+    },
+    [cartItems],
+  );
   const removeFromCart = useCallback((itemId) => {
-    toast.success( 'با موفقیت سبد خرید حذف شد')
+    toast.success("با موفقیت سبد خرید حذف شد");
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
   }, []);
 
   const updateCartQuantity = useCallback((itemId, newQuantity) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
-        item.id === itemId ? { ...item, quantity: newQuantity } : item
-      )
+        item.id === itemId ? { ...item, quantity: newQuantity } : item,
+      ),
     );
   }, []);
 
@@ -69,11 +75,8 @@ export const ShopProvider = ({ children }) => {
     setCartItems([]);
   }, []);
 
-  // --- توابع علاقه‌مندی‌ها ---
-
   const addToWishlist = useCallback((product) => {
     setWishlistItems((prevItems) => {
-      // اگر محصول قبلاً در لیست بود، حذفش می‌کنیم (Toggle)
       const exists = prevItems.some((item) => item.id === product.id);
       if (exists) {
         return prevItems.filter((item) => item.id !== product.id);
@@ -83,15 +86,18 @@ export const ShopProvider = ({ children }) => {
   }, []);
 
   const removeFromWishlist = useCallback((itemId) => {
-     toast.success( 'با موفقیت  از علاقه مندی ها حذف شد')
-    setWishlistItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+    toast.success("با موفقیت  از علاقه مندی ها حذف شد");
+    setWishlistItems((prevItems) =>
+      prevItems.filter((item) => item.id !== itemId),
+    );
   }, []);
 
-  const isInWishlist = useCallback((productId) => {
-    return wishlistItems.some((item) => item.id === productId);
-  }, [wishlistItems]);
-
-  // --- محاسبات سبد خرید ---
+  const isInWishlist = useCallback(
+    (productId) => {
+      return wishlistItems.some((item) => item.id === productId);
+    },
+    [wishlistItems],
+  );
 
   const cartTotalPrice = useMemo(() => {
     return cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -100,8 +106,11 @@ export const ShopProvider = ({ children }) => {
   const cartTotalDiscount = useMemo(() => {
     return cartItems.reduce(
       (sum, item) =>
-        sum + (item.hasDiscount ? (item.originalPrice - item.price) * item.quantity : 0),
-      0
+        sum +
+        (item.hasDiscount
+          ? (item.originalPrice - item.price) * item.quantity
+          : 0),
+      0,
     );
   }, [cartItems]);
 
@@ -122,13 +131,12 @@ export const ShopProvider = ({ children }) => {
     cartTotalDiscount,
     finalPrice,
     cartCount,
-    isInCart
+    isInCart,
   };
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
 };
 
-// هوک سفارشی برای استفاده آسان
 export const useShop = () => {
   const context = useContext(ShopContext);
   if (!context) {
