@@ -1,6 +1,5 @@
-
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const Card = styled(Link)`
   min-height: 367px;
@@ -19,8 +18,8 @@ const Card = styled(Link)`
   &:hover {
     border: 1px solid var(--color-neutral-800);
     img {
-        transform: scaleX(1.01) ;
-        opacity: 1 ;
+      transform: scaleX(1.01);
+      opacity: 1;
     }
   }
 `;
@@ -42,12 +41,12 @@ const DiscountBadge = styled.div`
   background-color: var(--color-base-primary);
 `;
 const Productimage = styled.img`
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    opacity: 0.8;
-    transition: all 0.3s ease;
-`
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+`;
 
 const ProductInfo = styled.div`
   display: flex;
@@ -59,7 +58,7 @@ const ProductInfo = styled.div`
 `;
 
 const ProductName = styled.div`
-  font-size: var(--font-body-);
+  font-size: var(--font-body-md);
   font-weight: 600;
   margin-bottom: 8px;
 `;
@@ -74,16 +73,13 @@ const ProductSize = styled.p`
   opacity: 0.7;
 `;
 
-
-function SpecialCard({product}) {
+function SpecialCard({ product }) {
   return (
     <Card to={`/Product-Detail/${product.id}`}>
-      <DiscountBadge>
-        %{product.discount ||  'VIP'}
-      </DiscountBadge>
-      <Productimage loading='lazy' src= {product.image} alt= {product.name}/>
+      <DiscountBadge>%{product.discount || "VIP"}</DiscountBadge>
+      <Productimage loading="lazy" src={product.image} alt={product.name} />
       <ProductInfo>
-        <ProductName>{product.name}</ProductName>
+        <ProductName>{product.name || product.title}</ProductName>
         <ProductPrice>{product.price} تومان</ProductPrice>
         <ProductSize>{product.size}</ProductSize>
       </ProductInfo>

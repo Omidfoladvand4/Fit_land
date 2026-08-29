@@ -53,7 +53,7 @@ const SizeContainer = styled.div`
   flex-wrap: wrap;
   max-height: ${({ $isOpen }) => ($isOpen ? "200px" : "0")};
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.3s ease-in;
   opacity: ${({ $isOpen }) => ($isOpen ? "1" : "0")};
   @media (max-width: 490px) {
     width: 100%;
@@ -69,7 +69,8 @@ const SizeOption = styled.button`
       $active ? "var(--color-base-primary)" : "var(--color-neutral-300)"};
   background: ${({ $active }) =>
     $active ? "var(--color-base-primary)" : "var(--color-neutral-500)"};
-  color: ${({ $active }) => ($active ? "white" : "black")};
+  color: ${({ $active }) =>
+    $active ? "var(--color-base-background)" : "black"};
   cursor: pointer;
   transition: all 0.2s ease;
   font-weight: 600;
@@ -79,7 +80,7 @@ const SizeOption = styled.button`
     border-color: var(--color-base-primary);
     background: ${({ $active }) =>
       $active ? "var(--color-base-primary)" : "var(--color-neutral-800)"};
-    color: white;
+    color: var(--color-base-background);
   }
 `;
 
@@ -158,7 +159,7 @@ const ButtonRow = styled.div`
 const AddToCartButton = styled.button`
   padding: 14px 32px;
   background: var(--color-base-primary);
-  color: white;
+  color: var(--color-base-background);
   border: none;
   border-radius: 12px;
   font-size: var(--font-body-large);
@@ -173,7 +174,7 @@ const AddToCartButton = styled.button`
   &:hover {
     opacity: 0.85;
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(250, 84, 28, 0.3);
+    box-shadow: 0 4px 16px var(--color-base-primary-light);
   }
 
   &:disabled {
@@ -191,7 +192,7 @@ const AddToCartButton = styled.button`
 const ViewCartLink = styled(Link)`
   padding: 14px 32px;
   background: var(--color-base-secondary);
-  color: white;
+  color: var(--color-base-background);
   border: none;
   border-radius: 12px;
   font-size: var(--font-body-large);
@@ -206,7 +207,7 @@ const ViewCartLink = styled(Link)`
   &:hover {
     opacity: 0.85;
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(10, 44, 125, 0.8);
+    box-shadow: 0 4px 16px var(--color-base-secondary-light);
   }
 
   &:disabled {
@@ -291,7 +292,6 @@ function ProductActions({
 
   const { isInCart } = useShop();
 
-  // محاسبه ی وجود محصول در سبد خرید با سایز و رنگ انتخابی
   const productIsInCart = isInCart
     ? isInCart(product?.id, selectedSize, selectedColor)
     : false;

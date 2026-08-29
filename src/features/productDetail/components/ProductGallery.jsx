@@ -14,7 +14,7 @@ const MainImage = styled.div`
   height: 380px;
   overflow: hidden;
   position: relative;
-  
+
   img {
     width: 100%;
     height: 100%;
@@ -28,23 +28,23 @@ const MainImage = styled.div`
 const ThumbnailsContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between;
   gap: 8px;
   overflow-x: auto;
   padding: 4px 0;
-  flex-wrap: nowrap; 
-  max-width: 100%; 
+  flex-wrap: nowrap;
+  max-width: 100%;
 
   &::-webkit-scrollbar {
     height: 4px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: var(--color-neutral-300);
+    background: var(--color-neutral-500);
   }
 
   @media (max-width: 768px) {
-    gap: 8px; 
+    gap: 8px;
   }
 `;
 
@@ -72,7 +72,7 @@ const Thumbnail = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 85px; 
+    width: 85px;
     height: 85px;
     border-radius: 10px;
     margin-left: -50px;
@@ -94,13 +94,13 @@ const MoreImagesButton = styled.button`
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  flex-shrink: 0; 
+  flex-shrink: 0;
   transition: all 0.2s ease;
 
   &:hover {
     border-color: var(--color-base-primary);
     color: var(--color-base-primary);
-    background: var(--color-primary-light);
+    background: var(--color-base-primary-light);
   }
 
   svg {
@@ -111,7 +111,7 @@ const MoreImagesButton = styled.button`
   @media (max-width: 768px) {
     width: 85px;
     height: 85px;
-    font-size: 10px; 
+    font-size: 10px;
     border-radius: 10px;
     background: var(--color-neutral-500);
   }
@@ -130,7 +130,7 @@ function ProductGallery({ images, onShowAllImages }) {
     );
   }
 
-  const shouldShowMoreButton = images.length  > 3;
+  const shouldShowMoreButton = images.length > 3;
 
   return (
     <GalleryContainer>
@@ -143,9 +143,8 @@ function ProductGallery({ images, onShowAllImages }) {
           }}
         />
       </MainImage>
-      
-      <ThumbnailsContainer>
 
+      <ThumbnailsContainer>
         {images.map((image, index) => (
           <Thumbnail
             key={image.id || index}
@@ -160,13 +159,9 @@ function ProductGallery({ images, onShowAllImages }) {
             />
           </Thumbnail>
         ))}
-           {shouldShowMoreButton && (
+        {shouldShowMoreButton && (
           <MoreImagesButton onClick={onShowAllImages}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-              <circle cx="8.5" cy="8.5" r="1.5"></circle>
-              <polyline points="21 15 16 10 5 21"></polyline>
-            </svg>
+            <MainImage />
             <span>تصاویر بیشتر</span>
           </MoreImagesButton>
         )}

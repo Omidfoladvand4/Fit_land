@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import RegularCard from '../../../shared/cards/regularcard/RegularCard';
-import Button from '../../../shared/Button/Button';
+import styled from "styled-components";
+import RegularCard from "../../../shared/cards/regularcard/RegularCard";
+import Button from "../../../shared/Button/Button";
 
 const ProductContainer = styled.div`
   width: 90%;
@@ -42,7 +42,6 @@ const ProductWrapper = styled.div`
   overflow-y: hidden;
   padding: 8px 4px;
 
-
   @media (max-width: 1024px) {
     height: 330px;
     gap: 12px;
@@ -58,24 +57,23 @@ const ProductWrapper = styled.div`
     width: 100%;
     gap: 8px;
     padding: 4px 2px;
-    justify-content: center; 
+    justify-content: center;
   }
 
   @media (max-width: 390px) {
     height: 190px;
     gap: 6px;
-    justify-content: center; 
+    justify-content: center;
   }
 `;
 
 const SectionDetails = styled.div`
-  width: 33% ;
+  width: 33%;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   gap: 12px;
   flex-shrink: 0;
-
 
   @media (max-width: 490px) {
     display: none;
@@ -86,14 +84,12 @@ const SectionTitle = styled.h2`
   color: var(--color-base-secondary);
   font-size: var(--font-body-xl);
   font-weight: 700;
-
 `;
 
 const SectionParagraph = styled.p`
   color: var(--color-neutral-800);
   font-size: var(--font-body-large);
-  
-  
+
   @media (max-width: 768px) {
     display: -webkit-box;
     -webkit-line-clamp: 3;

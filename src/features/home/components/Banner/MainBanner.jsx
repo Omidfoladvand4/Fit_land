@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import Button from '../../../shared/Button/Button';
+import styled from "styled-components";
+import Button from "../../../shared/Button/Button";
 
 const BannerWrapper = styled.div`
   width: 100%;
@@ -26,7 +26,7 @@ const Overlay = styled.div`
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
-  @media (max-width : 490px) {
+  @media (max-width: 490px) {
     display: block;
   }
 `;
@@ -49,7 +49,6 @@ const BannerDetail = styled.div``;
 const BannerTitle = styled.div`
   font-size: var(--font-body-xxl);
   color: var(--color-base-background);
-
 `;
 
 const BannerParagraph = styled.div`

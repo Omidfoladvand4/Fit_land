@@ -25,20 +25,20 @@ const SpecsTable = styled.table`
   td:last-child {
   }
 `;
-function ProductSpecs({specs}) {
+function ProductSpecs({ specs }) {
   return (
-          <SpecsTable>
-            <tbody>
-              {specs &&
-                Object.entries(specs).map(([key, value]) => (
-                  <tr key={key}>
-                    <td>{key}</td>
-                    <td>{value}</td>
-                  </tr>
-                ))}
-            </tbody>
-          </SpecsTable>
-  )
+    <SpecsTable>
+      <tbody>
+        {specs &&
+          Object.entries(specs).map(([key, value]) => (
+            <tr key={key}>
+              <td>{key}</td>
+              <td>{value}</td>
+            </tr>
+          ))}
+      </tbody>
+    </SpecsTable>
+  );
 }
 
-export default ProductSpecs
+export default ProductSpecs;

@@ -1,4 +1,3 @@
-// src/features/productDetail/pages/ProductDetail.jsx
 import styled from 'styled-components';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';

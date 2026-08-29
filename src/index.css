@@ -18,7 +18,9 @@
 }
 :root{
     --color-base-primary : #FA541C;
+    --color-base-primary-light: #F97B5A;
     --color-base-secondary : #032340;
+    --color-base-secondary-light: #334F6E; 
     --color-base-background : #FFFFFF;
     --color-base-primary-back : #FEEEE8;
     --color-base-secondary-back : #FBF5FF;

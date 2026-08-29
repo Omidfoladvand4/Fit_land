@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const ThumbnailContainer = styled.div`
   width: 80px;
@@ -6,9 +6,9 @@ const ThumbnailContainer = styled.div`
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  border: 2px solid ${({ $active }) => 
-    $active ? 'var(--color-base-primary)' : 'var(--color-neutral-200)'
-  };
+  border: 2px solid
+    ${({ $active }) =>
+      $active ? "var(--color-base-primary)" : "var(--color-neutral-500)"};
   transition: all 0.2s ease;
   flex-shrink: 0;
 

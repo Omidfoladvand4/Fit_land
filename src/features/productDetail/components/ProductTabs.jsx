@@ -6,10 +6,9 @@ import ProductSpecs from "./ProductSpecs";
 const TabsContainer = styled.div`
   width: 90%;
   margin: 40px auto;
-  border: 1px solid var(--color-neutral-200);
   border-radius: 12px;
   overflow: hidden;
-      @media (max-width : 490px) {
+  @media (max-width: 490px) {
     width: 100%;
     padding: 0 12px;
   }
@@ -17,10 +16,9 @@ const TabsContainer = styled.div`
 
 const TabHeaders = styled.div`
   display: flex;
-  border-bottom: 1px solid var(--color-neutral-200);
-  background: var(--color-neutral-50);
   gap: 8px;
-
+  background-color: var(--color-neutral-800);
+  padding: 8px 4px;
   @media (max-width: 768px) {
     overflow-x: auto;
   }
@@ -29,22 +27,22 @@ const TabHeaders = styled.div`
 const TabHeader = styled.button`
   padding: 14px 24px;
   background: ${({ $active }) =>
-    $active ? "rgb(207,232,255)" : "transparent"};
+    $active ? "var(--color-base-primary-light)" : "transparent"};
   border: none;
   font-size: var(--font-body-md);
   font-weight: ${({ $active }) => ($active ? "700" : "400")};
-  color: var(--color-base-secondary);
+  color: var(--color-base-background);
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
   border-radius: 12px;
 
   &:hover {
-    background: rgb(207, 232, 255);
+    background: var(--color-base-primary);
   }
-  @media (max-width : 490px) {
-  font-size: var(--font-body-xl);
-  padding: 10px 12px;
+  @media (max-width: 490px) {
+    font-size: var(--font-body-xl);
+    padding: 10px 12px;
   }
 `;
 
@@ -57,17 +55,17 @@ const TabContent = styled.div`
 
 const TabPanel = styled.div`
   display: ${({ $active }) => ($active ? "block" : "none")};
-   animation: ${({ $active }) => ($active ? "animate" : "")} 0.5s ease;
-   transform-origin: left;
-   @keyframes animate {
-    0%{
+  animation: ${({ $active }) => ($active ? "animate" : "")} 0.5s ease;
+  transform-origin: left;
+  @keyframes animate {
+    0% {
       opacity: 0;
-      transform: translateX(100%) scale(.25);
+      transform: translateX(100%) scale(0.25);
     }
-    100%{
+    100% {
       opacity: 1;
     }
-   }
+  }
 `;
 
 function ProductTabs({ description, specs, reviews }) {
@@ -93,13 +91,13 @@ function ProductTabs({ description, specs, reviews }) {
       </TabHeaders>
       <TabContent>
         <TabPanel $active={activeTab === "description"}>
-         <ProductDescription description={description}/>
+          <ProductDescription description={description} />
         </TabPanel>
         <TabPanel $active={activeTab === "specs"}>
-          <ProductSpecs specs={specs}/>
+          <ProductSpecs specs={specs} />
         </TabPanel>
         <TabPanel $active={activeTab === "reviews"}>
-        <ProductReview reviews={reviews}/>
+          <ProductReview reviews={reviews} />
         </TabPanel>
       </TabContent>
     </TabsContainer>

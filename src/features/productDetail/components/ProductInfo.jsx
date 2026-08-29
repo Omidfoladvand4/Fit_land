@@ -1,6 +1,5 @@
-// src/features/productDetail/components/ProductInfo.jsx
-import styled from 'styled-components';
-import ProductActions from './ProductActions';
+import styled from "styled-components";
+import ProductActions from "./ProductActions";
 
 const InfoContainer = styled.div`
   display: flex;
@@ -11,7 +10,7 @@ const InfoHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`
+`;
 const Title = styled.h1`
   font-size: var(--font-body-xxl);
   font-weight: 700;
@@ -26,7 +25,7 @@ const Rating = styled.div`
   justify-content: space-between;
   padding: 6px 10px;
   gap: 8px;
-  background-color: rgba(250, 84, 28, 0.3);
+  background-color: var(--color-base-primary-light);
   font-size: var(--font-body-md);
   border-radius: 6px;
 
@@ -38,7 +37,6 @@ const Rating = styled.div`
   .count {
     display: block;
     font-weight: bolder;
-    
   }
 `;
 
@@ -47,7 +45,7 @@ const PriceContainer = styled.div`
   flex-direction: column;
   gap: 12px;
   padding: 12px 0;
-font-size: var(--font-body-large);
+  font-size: var(--font-body-large);
 `;
 
 const Price = styled.span`
@@ -71,7 +69,6 @@ const DiscountBadge = styled.span`
   border-radius: 6px;
 `;
 
-
 function ProductInfo({
   product,
   selectedColor,
@@ -82,18 +79,17 @@ function ProductInfo({
   setQuantity,
   onAddToCart,
   onAddToWishlist,
-  isInWishlist 
+  isInWishlist,
 }) {
-
   return (
     <InfoContainer>
       <InfoHeader>
         <Title>{product.title}</Title>
-      
-      <Rating>
-        <div className="stars">⭐</div>
-        <div className="count">{product.rating}</div>
-      </Rating>
+
+        <Rating>
+          <div className="stars">⭐</div>
+          <div className="count">{product.rating}</div>
+        </Rating>
       </InfoHeader>
 
       <PriceContainer>
@@ -106,10 +102,8 @@ function ProductInfo({
         )}
       </PriceContainer>
 
-
-
       <ProductActions
-        product={product} 
+        product={product}
         colors={product.colors}
         sizes={product.sizes}
         selectedColor={selectedColor}

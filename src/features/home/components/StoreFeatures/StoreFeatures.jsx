@@ -70,9 +70,9 @@ const Text = styled.div`
   color: var(--color-base-secondary);
 `;
 
-const StoreFeatures = ({bgColor}) => {
+const StoreFeatures = ({ bgColor }) => {
   return (
-    <FeaturesContainer $bgColor = {bgColor}>
+    <FeaturesContainer $bgColor={bgColor}>
       <FeaturesList>
         <FeatureItem>
           <Icon src={StoreFeaturesIcon1} />

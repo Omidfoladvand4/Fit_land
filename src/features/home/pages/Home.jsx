@@ -6,7 +6,7 @@ import StoreFeatures from "../components/StoreFeatures/StoreFeatures";
 import NikeImg from "../images/NikeImage.png";
 import PumaImg from "../images/PumaImage.png";
 import SectionImg from "../images/SectionImage.png";
-import Bicycleimage from '../images/BicycleImage.png'
+import Bicycleimage from "../images/BicycleImage.png";
 import ProductSlider from "../../shared/Slider/ProductSlider";
 import SlideImage_1 from "../images/sliderImage/SlideImage1.png";
 import SlideImage_2 from "../images/sliderImage/SlideImage2.png";
@@ -14,7 +14,7 @@ import SlideImage_3 from "../images/sliderImage/SlideImage3.png";
 import SlideImage_4 from "../images/sliderImage/SlideImage4.png";
 import SlideImage_5 from "../images/sliderImage/SlideImage5.png";
 import SlideImage_7 from "../images/sliderImage/SlideImage7.png";
-import HomeImage from '../images/HomeImage.png'
+import HomeImage from "../images/HomeImage.png";
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -30,16 +30,15 @@ const HomeImageBanner = styled.img`
   width: 100%;
   height: 600px;
   object-fit: cover;
-   @media (max-width: 490px) {
+  @media (max-width: 490px) {
     background-size: contain;
     height: 175px;
   }
-`
+`;
 function Home() {
   const latestProductsList = [
     { id: 1, name: "نایک", image: NikeImg },
     { id: 2, name: "پوما", image: PumaImg },
-    
   ];
   const discountProducts = [
     {
@@ -127,7 +126,7 @@ function Home() {
 کنید و در سریع ترین زمان درب منزل تحویل بگیرید
 "
         />
-        <MainBanner image={SectionImg}/>
+        <MainBanner image={SectionImg} />
         <ProductSlider
           title="تخفیفات ویژه"
           products={discountProducts}
@@ -139,22 +138,26 @@ function Home() {
           products={LastestShoes}
           background="var(--color-base-background)"
         />
-   
-        <MainBanner image={Bicycleimage} title="برای لذت بردن از مسیر" paragraph = "دوچرخه ، اسکیت و اسکوتر بگیر"/>
-           <ProductSlider
+
+        <MainBanner
+          image={Bicycleimage}
+          title="برای لذت بردن از مسیر"
+          paragraph="دوچرخه ، اسکیت و اسکوتر بگیر"
+        />
+        <ProductSlider
           title="تخفیفات ویژه"
           products={discountProducts}
           background="var(--color-neutral-600)"
         />
 
-             <ProductSection
+        <ProductSection
           products={latestProductsList}
           sectionTitle="پرفروش ترین محصولات"
           sectionParagraph="بهترین و جدیدترین محصولات ورزجدید ترین محصولات با ارسال رایگان تهیه 
 کنید و در سریع ترین زمان درب منزل تحویل بگیرید
 "
         />
-        <HomeImageBanner src= {HomeImage}/>
+        <HomeImageBanner src={HomeImage} />
         <StoreFeatures />
       </MainSection>
     </HomeWrapper>
