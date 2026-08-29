@@ -1,70 +1,150 @@
+// src/features/userProfile/hooks/useUser.js
 import { useState, useEffect } from 'react';
-import { products } from '../../products/data/products'
-
-const MOCK_USER = {
-  id: 1,
-  firstName: 'مها',
-  lastName: 'شیرین‌زبان',
-  nationalCode: '۱۲۳۴۵۶۶۶',
-  email: 'mahsashirinzabanV01@gmail.com',
-  phone: '۰۹۱۲۳۴۵۶۷۸۹',
-  orders: [
-    {
-      id: 101,
-      date: '۱۴۰۳/۰۱/۱۰',
-      total: 1250000,
-      status: 'delivered',
-      items: [
-        { name: 'کفش نایک مدل S-2000', quantity: 1, price: 850000 },
-        { name: 'لباس ورزشی آدیداس', quantity: 2, price: 200000 },
-      ],
-    },
-    {
-      id: 102,
-      date: '۱۴۰۳/۰۱/۲۵',
-      total: 3200000,
-      status: 'processing',
-      items: [
-        { name: 'تخته اسکیت', quantity: 1, price: 3200000 },
-      ],
-    },
-  ],
-  wishlist: products ,
-  addresses: [
-    { id: 1, title: 'آدرس منزل', text: 'تهران، خیابان ولیعصر، پلاک ۱۲۳، واحد ۵' },
-    { id: 2, title: 'آدرس محل کار', text: 'تهران، خیابان انقلاب، پلاک ۴۵' },
-  ],
-  reviews: [
-    { id: 1, product: 'کفش نایک S-2000', rating: 5, date: '۱۴۰۳/۰۱/۱۵', text: 'کیفیت عالی، خیلی راحت است' },
-    { id: 2, product: 'ساک ورزشی پوما', rating: 4, date: '۱۴۰۳/۰۱/۲۰', text: 'جنس خوبی داره، فقط کمی گرونه' },
-  ],
-};
+import { supabase } from '../../../lib/supabase';
+import { useAuthContext } from '../../../context/AuthContext';
 
 export const useUser = () => {
+  const { user: authUser, isAuthenticated, saveUser } = useAuthContext();
   const [user, setUser] = useState(null);
+  const [addresses, setAddresses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchUser = async () => {
+      if (!isAuthenticated || !authUser) {
+        setLoading(false);
+        setError('کاربر وارد نشده است');
+        return;
+      }
+
       try {
         setLoading(true);
-        setTimeout(() => {
-          setUser(MOCK_USER);
-          setLoading(false);
-        }, 500);
+
+        const { data, error: supabaseError } = await supabase
+          .from('Users')
+          .select('*')
+          .eq('Phone', authUser.phone)
+          .single();
+
+        if (supabaseError) throw new Error(supabaseError.message);
+
+        if (data) {
+          setUser({
+            id: data.id,
+            firstName: data.Full_Name?.split(' ')[0] || '',
+            lastName: data.Full_Name?.split(' ')[1] || '',
+            email: data.Email || '',
+            phone: data.Phone,
+            nationalCode: data.National_Code || '',
+            gender: data.Gender || '',
+          });
+
+          const storedAddresses = data.Addresses || data.addresses || [];
+          setAddresses(storedAddresses);
+        }
+
+        setError(null);
       } catch (err) {
-        setError('خطا در دریافت اطلاعات کاربر');
+        setError(err.message || 'خطا در دریافت اطلاعات کاربر');
+      } finally {
         setLoading(false);
       }
     };
 
     fetchUser();
-  }, []);
+  }, [isAuthenticated, authUser]);
 
   const updateUser = async (updatedData) => {
-    setUser({ ...user, ...updatedData });
+    if (!authUser) return;
+
+    try {
+      const fullName = `${updatedData.firstName || ''} ${updatedData.lastName || ''}`.trim();
+      
+      const { error } = await supabase
+        .from('Users')
+        .update({
+          Full_Name: fullName,
+          Email: updatedData.email || authUser.email,
+          National_Code: updatedData.nationalCode || '',
+          Gender: updatedData.gender || '',
+        })
+        .eq('Phone', authUser.phone);
+
+      if (error) throw new Error(error.message);
+
+      // آپدیت LocalStorage (AuthContext)
+      saveUser({
+        id: authUser.id,
+        phone: authUser.phone,
+        fullName: fullName,
+      });
+
+      setUser((prev) => ({
+        ...prev,
+        ...updatedData,
+        firstName: updatedData.firstName,
+        lastName: updatedData.lastName,
+        email: updatedData.email,
+        nationalCode: updatedData.nationalCode,
+        gender: updatedData.gender,
+      }));
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
-  return { user, loading, error, updateUser };
+  const addAddress = async (address) => {
+    if (!authUser) return;
+
+    try {
+      const { data: userData } = await supabase
+        .from('Users')
+        .select('Addresses')
+        .eq('Phone', authUser.phone)
+        .single();
+
+      const currentAddresses = userData?.Addresses || [];
+      const newAddresses = [...currentAddresses, address];
+
+      const { error } = await supabase
+        .from('Users')
+        .update({ Addresses: newAddresses })
+        .eq('Phone', authUser.phone);
+
+      if (error) throw new Error(error.message);
+
+      setAddresses((prev) => [...prev, address]);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const removeAddress = async (addressId) => {
+    if (!authUser) return;
+
+    try {
+      const { data: userData } = await supabase
+        .from('Users')
+        .select('Addresses')
+        .eq('Phone', authUser.phone)
+        .single();
+
+      const currentAddresses = userData?.Addresses || [];
+      const newAddresses = currentAddresses.filter((item) => item.id !== addressId);
+
+      const { error } = await supabase
+        .from('Users')
+        .update({ Addresses: newAddresses })
+        .eq('Phone', authUser.phone);
+
+      if (error) throw new Error(error.message);
+
+      setAddresses((prev) => prev.filter((item) => item.id !== addressId));
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  return { user, addresses, loading, error, updateUser, addAddress, removeAddress };
 };

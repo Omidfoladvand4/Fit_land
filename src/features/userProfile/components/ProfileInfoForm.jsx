@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useUser } from '../hooks/useUser';
+import { toast } from 'sonner';
 
 const Form = styled.form`
   display: flex;
@@ -91,23 +93,47 @@ const Button = styled.button`
   }
 `;
 
-function ProfileInfoForm({ user }) {
+function ProfileInfoForm() {
+  const { user, updateUser, loading } = useUser();
+  
   const [formData, setFormData] = useState({
-    firstName: user?.firstName || '',
-    lastName: user?.lastName || '',
-    nationalCode: user?.nationalCode || '',
-    email: user?.email || '',
-    number: user?.number || '',
-    gender: user?.gender || '',
+    firstName: '',
+    lastName: '',
+    nationalCode: '',
+    email: '',
+    number: '',
+    gender: '',
   });
+
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        firstName: user.firstName || '',
+        lastName: user.lastName || '',
+        nationalCode: user.nationalCode || '',
+        email: user.email || '',
+        number: user.phone || '',
+        gender: user.gender || '',
+      });
+    }
+  }, [user]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('اطلاعات با موفقیت به‌روزرسانی شد!');
+    
+    await updateUser({
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      nationalCode: formData.nationalCode,
+      gender: formData.gender,
+    });
+    
+    toast.success('اطلاعات با موفقیت به‌روزرسانی شد!');
   };
 
   return (
@@ -164,7 +190,9 @@ function ProfileInfoForm({ user }) {
       </FormGroup>
 
       <ButtonWrapper>
-        <Button type="submit">ثبت</Button>
+        <Button type="submit" disabled={loading}>
+          {loading ? 'در حال ذخیره...' : 'ثبت'}
+        </Button>
       </ButtonWrapper>
     </Form>
   );

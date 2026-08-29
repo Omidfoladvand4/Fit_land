@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../../../context/AuthContext';
+
 const SidebarContainer = styled.aside`
   width: 350px;
   flex-shrink: 0;
@@ -47,7 +49,6 @@ const UserName = styled.h3`
 const UserEmail = styled.p`
   font-size: var(--font-body-xl);
   color: black;
-  
 `;
 
 const MenuList = styled.ul`
@@ -107,16 +108,17 @@ const menuItems = [
 ];
 
 function ProfileSidebar({ user, activeTab, onTabChange }) {
-  const navigete = useNavigate()
+  const navigate = useNavigate();
+  const { logout } = useAuthContext();
+
   const getInitials = () => {
     if (!user) return '?';
     return `${user.firstName?.[0] || ''}${user.lastName?.[0] || ''}`;
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('user');
-    navigete('/Sign-in')
+    logout();
+    navigate('/Sign-in');
   };
 
   return (

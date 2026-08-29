@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import EmptyMessage from './EmptyMessage';
+import { useUser } from '../hooks/useUser';
+
 const AddressesContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -64,13 +66,13 @@ const ActionButton = styled.button`
   &:hover {
     opacity: 0.8;
   }
-
 `;
 
+function ProfileAddresses() {
+  const { addresses, removeAddress } = useUser();
 
-function ProfileAddresses({ addresses }) {
   if (addresses.length === 0) {
-    return <EmptyMessage   text = 'آدرسی ثبت نشده است' />
+    return <EmptyMessage text="آدرسی ثبت نشده است" />;
   }
 
   return (
@@ -83,7 +85,7 @@ function ProfileAddresses({ addresses }) {
           </AddressInfo>
           <AddressActions>
             <ActionButton variant="edit">ویرایش</ActionButton>
-            <ActionButton>حذف</ActionButton>
+            <ActionButton onClick={() => removeAddress(address.id)}>حذف</ActionButton>
           </AddressActions>
         </AddressCard>
       ))}
